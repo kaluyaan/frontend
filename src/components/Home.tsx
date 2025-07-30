@@ -1,13 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import FunSidebarDesigns from "./FunZone";
 
-interface ToolNames {
-  [key: string]: string;
-}
 
 const Home: React.FC = () => {
-  const [selectedTool, setSelectedTool] = useState<string | null>(null);
   const seoKeywords = [
     "Online Tools",
     "Free Utilities",
@@ -21,21 +17,10 @@ const Home: React.FC = () => {
     "Speed Test",
     "Plagiarism Checker",
   ];
-  const toolNames: ToolNames = {
-    merge: "Merge PDF",
-    split: "Split PDF",
-    compress: "Compress PDF",
-    "convert-word": "PDF to Word",
-    "convert-excel": "PDF to Excel",
-    "convert-ppt": "PDF to PowerPoint",
-    compress1: "Compress PDF",
-    "convert-word1": "PDF to Word",
-    "convert-excel1": "PDF to Excel",
-    "convert-ppt1": "PDF to PowerPoint",
-  };
 
   const selectTool = (tool: string): void => {
-    setSelectedTool(tool);
+    // setSelectedTool(tool);
+    console.log(`Selected tool: ${tool}`);
   };
 
   const toggleLanguage = (): void => {
@@ -261,7 +246,7 @@ const Home: React.FC = () => {
     },
     keywordList: {
       display: "flex",
-      flexWrap: "wrap" as "wrap",
+      flexWrap: "wrap",
       gap: "0.5rem",
       marginTop: "1.5rem",
     },
@@ -565,24 +550,24 @@ const Home: React.FC = () => {
           >
             <h2 style={styles.sectionTitle}>About Our Utility Platform</h2>
             <p style={styles.aboutText}>
-              Our comprehensive online utility hub offers 20+ essential tools
+              {`Our comprehensive online utility hub offers 20+ essential tools
               across 7 categories to streamline your digital workflow. Whether
               you're a content creator, developer, student, or professional,
-              find the perfect tool for every task.
+              find the perfect tool for every task.`}
             </p>
             <p style={styles.aboutText}>
-              From AI-powered writing assistants and plagiarism detectors to
+              {`From AI-powered writing assistants and plagiarism detectors to
               smart calculators, productivity planners, health assessments, and
               entertaining games - all tools are completely free, secure, and
-              accessible 24/7.
+              accessible 24/7.`}
             </p>
             <p style={styles.aboutText}>
-              No downloads required. No registration needed. Just instant access
-              to powerful utilities that help you work smarter, not harder.
+              {`No downloads required. No registration needed. Just instant access
+              to powerful utilities that help you work smarter, not harder.`}
             </p>
 
             {/* SEO Keywords */}
-            <div style={styles.keywordList}>
+            <div style={styles.keywordList as React.CSSProperties}>
               {seoKeywords.map((keyword, index) => (
                 <span key={index} style={styles.keyword}>
                   {keyword}

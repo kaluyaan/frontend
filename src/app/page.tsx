@@ -30,7 +30,6 @@ const tools = [
   },
 ];
 
-const extensions = ["ILovePDF Desktop", "ILovePDF Mobile", "ILovePDF API"];
 
 export default function Page() {
   return (
