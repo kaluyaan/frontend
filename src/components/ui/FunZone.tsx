@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "@emotion/styled";
 
 const FunSidebarDesigns = () => {
   const [selectedDesign, setSelectedDesign] = useState(1);
@@ -30,7 +31,7 @@ const FunSidebarDesigns = () => {
       transform: "translateY(-2px)",
     },
     sidebar: {
-      width: "380px",
+      width: "100%",
       display: "flex",
       flexDirection: "column",
       gap: "1.5rem",
@@ -547,8 +548,20 @@ const FunSidebarDesigns = () => {
     { id: 5, name: "Dashboard", component: DashboardDesign },
   ];
 
+  const Container = styled.div`
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* smaller padding for mobile */
+  }
+`;
+
   return (
-    <div style={styles.container}>
+    <Container>
       <h1
         style={{
           color: "#fff",
@@ -583,7 +596,7 @@ const FunSidebarDesigns = () => {
           return DesignComponent ? <DesignComponent /> : null;
         })()}
       </div>
-    </div>
+    </Container>
   );
 };
 

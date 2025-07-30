@@ -1,34 +1,12 @@
 "use client";
 import React from "react";
-import FunSidebarDesigns from "./FunZone";
-
+import Header from "./shared/Header";
+import HomeFunZone from "./ui/HomeFunZone";
 
 const Home: React.FC = () => {
-  const seoKeywords = [
-    "Online Tools",
-    "Free Utilities",
-    "AI Writing",
-    "Calculator Tools",
-    "Productivity Apps",
-    "Web Utilities",
-    "Health Tests",
-    "Text Tools",
-    "Time Calculator",
-    "Speed Test",
-    "Plagiarism Checker",
-  ];
-
   const selectTool = (tool: string): void => {
     // setSelectedTool(tool);
     console.log(`Selected tool: ${tool}`);
-  };
-
-  const toggleLanguage = (): void => {
-    alert("Language menu would open here");
-  };
-
-  const toggleMenu = (): void => {
-    alert("Main menu would open here");
   };
 
   // Inline styles for components
@@ -273,83 +251,7 @@ const Home: React.FC = () => {
   return (
     <div style={styles.container}>
       {/* Header */}
-      <header style={{ ...styles.glassmorphism, ...styles.header }}>
-        <nav style={styles.nav}>
-          <div style={styles.logo}>KaluYaan</div>
-
-          <ul style={styles.navLinks}>
-            <li>
-              <a href="#merge" style={styles.navLink}>
-                All
-              </a>
-            </li>
-            <li>
-              <a href="#merge" style={styles.navLink}>
-                Writing
-              </a>
-            </li>
-            <li>
-              <a href="#split" style={styles.navLink}>
-                Calculator
-              </a>
-            </li>
-            <li>
-              <a href="#compress" style={styles.navLink}>
-                Productivity
-              </a>
-            </li>
-            <li>
-              <a href="#convert" style={styles.navLink}>
-                Web Tools
-              </a>
-            </li>
-            <li>
-              <a href="#tools" style={styles.navLink}>
-                Spiritual
-              </a>
-            </li>
-            <li>
-              <a href="#tools" style={styles.navLink}>
-                Health
-              </a>
-            </li>
-            <li>
-              <a href="#tools" style={styles.navLink}>
-                Games
-              </a>
-            </li>
-          </ul>
-
-          <div style={styles.navIcons}>
-            <button
-              style={styles.iconBtn}
-              onClick={toggleLanguage}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "rgba(102, 126, 234, 0.1)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.backgroundColor = "transparent")
-              }
-            >
-              🌐
-            </button>
-            <button
-              style={styles.iconBtn}
-              onClick={toggleMenu}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "rgba(102, 126, 234, 0.1)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.backgroundColor = "transparent")
-              }
-            >
-              ⋮
-            </button>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main style={styles.mainContent}>
@@ -538,51 +440,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Content Layout */}
-        <div style={styles.contentLayout}>
-          {/* Main Area */}
-          <div
-            style={
-              {
-                ...styles.glassmorphism,
-                ...styles.aboutSection,
-              } as React.CSSProperties
-            }
-          >
-            <h2 style={styles.sectionTitle}>About Our Utility Platform</h2>
-            <p style={styles.aboutText}>
-              {`Our comprehensive online utility hub offers 20+ essential tools
-              across 7 categories to streamline your digital workflow. Whether
-              you're a content creator, developer, student, or professional,
-              find the perfect tool for every task.`}
-            </p>
-            <p style={styles.aboutText}>
-              {`From AI-powered writing assistants and plagiarism detectors to
-              smart calculators, productivity planners, health assessments, and
-              entertaining games - all tools are completely free, secure, and
-              accessible 24/7.`}
-            </p>
-            <p style={styles.aboutText}>
-              {`No downloads required. No registration needed. Just instant access
-              to powerful utilities that help you work smarter, not harder.`}
-            </p>
-
-            {/* SEO Keywords */}
-            <div style={styles.keywordList as React.CSSProperties}>
-              {seoKeywords.map((keyword, index) => (
-                <span key={index} style={styles.keyword}>
-                  {keyword}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div style={styles.sidebar}>
-            <FunSidebarDesigns />
-
-            
-          </div>
-        </div>
+        <HomeFunZone />
         {/* Footer */}
         <footer style={styles.mainContent}>
           <div style={{ ...styles.glassmorphism, ...styles.footer }}>
