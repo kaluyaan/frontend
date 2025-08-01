@@ -1,7 +1,7 @@
 import React from "react";
 import FunSidebarDesigns from "./FunZone";
 import styled from "@emotion/styled";
-import styles from "./HomeFunzxone.module.css"; 
+import styles from "./HomeFunzone.module.css"; 
 
 function HomeFunZone() {
   const seoKeywords = [
