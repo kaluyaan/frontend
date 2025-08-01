@@ -1,0 +1,54 @@
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+
+.footer {
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footerLink {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footerLinkBold {
+    font-weight: bold;
+    color: #666;
+}
+
+.footerBottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    color: #666;
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 1.5rem;
+}

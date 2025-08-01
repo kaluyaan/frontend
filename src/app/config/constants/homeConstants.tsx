@@ -147,3 +147,43 @@ export const toolsList = [
     category: "Games",
   },
 ];
+
+export const HeaderLinks = [
+  {
+    title: "All",
+    link: "#merge",
+  },
+  {
+    title: "Writing",
+    link: "#merge",
+  },
+  {
+    title: "Calculator",
+    link: "#split",
+  },
+  {
+    title: "Productivity",
+    link: "#compress",
+  },
+  {
+    title: "Web Tools",
+    link: "#convert",
+  },
+  {
+    title: "Spiritual",
+    link: "#tools",
+  },
+  {
+    title: "Health",
+    link: "#tools",
+  },
+  {
+    title: "Games",
+    link: "#tools",
+  },
+];
+
+export const HeroTitle = "All-in-One Utility Hub";
+
+export const HeroText =
+  "Everything you need for work, productivity, and daily tasks in one place. From AI writing tools and calculators to health tests and spiritual guidance - access 20+ essential utilities with just a few clicks.";

@@ -2,21 +2,10 @@ import React from "react";
 import FunSidebarDesigns from "./FunZone";
 import styled from "@emotion/styled";
 import styles from "./HomeFunzone.module.css"; 
+import { seoKeywords } from "@/app/config/constants/funzoneConstants";
 
 function HomeFunZone() {
-  const seoKeywords = [
-    "Online Tools",
-    "Free Utilities",
-    "AI Writing",
-    "Calculator Tools",
-    "Productivity Apps",
-    "Web Utilities",
-    "Health Tests",
-    "Text Tools",
-    "Time Calculator",
-    "Speed Test",
-    "Plagiarism Checker",
-  ];
+
   const ContentLayout = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;

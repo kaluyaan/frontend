@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css"; // Assuming you have a CSS module for styles
-
+import { HeaderLinks } from "@/app/config/constants/homeConstants";
 
 const toggleLanguage = (): void => {
   alert("Language menu would open here");
@@ -23,197 +23,35 @@ function Header() {
 
   return (
     <>
-      <style>
-        {`
-          @media (max-width: 768px) {
-            .nav-links-desktop {
-              display: none !important;
-            }
-            .menu-toggle {
-              display: flex !important;
-            }
-            .nav-icons {
-              gap: 0.5rem;
-            }
-            .hero-title {
-              font-size: 2rem !important;
-            }
-            .hero-text {
-              font-size: 1rem !important;
-            }
-            .main-content {
-              padding: 1rem 15px !important;
-            }
-            .hero {
-              padding: 2rem 1.5rem !important;
-            }
-          }
-          
-          @media (max-width: 480px) {
-            .logo {
-              font-size: 1.3rem !important;
-            }
-            .nav {
-              padding: 0 15px !important;
-            }
-            .hero-title {
-              font-size: 1.8rem !important;
-            }
-          }
-          
-          .nav-link:hover {
-            color: #667eea;
-            transform: translateY(-1px);
-          }
-          
-          .nav-link-mobile:hover {
-            background-color: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-          }
-          
-          .nav-link-mobile:last-child {
-            border-bottom: none;
-          }
-          
-          .icon-btn:hover {
-            background-color: rgba(102, 126, 234, 0.1);
-            transform: scale(1.05);
-          }
-          
-          .profile-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-          }
-          
-          .menu-toggle:hover {
-            background-color: rgba(102, 126, 234, 0.1);
-          }
-        `}
-      </style>
-      
       <header className={`${styles.glassmorphism} ${styles.header}`}>
         <nav className={styles.nav}>
           <div className={styles.logo}>KaluYaan</div>
 
           {/* Desktop Navigation */}
           <ul className={styles.navLinksDesktop}>
-            <li>
-              <a href="#merge" className={styles.navLink}>
-                All
-              </a>
-            </li>
-            <li>
-              <a href="#merge" className={styles.navLink}>
-                Writing
-              </a>
-            </li>
-            <li>
-              <a href="#split" className={styles.navLink}>
-                Calculator
-              </a>
-            </li>
-            <li>
-              <a href="#compress" className={styles.navLink}>
-                Productivity
-              </a>
-            </li>
-            <li>
-              <a href="#convert" className={styles.navLink}>
-                Web Tools
-              </a>
-            </li>
-            <li>
-              <a href="#tools" className={styles.navLink}>
-                Spiritual
-              </a>
-            </li>
-            <li>
-              <a href="#tools" className={styles.navLink}>
-                Health
-              </a>
-            </li>
-            <li>
-              <a href="#tools" className={styles.navLink}>
-                Games
-              </a>
-            </li>
+            {HeaderLinks.map((link) => (
+              <li key={link.title}>
+                <a href={link.link} className={styles.navLink}>
+                  {link.title}
+                </a>
+              </li>
+            ))}
           </ul>
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <ul className={styles.navLinksMobile}>
-              <li>
-                <a 
-                  href="#merge" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  All
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#merge" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Writing
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#split" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Calculator
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#compress" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Productivity
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#convert" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Web Tools
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#tools" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Spiritual
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#tools" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Health
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#tools" 
-                  className={`nav-link-mobile ${styles.navLinkMobile}`}
-                  onClick={closeMobileMenu}
-                >
-                  Games
-                </a>
-              </li>
+              {HeaderLinks.map((link) => (
+                <li key={link.title}>
+                  <a
+                    href={link.link}
+                    className={`nav-link-mobile ${styles.navLinkMobile}`}
+                    onClick={closeMobileMenu}
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           )}
 
@@ -242,7 +80,7 @@ function Header() {
               onClick={toggleMobileMenu}
               title="Menu"
             >
-              {isMobileMenuOpen ? '✕' : '☰'}
+              {isMobileMenuOpen ? "✕" : "☰"}
             </button>
           </div>
         </nav>
