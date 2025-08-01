@@ -2,7 +2,8 @@
 import React from "react";
 import Header from "./shared/Header";
 import HomeFunZone from "./ui/HomeFunZone";
-import styles from "./home.module.css"; 
+import styles from "./home.module.css";
+import { toolsList } from "@/app/config/constants";
 
 const Home: React.FC = () => {
   const selectTool = (tool: string): void => {
@@ -32,155 +33,7 @@ const Home: React.FC = () => {
 
         {/* Tools Grid */}
         <section className={styles.toolsGrid}>
-          {[
-            {
-              key: "ai-writer",
-              icon: "🤖",
-              title: "AI to Human Writer",
-              desc: "Transform AI-generated text into natural, human-like content",
-              category: "Writing",
-            },
-            {
-              key: "duplicate-sentence",
-              icon: "📝",
-              title: "Duplicate Sentence Generator",
-              desc: "Create multiple variations of your sentences instantly",
-              category: "Writing",
-            },
-            {
-              key: "sentence-compare",
-              icon: "⚖️",
-              title: "Sentence Compare",
-              desc: "Compare and analyze differences between two sentences",
-              category: "Writing",
-            },
-            {
-              key: "plagiarism-detector",
-              icon: "🔍",
-              title: "Plagiarism & AI Detector",
-              desc: "Check content for plagiarism and AI-generated text",
-              category: "Writing",
-            },
-            {
-              key: "age-calculator",
-              icon: "📅",
-              title: "Age Calculator",
-              desc: "Calculate age, days, months, and years between dates",
-              category: "Calculator",
-            },
-            {
-              key: "love-calculator",
-              icon: "💕",
-              title: "Love Calculator",
-              desc: "Calculate compatibility between two names or partners",
-              category: "Calculator",
-            },
-            {
-              key: "relationship-calculator",
-              icon: "💖",
-              title: "Relationship Calculator",
-              desc: "Analyze and calculate relationship compatibility scores",
-              category: "Calculator",
-            },
-            {
-              key: "sunrise-sunset",
-              icon: "🌅",
-              title: "Sunrise & Sunset",
-              desc: "Get accurate sunrise and sunset times for any location",
-              category: "Calculator",
-            },
-            {
-              key: "todo",
-              icon: "✅",
-              title: "TO-DO List",
-              desc: "Organize and manage your daily tasks efficiently",
-              category: "Productivity",
-            },
-            {
-              key: "planner",
-              icon: "📋",
-              title: "Smart Planner",
-              desc: "Timer, calendar, scheduler, and mailer in one tool",
-              category: "Productivity",
-            },
-            {
-              key: "clock-time",
-              icon: "🕐",
-              title: "Clock & Time",
-              desc: "World clock with multiple time zones and formats",
-              category: "Productivity",
-            },
-            {
-              key: "countdown",
-              icon: "⏰",
-              title: "Countdown Timer",
-              desc: "Create countdown timers for events and deadlines",
-              category: "Productivity",
-            },
-            {
-              key: "internet-speed",
-              icon: "🌐",
-              title: "Internet Speed Test",
-              desc: "Test your internet connection speed and performance",
-              category: "Web Tools",
-            },
-            {
-              key: "short-link",
-              icon: "🔗",
-              title: "Short Link Generator",
-              desc: "Create short, shareable links from long URLs",
-              category: "Web Tools",
-            },
-            {
-              key: "jwt-token",
-              icon: "🔐",
-              title: "JWT Token Tool",
-              desc: "Create and verify JSON Web Tokens securely",
-              category: "Web Tools",
-            },
-            {
-              key: "bhagavad-gita",
-              icon: "🕉️",
-              title: "Bhagavad Gita",
-              desc: "Read and explore the sacred teachings of Bhagavad Gita",
-              category: "Spiritual",
-            },
-            {
-              key: "health-detector",
-              icon: "🏥",
-              title: "Health Detector",
-              desc: "Basic health assessment and wellness checker",
-              category: "Health",
-            },
-            {
-              key: "eye-test",
-              icon: "👁️",
-              title: "Eye Testing",
-              desc: "Test your vision and eye health online",
-              category: "Health",
-            },
-            {
-              key: "iq-test",
-              icon: "🧠",
-              title: "IQ Testing",
-              desc: "Measure your intelligence quotient with standard tests",
-              category: "Health",
-            },
-            {
-              key: "sudoku",
-              icon: "🔢",
-              title: "Sudoku Game",
-              desc: "Play classic Sudoku puzzles with different difficulty levels",
-              category: "Games",
-            },
-            {
-              key: "roller",
-              icon: "🎲",
-              title: "Random Roller",
-              desc: "Select random users or items from your list",
-              category: "Games",
-            },
-          ].map((tool) => (
+          {toolsList.map((tool) => (
             <div
               key={tool.key}
               className={`${styles.glassmorphism} ${styles.toolCard}`}
@@ -210,15 +63,16 @@ const Home: React.FC = () => {
           <div className={`${styles.glassmorphism} ${styles.footer}`}>
             <div className={styles.footerGrid}>
               <div>
-                <h4 className={styles.sectionTitle}>
-                  KaluYaan Utility Hub
-                </h4>
+                <h4 className={styles.sectionTitle}>KaluYaan Utility Hub</h4>
                 <p className={styles.footerText}>
                   Your all-in-one platform for productivity, writing, health,
                   and more.
                 </p>
                 <div style={{ marginTop: "1rem" }}>
-                  <a href="#" className={`${styles.footerLink} ${styles.footerLinkBold}`}>
+                  <a
+                    href="#"
+                    className={`${styles.footerLink} ${styles.footerLinkBold}`}
+                  >
                     Privacy Policy
                   </a>
                   <a href="#" className={styles.footerLink}>
@@ -244,9 +98,7 @@ const Home: React.FC = () => {
                 </a>
               </div>
               <div>
-                <h4 className={styles.sectionTitle}>
-                  Utility Tools
-                </h4>
+                <h4 className={styles.sectionTitle}>Utility Tools</h4>
                 <a href="#ai-writer" className={styles.footerLink}>
                   AI to Human Writer
                 </a>
