@@ -148,6 +148,12 @@
     margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+    .contentLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
 .mainArea {
     border-radius: 15px;
     padding: 3rem;
@@ -162,7 +168,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0rem;
 }
 
 .sidebarCard {

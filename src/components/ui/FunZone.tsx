@@ -1,225 +1,68 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import styles from "./FunZone.module.css"; // Assuming you have a CSS module for styles
 
 const FunSidebarDesigns = () => {
   const [selectedDesign, setSelectedDesign] = useState(1);
-
-  const styles = {
-    container: {
-      minHeight: "100vh",
-      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      padding: "2rem",
-      fontFamily: "Arial, sans-serif",
-    },
-    designSelector: {
-      display: "flex",
-      gap: "1rem",
-      marginBottom: "2rem",
-      flexWrap: "wrap",
-    },
-    designBtn: {
-      padding: "0.5rem 1rem",
-      background: "rgba(255, 255, 255, 0.2)",
-      border: "1px solid rgba(255, 255, 255, 0.3)",
-      borderRadius: "8px",
-      color: "#fff",
-      cursor: "pointer",
-      transition: "all 0.3s ease",
-    },
-    activeBtn: {
-      background: "rgba(255, 255, 255, 0.4)",
-      transform: "translateY(-2px)",
-    },
-    sidebar: {
-      width: "100%",
-      display: "flex",
-      flexDirection: "column",
-      gap: "1.5rem",
-      margin: "0 auto",
-    },
-    glassmorphism: {
-      background: "rgba(255, 255, 255, 0.15)",
-      backdropFilter: "blur(10px)",
-      borderRadius: "20px",
-      border: "1px solid rgba(255, 255, 255, 0.2)",
-      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-    },
-    sidebarCard: {
-      borderRadius: "15px",
-      padding: "1.5rem",
-      boxShadow: "0 5px 20px rgba(0, 0, 0, 0.1)",
-    },
-    premiumCard: {
-      background: "linear-gradient(135deg, #667eea, #764ba2)",
-      color: "white",
-    },
-    gamingCard: {
-      background: "linear-gradient(135deg, #667eea, #764ba2)",
-      color: "#fff",
-    },
-    neonCard: {
-      background: "linear-gradient(135deg, #ff0080, #7928ca)",
-      color: "#fff",
-      boxShadow: "0 0 30px rgba(255, 0, 128, 0.3)",
-    },
-    techCard: {
-      background: "linear-gradient(135deg, #00d4aa, #00b4db)",
-      color: "#fff",
-    },
-    title: {
-      fontSize: "1.4rem",
-      fontWeight: "bold",
-      marginBottom: "1rem",
-    },
-    desc: {
-      marginBottom: "1.5rem",
-      opacity: 0.9,
-      lineHeight: "1.5",
-    },
-    btn: {
-      background: "#fff",
-      color: "#333",
-      padding: "0.8rem 1.5rem",
-      borderRadius: "10px",
-      textDecoration: "none",
-      fontWeight: "bold",
-      display: "inline-block",
-      transition: "all 0.3s ease",
-      cursor: "pointer",
-      border: "none",
-    },
-    gameBtn: {
-      background: "rgba(255, 255, 255, 0.2)",
-      color: "#fff",
-      border: "2px solid rgba(255, 255, 255, 0.3)",
-      marginRight: "0.5rem",
-      marginBottom: "0.5rem",
-      padding: "0.5rem 1rem",
-      fontSize: "0.9rem",
-    },
-    funItem: {
-      display: "flex",
-      alignItems: "center",
-      padding: "1rem",
-      background: "rgba(255, 255, 255, 0.1)",
-      borderRadius: "10px",
-      marginBottom: "0.8rem",
-      transition: "all 0.3s ease",
-      cursor: "pointer",
-    },
-    funIcon: {
-      fontSize: "1.5rem",
-      marginRight: "1rem",
-    },
-    funText: {
-      flex: 1,
-    },
-    funTitle: {
-      fontWeight: "bold",
-      marginBottom: "0.2rem",
-    },
-    funDesc: {
-      fontSize: "0.8rem",
-      opacity: 0.8,
-    },
-    statItem: {
-      textAlign: "center",
-      padding: "1rem",
-      background: "rgba(255, 255, 255, 0.1)",
-      borderRadius: "10px",
-      marginBottom: "1rem",
-    },
-    statNumber: {
-      fontSize: "2rem",
-      fontWeight: "bold",
-      display: "block",
-      marginBottom: "0.5rem",
-    },
-    statLabel: {
-      fontSize: "0.9rem",
-      opacity: 0.8,
-    },
-    pulse: {
-      animation: "pulse 2s infinite",
-    },
-    bounce: {
-      animation: "bounce 1s infinite",
-    },
-    premiumBtn: {
-      background: "rgba(255, 255, 255, 0.2)",
-      color: "white",
-      border: "2px solid rgba(255, 255, 255, 0.3)",
-      padding: "0.8rem 1.5rem",
-      borderRadius: "8px",
-      textDecoration: "none",
-      display: "inline-block",
-      marginTop: "1rem",
-      transition: "all 0.3s ease",
-    },
-  };
 
   // Design 1: Gaming Zone
   const GamingDesign = () => (
     <>
       <div
-        style={{
-          ...styles.glassmorphism,
-          ...styles.sidebarCard,
-          ...styles.gamingCard,
-        }}
+        className={`${styles.glassmorphism} ${styles.sidebarCard} ${styles.gamingCard}`}
       >
-        <h3 style={styles.title}>🎮 Fun Zone</h3>
-        <p style={styles.desc}>Take a break and have some fun!</p>
+        <h3 className={styles.title}>🎮 Fun Zone</h3>
+        <p className={styles.desc}>Take a break and have some fun!</p>
 
         <div
-          style={styles.funItem}
+          className={styles.funItem}
           onMouseEnter={(e) =>
             (e.currentTarget.style.transform = "scale(1.05)")
           }
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          <span style={styles.funIcon}>🎲</span>
-          <div style={styles.funText}>
-            <div style={styles.funTitle}>Random Roller</div>
-            <div style={styles.funDesc}>Pick random items</div>
+          <span className={styles.funIcon}>🎲</span>
+          <div className={styles.funText}>
+            <div className={styles.funTitle}>Random Roller</div>
+            <div className={styles.funDesc}>Pick random items</div>
           </div>
         </div>
 
         <div
-          style={styles.funItem}
+          className={styles.funItem}
           onMouseEnter={(e) =>
             (e.currentTarget.style.transform = "scale(1.05)")
           }
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          <span style={styles.funIcon}>🧩</span>
-          <div style={styles.funText}>
-            <div style={styles.funTitle}>Sudoku Game</div>
-            <div style={styles.funDesc}>Brain training puzzles</div>
+          <span className={styles.funIcon}>🧩</span>
+          <div className={styles.funText}>
+            <div className={styles.funTitle}>Sudoku Game</div>
+            <div className={styles.funDesc}>Brain training puzzles</div>
           </div>
         </div>
 
         <div
-          style={styles.funItem}
+          className={styles.funItem}
           onMouseEnter={(e) =>
             (e.currentTarget.style.transform = "scale(1.05)")
           }
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          <span style={styles.funIcon}>💕</span>
-          <div style={styles.funText}>
-            <div style={styles.funTitle}>Love Calculator</div>
-            <div style={styles.funDesc}>Just for fun!</div>
+          <span className={styles.funIcon}>💕</span>
+          <div className={styles.funText}>
+            <div className={styles.funTitle}>Love Calculator</div>
+            <div className={styles.funDesc}>Just for fun!</div>
           </div>
         </div>
       </div>
 
-      <div style={{ ...styles.sidebarCard, ...styles.premiumCard }}>
-        <h3 style={{ marginBottom: "1rem" }}>KaluYaan Premium</h3>
-        <p style={{ marginBottom: "1rem" }}>
+      <div className={`${styles.sidebarCard} ${styles.premiumCard}`}>
+        <h3 className={styles.title}>KaluYaan Premium</h3>
+        <p className={styles.desc}>
           Get more features and remove limits
         </p>
-        <a href="#" style={styles.premiumBtn}>
+        <a href="#" className={styles.premiumBtn}>
           Get Premium
         </a>
       </div>
@@ -229,30 +72,31 @@ const FunSidebarDesigns = () => {
   // Design 2: Interactive Stats
   const StatsDesign = () => (
     <>
-      <div style={{ ...styles.glassmorphism, ...styles.sidebarCard }}>
-        <h3 style={{ ...styles.title, color: "#fff" }}>📊 Live Stats</h3>
+      <div className={`${styles.glassmorphism} ${styles.sidebarCard}`}>
+        <h3 className={styles.title}>📊 Live Stats</h3>
 
-        <div style={styles.statItem as React.CSSProperties}>
-          <span style={styles.statNumber}>1,234</span>
-          <span style={styles.statLabel}>Happy Users Today</span>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>1,234</span>
+          <span className={styles.statLabel}>Happy Users Today</span>
         </div>
 
-        <div style={{ ...styles.statItem } as React.CSSProperties}>
-          <span style={styles.statNumber}>567</span>
-          <span style={styles.statLabel}>Tools Used This Hour</span>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>567</span>
+          <span className={styles.statLabel}>Tools Used This Hour</span>
         </div>
 
-        <div style={styles.statItem as React.CSSProperties}>
-          <span style={styles.statNumber}>20+</span>
-          <span style={styles.statLabel}>Free Utilities</span>
+        <div className={styles.statItem}>
+          <span className={styles.statNumber}>20+</span>
+          <span className={styles.statLabel}>Free Utilities</span>
         </div>
       </div>
 
-      <div style={{ ...styles.glassmorphism, ...styles.sidebarCard }}>
-        <h3 style={{ ...styles.title, color: "#fff" }}>🎯 Quick Actions</h3>
+      <div className={`${styles.glassmorphism} ${styles.sidebarCard}`}>
+        <h3 className={styles.title} style={{ color: "#fff" }}>🎯 Quick Actions</h3>
 
         <button
-          style={{ ...styles.gameBtn, width: "100%", marginBottom: "1rem" }}
+          className={styles.gameBtn}
+          style={{ width: "100%", marginBottom: "1rem" }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.background = "rgba(255, 255, 255, 0.3)")
           }
@@ -264,7 +108,8 @@ const FunSidebarDesigns = () => {
         </button>
 
         <button
-          style={{ ...styles.gameBtn, width: "100%", marginBottom: "1rem" }}
+          className={styles.gameBtn}
+          style={{ width: "100%", marginBottom: "1rem" }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.background = "rgba(255, 255, 255, 0.3)")
           }
@@ -276,7 +121,8 @@ const FunSidebarDesigns = () => {
         </button>
 
         <button
-          style={{ ...styles.gameBtn, width: "100%" }}
+          className={styles.gameBtn}
+          style={{ width: "100%" }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.background = "rgba(255, 255, 255, 0.3)")
           }
@@ -288,10 +134,10 @@ const FunSidebarDesigns = () => {
         </button>
       </div>
 
-      <div style={{ ...styles.sidebarCard, ...styles.premiumCard }}>
-        <h3 style={styles.title}>⚡ Premium Zone</h3>
-        <p style={styles.desc}>Join thousands of premium users!</p>
-        <button style={styles.btn}>Upgrade Now</button>
+      <div className={`${styles.sidebarCard} ${styles.premiumCard}`}>
+        <h3 className={styles.title}>⚡ Premium Zone</h3>
+        <p className={styles.desc}>Join thousands of premium users!</p>
+        <button className={styles.btn}>Upgrade Now</button>
       </div>
     </>
   );
@@ -300,26 +146,16 @@ const FunSidebarDesigns = () => {
   const NeonDesign = () => (
     <>
       <div
-        style={{
-          ...styles.glassmorphism,
-          ...styles.sidebarCard,
-          ...styles.neonCard,
-        }}
+        className={`${styles.glassmorphism} ${styles.sidebarCard} ${styles.neonCard}`}
       >
-        <h3 style={styles.title}>⚡ CYBER ZONE</h3>
-        <p style={styles.desc}>Enter the digital playground</p>
+        <h3 className={styles.title}>⚡ CYBER ZONE</h3>
+        <p className={styles.desc}>Enter the digital playground</p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "0.5rem",
-          }}
-        >
-          <button style={styles.gameBtn}>🎮 PLAY</button>
-          <button style={styles.gameBtn}>🧠 THINK</button>
-          <button style={styles.gameBtn}>💖 LOVE</button>
-          <button style={styles.gameBtn}>🎲 ROLL</button>
+        <div className={styles.gridContainer}>
+          <button className={styles.gameBtn}>🎮 PLAY</button>
+          <button className={styles.gameBtn}>🧠 THINK</button>
+          <button className={styles.gameBtn}>💖 LOVE</button>
+          <button className={styles.gameBtn}>🎲 ROLL</button>
         </div>
 
         <div
@@ -341,17 +177,10 @@ const FunSidebarDesigns = () => {
         </div>
       </div>
 
-      <div style={{ ...styles.sidebarCard, ...styles.premiumCard }}>
-        <h3 style={styles.title}>🌟 PREMIUM ACCESS</h3>
-        <p style={styles.desc}>Unlock the matrix of possibilities</p>
-        <button
-          style={{
-            ...styles.btn,
-            background: "#000",
-            color: "#00ff00",
-            border: "1px solid #00ff00",
-          }}
-        >
+      <div className={`${styles.sidebarCard} ${styles.premiumCard}`}>
+        <h3 className={styles.title}>🌟 PREMIUM ACCESS</h3>
+        <p className={styles.desc}>Unlock the matrix of possibilities</p>
+        <button className={styles.btn} style={{ background: "#000", color: "#00ff00", border: "1px solid #00ff00" }}  >
           ENTER MATRIX
         </button>
       </div>
@@ -361,8 +190,8 @@ const FunSidebarDesigns = () => {
   // Design 4: Minimalist Fun
   const MinimalDesign = () => (
     <>
-      <div style={{ ...styles.glassmorphism, ...styles.sidebarCard }}>
-        <h3 style={{ ...styles.title, color: "#fff", textAlign: "center" }}>
+      <div className={`${styles.glassmorphism} ${styles.sidebarCard}`}>
+        <h3 className={styles.title} style={{ color: "#fff", textAlign: "center" }}>
           ✨ Discover
         </h3>
 
@@ -419,9 +248,9 @@ const FunSidebarDesigns = () => {
         </div>
 
         <button
+          className={styles.btn}
           style={{
-            ...styles.btn,
-            width: "100%",
+                        width: "100%",
             background: "rgba(255,255,255,0.2)",
             color: "#fff",
             border: "1px solid rgba(255,255,255,0.3)",
@@ -431,12 +260,12 @@ const FunSidebarDesigns = () => {
         </button>
       </div>
 
-      <div style={{ ...styles.sidebarCard, ...styles.premiumCard }}>
+      <div className={`${styles.sidebarCard} ${styles.premiumCard}`}>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>🚀</div>
-          <h3 style={styles.title}>Premium</h3>
-          <p style={styles.desc}>Unlock all features</p>
-          <button style={styles.btn}>Upgrade</button>
+          <h3 className={styles.title}>Premium</h3>
+          <p className={styles.desc}>Unlock all features</p>
+          <button className={styles.btn}>Upgrade</button>
         </div>
       </div>
     </>
@@ -446,13 +275,9 @@ const FunSidebarDesigns = () => {
   const DashboardDesign = () => (
     <>
       <div
-        style={{
-          ...styles.glassmorphism,
-          ...styles.sidebarCard,
-          ...styles.techCard,
-        }}
+        className={`${styles.glassmorphism} ${styles.sidebarCard} ${styles.techCard}`}
       >
-        <h3 style={styles.title}>🎮 Entertainment Hub</h3>
+        <h3 className={styles.title}>🎮 Entertainment Hub</h3>
 
         <div
           style={{
@@ -463,26 +288,22 @@ const FunSidebarDesigns = () => {
           }}
         >
           <div
-            style={
-              {
-                ...styles.statItem,
-                background: "rgba(255,255,255,0.2)",
-              } as React.CSSProperties
-            }
+            className={styles.statItem}
+            style={{
+              background: "rgba(255,255,255,0.2)",
+            }}
           >
-            <span style={{ ...styles.statNumber, fontSize: "1.5rem" }}>🎲</span>
-            <span style={styles.statLabel}>Random Tools</span>
+            <span className={styles.statNumber} style={{ fontSize: "1.5rem" }}>🎲</span>
+            <span className={styles.statLabel}>Random Tools</span>
           </div>
           <div
-            style={
-              {
-                ...styles.statItem,
-                background: "rgba(255,255,255,0.2)",
-              } as React.CSSProperties
-            }
+            className={styles.statItem}
+            style={{
+              background: "rgba(255,255,255,0.2)",
+            }}
           >
-            <span style={{ ...styles.statNumber, fontSize: "1.5rem" }}>🧠</span>
-            <span style={styles.statLabel}>Brain Games</span>
+            <span className={styles.statNumber} style={{ fontSize: "1.5rem" }}>🧠</span>
+            <span className={styles.statLabel}>Brain Games</span>
           </div>
         </div>
 
@@ -506,8 +327,8 @@ const FunSidebarDesigns = () => {
         </div>
 
         <button
+          className={styles.btn}
           style={{
-            ...styles.btn,
             width: "100%",
             background: "rgba(255,255,255,0.9)",
           }}
@@ -516,8 +337,8 @@ const FunSidebarDesigns = () => {
         </button>
       </div>
 
-      <div style={{ ...styles.sidebarCard, ...styles.premiumCard }}>
-        <h3 style={styles.title}>💎 VIP Experience</h3>
+      <div className={`${styles.sidebarCard} ${styles.premiumCard}`}>
+        <h3 className={styles.title}>💎 VIP Experience</h3>
         <div style={{ marginBottom: "1rem" }}>
           <div
             style={{ fontSize: "0.9rem", opacity: 0.9, marginBottom: "0.5rem" }}
@@ -535,7 +356,7 @@ const FunSidebarDesigns = () => {
             ✓ Exclusive tools
           </div>
         </div>
-        <button style={styles.btn}>Join VIP</button>
+        <button className={styles.btn}>Join VIP</button>
       </div>
     </>
   );
@@ -573,14 +394,11 @@ const FunSidebarDesigns = () => {
         Fun Zone
       </h1>
 
-      <div style={styles.designSelector as React.CSSProperties}>
+      <div className={styles.designSelector}>
         {designs.map((design) => (
           <button
             key={design.id}
-            style={{
-              ...styles.designBtn,
-              ...(selectedDesign === design.id ? styles.activeBtn : {}),
-            }}
+            className={`${styles.designBtn} ${selectedDesign === design.id ? styles.activeBtn : ""}`}
             onClick={() => setSelectedDesign(design.id)}
           >
             {design.name}
@@ -588,7 +406,7 @@ const FunSidebarDesigns = () => {
         ))}
       </div>
 
-      <div style={styles.sidebar as React.CSSProperties}>
+      <div className={styles.sidebar}>
         {(() => {
           const DesignComponent = designs.find(
             (d) => d.id === selectedDesign

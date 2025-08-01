@@ -1,181 +1,6 @@
 import React, { useState } from "react";
+import styles from "./Header.module.css"; // Assuming you have a CSS module for styles
 
-const styles = {
-  container: {
-    minHeight: "100vh",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    color: "#333",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-  },
-  glassmorphism: {
-    background: "rgba(255, 255, 255, 0.95)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-  },
-  header: {
-    position: "sticky" as const,
-    top: 0,
-    zIndex: 100,
-    boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
-  },
-  nav: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "0 20px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingTop: "1rem",
-    paddingBottom: "1rem",
-    position: "relative" as const,
-  },
-  logo: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    background: "linear-gradient(135deg, #667eea, #764ba2)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  },
-  navLinks: {
-    display: "flex",
-    gap: "2rem",
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-  },
-  navLinksDesktop: {
-    display: "flex",
-    gap: "2rem",
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-    "@media (maxWidth: 768px)": {
-      display: "none",
-    },
-  },
-  navLinksMobile: {
-    position: "absolute" as const,
-    top: "100%",
-    left: 0,
-    right: 0,
-    background: "rgba(255, 255, 255, 0.98)",
-    backdropFilter: "blur(15px)",
-    WebkitBackdropFilter: "blur(15px)",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    borderTop: "none",
-    borderRadius: "0 0 15px 15px",
-    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.15)",
-    display: "flex",
-    flexDirection: "column" as const,
-    gap: "0",
-    listStyle: "none",
-    margin: 0,
-    padding: "1rem 0",
-    zIndex: 99,
-  },
-  navLink: {
-    textDecoration: "none",
-    color: "#333",
-    fontWeight: "500",
-    transition: "all 0.3s ease",
-    padding: "0.5rem 0",
-    borderRadius: "5px",
-  },
-  navLinkMobile: {
-    textDecoration: "none",
-    color: "#333",
-    fontWeight: "500",
-    transition: "all 0.3s ease",
-    padding: "1rem 2rem",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-    display: "block",
-  },
-  navIcons: {
-    display: "flex",
-    gap: "1rem",
-    alignItems: "center",
-  },
-  iconBtn: {
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    padding: "0.5rem",
-    borderRadius: "50%",
-    transition: "all 0.3s ease",
-    fontSize: "1.2rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "40px",
-    height: "40px",
-  },
-  menuToggle: {
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    padding: "0.5rem",
-    borderRadius: "8px",
-    transition: "all 0.3s ease",
-    fontSize: "1.5rem",
-    display: "none",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "40px",
-    height: "40px",
-    color: "#333",
-  },
-  profileIcon: {
-    background: "linear-gradient(135deg, #667eea, #764ba2)",
-    color: "white",
-    border: "2px solid rgba(255, 255, 255, 0.3)",
-    cursor: "pointer",
-    padding: "0.5rem",
-    borderRadius: "50%",
-    transition: "all 0.3s ease",
-    fontSize: "1.1rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "40px",
-    height: "40px",
-    boxShadow: "0 4px 15px rgba(102, 126, 234, 0.3)",
-  },
-  // Demo content styles
-  mainContent: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "2rem 20px",
-  },
-  hero: {
-    borderRadius: "20px",
-    padding: "3rem",
-    textAlign: "center" as const,
-    marginBottom: "3rem",
-    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
-    background: "rgba(255, 255, 255, 0.95)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-  },
-  heroTitle: {
-    fontSize: "2.5rem",
-    marginBottom: "1rem",
-    background: "linear-gradient(135deg, #667eea, #764ba2)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-    fontWeight: "bold",
-  },
-  heroText: {
-    fontSize: "1.1rem",
-    color: "#666",
-    maxWidth: "600px",
-    margin: "0 auto",
-    lineHeight: "1.6",
-  },
-};
 
 const toggleLanguage = (): void => {
   alert("Language menu would open here");
@@ -266,49 +91,49 @@ function Header() {
         `}
       </style>
       
-      <header style={{ ...styles.glassmorphism, ...styles.header }}>
-        <nav style={styles.nav} className="nav">
-          <div style={styles.logo} className="logo">KaluYaan</div>
+      <header className={`${styles.glassmorphism} ${styles.header}`}>
+        <nav className={styles.nav}>
+          <div className={styles.logo}>KaluYaan</div>
 
           {/* Desktop Navigation */}
-          <ul style={styles.navLinksDesktop} className="nav-links-desktop">
+          <ul className={styles.navLinksDesktop}>
             <li>
-              <a href="#merge" style={styles.navLink} className="nav-link">
+              <a href="#merge" className={styles.navLink}>
                 All
               </a>
             </li>
             <li>
-              <a href="#merge" style={styles.navLink} className="nav-link">
+              <a href="#merge" className={styles.navLink}>
                 Writing
               </a>
             </li>
             <li>
-              <a href="#split" style={styles.navLink} className="nav-link">
+              <a href="#split" className={styles.navLink}>
                 Calculator
               </a>
             </li>
             <li>
-              <a href="#compress" style={styles.navLink} className="nav-link">
+              <a href="#compress" className={styles.navLink}>
                 Productivity
               </a>
             </li>
             <li>
-              <a href="#convert" style={styles.navLink} className="nav-link">
+              <a href="#convert" className={styles.navLink}>
                 Web Tools
               </a>
             </li>
             <li>
-              <a href="#tools" style={styles.navLink} className="nav-link">
+              <a href="#tools" className={styles.navLink}>
                 Spiritual
               </a>
             </li>
             <li>
-              <a href="#tools" style={styles.navLink} className="nav-link">
+              <a href="#tools" className={styles.navLink}>
                 Health
               </a>
             </li>
             <li>
-              <a href="#tools" style={styles.navLink} className="nav-link">
+              <a href="#tools" className={styles.navLink}>
                 Games
               </a>
             </li>
@@ -316,12 +141,11 @@ function Header() {
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <ul style={styles.navLinksMobile}>
+            <ul className={styles.navLinksMobile}>
               <li>
                 <a 
                   href="#merge" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   All
@@ -330,8 +154,7 @@ function Header() {
               <li>
                 <a 
                   href="#merge" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Writing
@@ -340,8 +163,7 @@ function Header() {
               <li>
                 <a 
                   href="#split" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Calculator
@@ -350,8 +172,7 @@ function Header() {
               <li>
                 <a 
                   href="#compress" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Productivity
@@ -360,8 +181,7 @@ function Header() {
               <li>
                 <a 
                   href="#convert" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Web Tools
@@ -370,8 +190,7 @@ function Header() {
               <li>
                 <a 
                   href="#tools" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Spiritual
@@ -380,8 +199,7 @@ function Header() {
               <li>
                 <a 
                   href="#tools" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Health
@@ -390,8 +208,7 @@ function Header() {
               <li>
                 <a 
                   href="#tools" 
-                  style={styles.navLinkMobile} 
-                  className="nav-link-mobile"
+                  className={`nav-link-mobile ${styles.navLinkMobile}`}
                   onClick={closeMobileMenu}
                 >
                   Games
@@ -400,11 +217,10 @@ function Header() {
             </ul>
           )}
 
-          <div style={styles.navIcons} className="nav-icons">
+          <div className={`nav-icons ${styles.navIcons}`}>
             {/* Profile Icon */}
             <button
-              style={styles.profileIcon}
-              className="profile-icon"
+              className={`profile-icon ${styles.profileIcon}`}
               onClick={toggleProfile}
               title="Profile"
             >
@@ -413,8 +229,7 @@ function Header() {
 
             {/* Language Toggle */}
             <button
-              style={styles.iconBtn}
-              className="icon-btn"
+              className={`icon-btn ${styles.iconBtn}`}
               onClick={toggleLanguage}
               title="Language"
             >
@@ -423,8 +238,7 @@ function Header() {
 
             {/* Mobile Menu Toggle */}
             <button
-              style={styles.menuToggle}
-              className="menu-toggle"
+              className={`menu-toggle ${styles.menuToggle}`}
               onClick={toggleMobileMenu}
               title="Menu"
             >
@@ -433,21 +247,6 @@ function Header() {
           </div>
         </nav>
       </header>
-
-      {/* Demo Content */}
-      {/* <div style={styles.container}>
-        <main style={styles.mainContent} className="main-content">
-          <section style={styles.hero} className="hero">
-            <h1 style={styles.heroTitle} className="hero-title">
-              Welcome to KaluYaan
-            </h1>
-            <p style={styles.heroText} className="hero-text">
-              Your comprehensive toolkit for productivity, creativity, and wellness. 
-              Discover powerful tools designed to enhance your daily workflow and personal growth.
-            </p>
-          </section>
-        </main>
-      </div> */}
     </>
   );
 }
