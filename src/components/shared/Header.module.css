@@ -19,6 +19,35 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover and state styles */
+.navLink:hover {
+  color: #667eea;
+  transform: translateY(-1px);
+}
+
+.navLinkMobile:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.navLinkMobile:last-child {
+  border-bottom: none;
+}
+
+.iconBtn:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  transform: scale(1.05);
+}
+
+.profileIcon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.menuToggle:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
 .nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -193,4 +222,42 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navLinksDesktop {
+    display: none !important;
+  }
+  .menuToggle {
+    display: flex !important;
+  }
+  .navIcons {
+    gap: 0.5rem;
+  }
+  .heroTitle {
+    font-size: 2rem !important;
+  }
+  .heroText {
+    font-size: 1rem !important;
+  }
+  .mainContent {
+    padding: 1rem 15px !important;
+  }
+  .hero {
+    padding: 2rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem !important;
+  }
+  .nav {
+    padding: 0 15px !important;
+  }
+  .heroTitle {
+    font-size: 1.8rem !important;
+  }
 }
