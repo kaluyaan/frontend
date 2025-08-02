@@ -1,19 +1,15 @@
-// "use client";
 import React, { Suspense } from "react";
 import Header from "../shared/Header/Header";
 import styles from "./home.module.css";
 import {
   HeroText,
   HeroTitle,
-  toolsList,
 } from "@/app/config/constants/homeConstants";
 import Footer from "../shared/Footer/Footer";
 import ToolsList from "../ToolsList/ToolsList";
 import ContentLayout from "../ContentLayout/ContentLayout";
 
 const Home: React.FC = () => {
-  // Inline styles for components
-
   return (
     <div className={styles.container}>
       {/* Header */}

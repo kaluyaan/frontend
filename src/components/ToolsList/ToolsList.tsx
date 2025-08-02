@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { toolsList } from "@/app/config/constants/homeConstants";
 import styles from "../Home/home.module.css";
@@ -7,15 +7,8 @@ import { useSearchParams } from "next/navigation";
 
 function ToolsList() {
   const searchParams = useSearchParams();
-
   const category = searchParams.get("category");
 
-  console.log("category-selected", category);
-
-  const selectTool = (tool: string): void => {
-    // setSelectedTool(tool);
-    console.log(`Selected tool: ${tool}`);
-  };
   return (
     <section className={styles.toolsGrid}>
       {toolsList
