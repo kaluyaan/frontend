@@ -4,28 +4,28 @@ export const toolsList = [
     icon: "🤖",
     title: "AI to Human Writer",
     desc: "Transform AI-generated text into natural, human-like content",
-    category: "Writing",
+    category: "writing",
   },
   {
     key: "duplicate-sentence",
     icon: "📝",
     title: "Duplicate Sentence Generator",
     desc: "Create multiple variations of your sentences instantly",
-    category: "Writing",
+    category: "writing",
   },
   {
     key: "sentence-compare",
     icon: "⚖️",
     title: "Sentence Compare",
     desc: "Compare and analyze differences between two sentences",
-    category: "Writing",
+    category: "writing",
   },
   {
     key: "plagiarism-detector",
     icon: "🔍",
     title: "Plagiarism & AI Detector",
     desc: "Check content for plagiarism and AI-generated text",
-    category: "Writing",
+    category: "writing",
   },
   {
     key: "age-calculator",
@@ -155,7 +155,7 @@ export const HeaderLinks = [
   },
   {
     title: "Writing",
-    link: "?category=Writing",
+    link: "?category=writing",
   },
   {
     title: "Calculator",

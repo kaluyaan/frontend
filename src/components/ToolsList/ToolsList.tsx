@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 
 function ToolsList() {
   const searchParams = useSearchParams();
-  const category = searchParams.get("category");
+  const category = searchParams.get("category")?.toLocaleLowerCase();
 
   return (
     <section className={styles.toolsGrid}>
