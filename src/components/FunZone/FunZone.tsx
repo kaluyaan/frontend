@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import styles from "./FunZone.module.css"; // Assuming you have a CSS module for styles

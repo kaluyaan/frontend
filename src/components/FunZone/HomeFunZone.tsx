@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FunSidebarDesigns from "./FunZone";
 import styled from "@emotion/styled";
