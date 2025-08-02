@@ -1,46 +1,13 @@
 import React from "react";
 import FunSidebarDesigns from "./FunZone";
-import styled from "@emotion/styled";
-import styles from "./HomeFunzone.module.css"; 
+import styles from "./HomeFunzone.module.css";
 import { seoKeywords } from "@/app/config/constants/funzoneConstants";
 
-function HomeFunZone() {
-
-  const ContentLayout = styled.div`
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      padding: 0 1rem;
-    }
-  `;
-
-  const AboutWrapper = styled.div`
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-
-    @media (max-width: 768px) {
-      padding: 1.5rem;
-      margin: 0 0rem;
-      text-align: center;
-    }
-  `;
-
+function ContentLayout() {
   return (
-    <ContentLayout>
+    <div className={styles.contentLayout}>
       {/* Main Area */}
-      <AboutWrapper>
+      <div className={styles.aboutWrapper}>
         <h2 className={styles.sectionTitle}>About Our Utility Platform</h2>
         <p className={styles.aboutText}>
           {`Our comprehensive online utility hub offers 20+ essential tools
@@ -67,12 +34,12 @@ function HomeFunZone() {
             </span>
           ))}
         </div>
-      </AboutWrapper>
+      </div>
 
       {/* Sidebar */}
-        <FunSidebarDesigns />
-    </ContentLayout>
+      <FunSidebarDesigns />
+    </div>
   );
 }
 
-export default HomeFunZone;
+export default ContentLayout;
