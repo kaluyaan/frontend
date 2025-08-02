@@ -1,7 +1,6 @@
 // "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Header from "../shared/Header/Header";
-import HomeFunZone from "../FunZone/HomeFunZone";
 import styles from "./home.module.css";
 import {
   HeroText,
@@ -10,6 +9,7 @@ import {
 } from "@/app/config/constants/homeConstants";
 import Footer from "../shared/Footer/Footer";
 import ToolsList from "../ToolsList/ToolsList";
+import ContentLayout from "../ContentLayout/ContentLayout";
 
 const Home: React.FC = () => {
   // Inline styles for components
@@ -28,12 +28,14 @@ const Home: React.FC = () => {
         </section>
 
         {/* Tools Grid */}
-        <ToolsList />
+        <Suspense fallback={<div>Loading....</div>}>
+          <ToolsList />
+        </Suspense>
 
         {/* Content Layout */}
-        <HomeFunZone />
-        {/* Footer */}
+        <ContentLayout />
       </main>
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { toolsList } from "@/app/config/constants/homeConstants";
 import styles from "../Home/home.module.css";
@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 
 function ToolsList() {
   const searchParams = useSearchParams();
+
   const category = searchParams.get("category");
 
   console.log("category-selected", category);
