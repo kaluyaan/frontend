@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       {/* Header */}
-      <Header />
+      {/* <Header /> */}
 
       {/* Main Content */}
       <main className={styles.mainContent}>

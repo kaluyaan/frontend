@@ -15,7 +15,7 @@ function Header() {
           <ul className={styles.navLinksDesktop}>
             {HeaderLinks.map((link) => (
               <li key={link.title}>
-                <Link href={link.link} className={styles.navLink}>
+                <Link href={`/${link.link}`} className={styles.navLink}>
                   {link.title}
                 </Link>
               </li>
