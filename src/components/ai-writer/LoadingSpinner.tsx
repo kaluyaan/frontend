@@ -1,5 +1,7 @@
 // components/LoadingSpinner.tsx
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from '../../app/ai-writer/page.module.css'
+import homeStyle from "../../components/Home/home.module.css";
+
 
 interface LoadingSpinnerProps {
   isVisible: boolean;
@@ -11,7 +13,7 @@ const LoadingSpinner = ({ isVisible }: LoadingSpinnerProps) => {
   return (
     <div className={styles.loading}>
       <div className={styles.spinner}></div>
-      <p className={styles.loadingText}>Humanizing your text...</p>
+      <p className={homeStyle.reverseTitle}>Humanizing your text...</p>
     </div>
   );
 };

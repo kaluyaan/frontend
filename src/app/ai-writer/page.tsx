@@ -1,21 +1,22 @@
-"use client"
+"use client";
 
 // pages/index.tsx or app/page.tsx (depending on your Next.js version)
-import { useState } from 'react';
-import Header from '../../components/ai-writer/Header';
-import SettingsPanel from '../../components/ai-writer/SettingsPanel';
-import TextInput from '../../components/ai-writer/TextInput';
-import ConvertButton from '../../components/ai-writer/ConvertButton';
-import TextOutput from '../../components/ai-writer/TextOutput';
-import StatsDisplay from '../../components/ai-writer/StatsDisplay';
-import LoadingSpinner from '../../components/ai-writer/LoadingSpinner';
-import { humanizeText } from '../../lib/textHumanizer';
-import { HumanizationOptions, Stats } from '../../types';
-import styles from '../styles/aiwriter.module.css'
+import { useState } from "react";
+import Header from "../../components/ai-writer/Header";
+import SettingsPanel from "../../components/ai-writer/SettingsPanel";
+import TextInput from "../../components/ai-writer/TextInput";
+import ConvertButton from "../../components/ai-writer/ConvertButton";
+import TextOutput from "../../components/ai-writer/TextOutput";
+import StatsDisplay from "../../components/ai-writer/StatsDisplay";
+import LoadingSpinner from "../../components/ai-writer/LoadingSpinner";
+import { humanizeText } from "../../lib/textHumanizer";
+import { HumanizationOptions, Stats } from "../../types";
+import styles from "./page.module.css";
+import homeStyle from "../../components/Home/home.module.css";
 
 export default function Home() {
-  const [inputText, setInputText] = useState('');
-  const [outputText, setOutputText] = useState('');
+  const [inputText, setInputText] = useState("");
+  const [outputText, setOutputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [stats, setStats] = useState<Stats | null>(null);
   const [options, setOptions] = useState<HumanizationOptions>({
@@ -28,7 +29,7 @@ export default function Home() {
 
   const handleConvert = async () => {
     if (!inputText.trim()) {
-      alert('Please enter some text to humanize.');
+      alert("Please enter some text to humanize.");
       return;
     }
 
@@ -49,31 +50,33 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
-      <Header />
-      
-      <div className={styles.mainContent}>
-        <SettingsPanel 
-          options={options} 
-          onOptionsChange={handleOptionsChange} 
-        />
-        
-        <TextInput 
-          value={inputText}
-          onChange={setInputText}
-        />
-        
-        <ConvertButton 
-          onClick={handleConvert}
-          disabled={isLoading}
-        />
-        
-        <LoadingSpinner isVisible={isLoading} />
-        
-        <TextOutput value={outputText} />
-        
-        {stats && <StatsDisplay stats={stats} />}
-      </div>
+    <div className={homeStyle.container}>
+      <main className={homeStyle.mainContent}>
+        <Header />
+
+        {isLoading ? (
+          <>
+            <TextInput disabled={true} value={inputText} onChange={setInputText} />
+            <LoadingSpinner isVisible={isLoading} />
+          </>
+        ) : (
+          <>
+            <SettingsPanel
+              options={options}
+              onOptionsChange={handleOptionsChange}
+            />
+            <TextInput value={inputText} onChange={setInputText} />
+            <ConvertButton onClick={handleConvert} disabled={isLoading} />
+          </>
+        )}
+
+        {stats && outputText && (
+          <>
+            <TextOutput value={outputText} />
+            <StatsDisplay stats={stats} />
+          </>
+        )}
+      </main>
     </div>
   );
 }

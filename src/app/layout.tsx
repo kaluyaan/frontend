@@ -25,8 +25,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable}`}
+        style={{
+          minHeight: "100vh",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          color: "#333",
+          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        }}
+      >
         <Header />
+        <span
+          style={{
+            display: "block",
+            height: "20px",
+            position: "relative",
+            zIndex: 1,
+          }}
+        ></span>
         {children}
       </body>
     </html>

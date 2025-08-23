@@ -1,12 +1,14 @@
 // components/Header.tsx
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from "../../components/Home/home.module.css";
 
 const Header = () => {
   return (
-    <div className={styles.header}>
-      <h1 className={styles.headerTitle}>🤖➡️👤 AI to Human Text Converter</h1>
-      <p className={styles.headerSubtitle}>Transform AI-generated text into natural, human-like content</p>
-    </div>
+    <section className={`${styles.glassmorphism} ${styles.hero}`}>
+      <h1 className={styles.heroTitle}>🤖➡️👤 AI to Human Text Converter</h1>
+      <p className={styles.heroText}>
+        Transform AI-generated text into natural, human-like content
+      </p>
+    </section>
   );
 };
 

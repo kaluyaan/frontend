@@ -1,13 +1,16 @@
 // components/TextInput.tsx
 import { useEffect, useRef } from 'react';
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from '../../app/ai-writer/page.module.css'
+import homeStyle from "../../components/Home/home.module.css";
+
 
 interface TextInputProps {
   value: string;
+  disabled: boolean;
   onChange: (value: string) => void;
 }
 
-const TextInput = ({ value, onChange }: TextInputProps) => {
+const TextInput = ({ disabled = false,value, onChange }: TextInputProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -31,9 +34,10 @@ const TextInput = ({ value, onChange }: TextInputProps) => {
 
   return (
     <div className={styles.inputSection}>
-      <div className={styles.sectionTitle}>Input Text (AI-generated)</div>
+      <div className={homeStyle.reverseTitle}>Input Text (AI-generated)</div>
       <textarea
         ref={textareaRef}
+        disabled={disabled}
         className={styles.textarea}
         value={value}
         onChange={(e) => onChange(e.target.value)}

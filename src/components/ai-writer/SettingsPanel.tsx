@@ -1,6 +1,7 @@
 // components/SettingsPanel.tsx
 import { HumanizationOptions } from '../../types';
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from '../../app/ai-writer/page.module.css'
+import homeStyle from "../../components/Home/home.module.css";
 
 interface SettingsPanelProps {
   options: HumanizationOptions;
@@ -40,7 +41,7 @@ const SettingsPanel = ({ options, onOptionsChange }: SettingsPanelProps) => {
 
   return (
     <div className={styles.settings}>
-      <h3 className={styles.settingsTitle}>Humanization Settings</h3>
+      <h3 className={homeStyle.normalTitle}>Humanization Settings</h3>
       {settingsConfig.map(({ key, label }) => (
         <div key={key} className={styles.settingItem}>
           <input
@@ -50,7 +51,7 @@ const SettingsPanel = ({ options, onOptionsChange }: SettingsPanelProps) => {
             checked={options[key]}
             onChange={() => handleCheckboxChange(key)}
           />
-          <label htmlFor={key} className={styles.settingLabel}>
+          <label htmlFor={key} className={homeStyle.normalText}>
             {label}
           </label>
         </div>

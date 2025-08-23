@@ -51,18 +51,14 @@
 }
 
 .settingCheckbox {
-  margin-right: 10px;
+  margin-right: 1rem;
   transform: scale(1.2);
   cursor: pointer;
   background: #fff;
 }
 
-.settingLabel {
-  color: #555;
-  cursor: pointer;
-}
-
-.inputSection, .outputSection {
+.inputSection,
+.outputSection {
   margin-bottom: 30px;
 }
 
@@ -78,13 +74,14 @@
   min-height: 200px;
   padding: 20px;
   border: 2px solid #e1e5e9;
-  background: #fff;
-  color: #333;
+  background: white;
+  color: #666;
   border-radius: 15px;
-  font-size: 16px;
+  font-size: 1.1rem;
   font-family: inherit;
   resize: vertical;
   transition: all 0.3s ease;
+  line-height: 1.6;
 }
 
 .textarea:focus {
@@ -172,6 +169,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
