@@ -1,7 +1,7 @@
 // components/TextOutput.tsx
 import { useEffect, useRef } from 'react';
 import styles from '../../app/ai-writer/page.module.css'
-
+import homeStyle from "../../components/Home/home.module.css";
 interface TextOutputProps {
   value: string;
 }
@@ -30,7 +30,7 @@ const TextOutput = ({ value }: TextOutputProps) => {
 
   return (
     <div className={styles.outputSection}>
-      <div className={styles.sectionTitle}>Humanized Output</div>
+      <div className={homeStyle.reverseTitle}>Humanized Output</div>
       <textarea
         ref={textareaRef}
         className={styles.textarea}

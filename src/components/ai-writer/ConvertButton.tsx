@@ -1,5 +1,6 @@
 // components/ConvertButton.tsx
 import styles from '../../app/ai-writer/page.module.css'
+import homeStyle from "../../components/Home/home.module.css";
 
 interface ConvertButtonProps {
   onClick: () => void;
@@ -8,9 +9,9 @@ interface ConvertButtonProps {
 
 const ConvertButton = ({ onClick, disabled = false }: ConvertButtonProps) => {
   return (
-    <div className={styles.buttonContainer}>
+    <div className={homeStyle.buttonContainer}>
       <button 
-        className={styles.convertBtn}
+        className={homeStyle.button}
         onClick={onClick}
         disabled={disabled}
       >
