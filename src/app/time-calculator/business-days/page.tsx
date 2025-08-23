@@ -30,11 +30,11 @@ function BusinessDaysCalculator() {
     setHolidays([...holidays, '']);
   };
 
-  const removeHoliday = (index:any) => {
+  const removeHoliday = (index:number) => {
     setHolidays(holidays.filter((_, i) => i !== index));
   };
 
-  const updateHoliday = (index:any, value:any) => {
+  const updateHoliday = (index:number, value:string) => {
     const updated = [...holidays];
     updated[index] = value;
     setHolidays(updated);

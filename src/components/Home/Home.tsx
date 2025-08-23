@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Header from "../shared/Header/Header";
+// import Header from "../shared/Header/Header";
 import styles from "./home.module.css";
 import {
   HeroText,

@@ -5,13 +5,40 @@ import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
+interface DurationDetails {
+  days: number;
+  hours: number;       // remainder hours (0–23)
+  minutes: number;     // remainder minutes (0–59)
+  totalHours: number;  // full hours
+  totalMinutes: number; // full minutes
+}
+
+interface EstimatedCost {
+  consultant: number,
+  developer: number,
+  designer: number,
+  manager: number
+}
+
+interface ProductivityResult {
+  eventName: string;
+  startFormatted: string;   // e.g. "August 23rd, 2025 at 2:00 PM"
+  endFormatted: string;     // e.g. "August 23rd, 2025 at 5:30 PM"
+  totalDuration: DurationDetails;
+  netDuration: DurationDetails;
+  breakDuration: number;    // in minutes
+  workingHours: number;     // from calculateWorkingHours()
+  efficiency: number | string; // % (string if toFixed used)
+  estimatedCost: EstimatedCost;    // from calculateEstimatedCost()
+}
+
 
 function EventDurationCalculator() {
   const [eventName, setEventName] = useState('');
   const [startDateTime, setStartDateTime] = useState('');
   const [endDateTime, setEndDateTime] = useState('');
   const [breakDuration, setBreakDuration] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ProductivityResult | null>(null);
   const [error, setError] = useState('');
 
   const calculateEventDuration = () => {

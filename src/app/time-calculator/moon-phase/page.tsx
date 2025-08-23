@@ -42,10 +42,10 @@ function MoonPhaseCalculator() {
     const day = date.date();
 
     // Calculate Julian Day Number
-    let a = Math.floor((14 - month) / 12);
-    let y = year - a;
-    let m = month + 12 * a - 3;
-    let jd = day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + 1721119;
+    const a = Math.floor((14 - month) / 12);
+    const y = year - a;
+    const m = month + 12 * a - 3;
+    const jd = day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) + 1721119;
 
     // Calculate moon phase
     const daysSinceNewMoon = (jd - 2451549.5) % 29.53058867;

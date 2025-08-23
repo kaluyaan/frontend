@@ -6,13 +6,28 @@ import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
 
+interface TimeOperationResult {
+  originalTime: string;   // "HH:mm:ss"
+  resultTime: string;     // "HH:mm:ss"
+  operation: "Added" | "Subtracted";
+  difference: {
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
+  totalSeconds: number;
+  totalMinutes: number;
+  totalHours: number;
+}
+
+
 function TimeCalculator() {
   const [operation, setOperation] = useState('add');
   const [baseTime, setBaseTime] = useState('');
   const [hours, setHours] = useState('');
   const [minutes, setMinutes] = useState('');
   const [seconds, setSeconds] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<TimeOperationResult | null>(null);
   const [error, setError] = useState('');
 
   const calculateTime = () => {

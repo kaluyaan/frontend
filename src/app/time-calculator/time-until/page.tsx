@@ -1,28 +1,42 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
+interface CountdownResult {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  totalHours: number;
+  totalMinutes: number;
+  totalSeconds: number;
+  isPast: boolean;
+  targetFormatted: string; // e.g. "August 23rd, 2025 at 2:30:00 PM"
+  eventName: string;       // e.g. "Target Event"
+}
+
+
 
 function TimeUntilCalculator() {
   const [targetDateTime, setTargetDateTime] = useState('');
   const [eventName, setEventName] = useState('');
-  const [result, setResult] = useState<any>(null);
-  const [currentTime, setCurrentTime] = useState(moment());
+  const [result, setResult] = useState<CountdownResult | null>(null);
+  // const [currentTime, setCurrentTime] = useState(moment());
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(moment());
-      if (result) {
-        calculateTimeUntil();
-      }
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentTime(moment());
+  //     if (result) {
+  //       calculateTimeUntil();
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(timer);
-  }, [result, targetDateTime]);
+  //   return () => clearInterval(timer);
+  // }, [result, targetDateTime]);
 
   const calculateTimeUntil = () => {
     if (!targetDateTime) {
@@ -36,7 +50,7 @@ function TimeUntilCalculator() {
       return;
     }
 
-    const duration = moment.duration(target.diff(now));
+    // const duration = moment.duration(target.diff(now));
     const isPast = target.isBefore(now);
     
     const absDuration = moment.duration(Math.abs(target.diff(now)));
