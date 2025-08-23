@@ -8,9 +8,11 @@ interface TextInputProps {
   value: string;
   disabled: boolean;
   onChange: (value: string) => void;
+  title: string;
+  placeholder: string;
 }
 
-const TextInput = ({ disabled = false,value, onChange }: TextInputProps) => {
+const TextInput = ({ disabled = false,value, onChange, title, placeholder }: TextInputProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -34,14 +36,14 @@ const TextInput = ({ disabled = false,value, onChange }: TextInputProps) => {
 
   return (
     <div className={styles.inputSection}>
-      <div className={homeStyle.reverseTitle}>Input Text (AI-generated)</div>
+      <div className={homeStyle.reverseTitle}>{title}</div>
       <textarea
         ref={textareaRef}
         disabled={disabled}
         className={styles.textarea}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Paste your AI-generated text here..."
+        placeholder={placeholder}
       />
     </div>
   );
