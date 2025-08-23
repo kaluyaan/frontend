@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import moment from "moment";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import styles from "../shared.module.css";
 import Navigation from "../Navigation";
@@ -19,23 +18,7 @@ function PomodoroTimer() {
   const [totalWorkTime, setTotalWorkTime] = useState(0);
   const [totalBreakTime, setTotalBreakTime] = useState(0);
 
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | null = null;
-
-    if (isRunning && timeLeft > 0) {
-      interval = setInterval(() => {
-        setTimeLeft((timeLeft) => timeLeft - 1);
-      }, 1000);
-    } else if (timeLeft === 0) {
-      handleSessionComplete();
-    }
-
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isRunning, timeLeft]);
-
-  const handleSessionComplete = () => {
+  const handleSessionComplete = useCallback(() => {
     setIsRunning(false);
 
     if (currentSession === "work") {
@@ -60,7 +43,30 @@ function PomodoroTimer() {
       setCurrentSession("work");
       setTimeLeft(parseInt(workMinutes) * 60);
     }
-  };
+  }, [
+    currentSession,
+    workMinutes,
+    breakMinutes,
+    longBreakMinutes,
+    sessionsUntilLongBreak,
+    completedSessions,
+  ]);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    if (isRunning && timeLeft > 0) {
+      interval = setInterval(() => {
+        setTimeLeft((timeLeft) => timeLeft - 1);
+      }, 1000);
+    } else if (timeLeft === 0) {
+      handleSessionComplete();
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isRunning, timeLeft, handleSessionComplete]);
 
   const startTimer = () => {
     setIsRunning(true);

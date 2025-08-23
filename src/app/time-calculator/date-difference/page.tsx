@@ -5,11 +5,26 @@ import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
+interface DateDifferenceResult {
+  years: number;
+  months: number;
+  days: number;
+  totalDays: number;
+  totalWeeks: number;
+  totalMonths: number;
+  totalHours: number;
+  totalMinutes: number;
+  weekdays: number;
+  weekends: number;
+  isNegative: boolean;
+  startFormatted: string;  // e.g. "August 10th, 2023"
+  endFormatted: string;    // e.g. "August 23rd, 2025"
+}
 
 function DateDifferenceCalculator() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DateDifferenceResult | null>(null);
   const [error, setError] = useState('');
 
   const calculateDifference = () => {

@@ -11,7 +11,6 @@ import StatsDisplay from "../../components/ai-writer/StatsDisplay";
 import LoadingSpinner from "../../components/ai-writer/LoadingSpinner";
 import { humanizeText } from "../../lib/textHumanizer";
 import { HumanizationOptions, Stats } from "../../types";
-import styles from "./page.module.css";
 import homeStyle from "../../components/Home/home.module.css";
 
 export default function Home() {
@@ -56,7 +55,11 @@ export default function Home() {
 
         {isLoading ? (
           <>
-            <TextInput disabled={true} value={inputText} onChange={setInputText} />
+            <TextInput
+              disabled={true}
+              value={inputText}
+              onChange={setInputText}
+            />
             <LoadingSpinner isVisible={isLoading} />
           </>
         ) : (
@@ -65,7 +68,11 @@ export default function Home() {
               options={options}
               onOptionsChange={handleOptionsChange}
             />
-            <TextInput value={inputText} onChange={setInputText} />
+            <TextInput
+              disabled={false}
+              value={inputText}
+              onChange={setInputText}
+            />
             <ConvertButton onClick={handleConvert} disabled={isLoading} />
           </>
         )}

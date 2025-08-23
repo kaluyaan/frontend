@@ -1,28 +1,47 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
+interface BirthdayResult {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  currentAge: number;
+  ageOnNextBirthday: number;
+  nextBirthdayDate: string;      // e.g. "August 23rd, 2025"
+  nextBirthdayDay: string;       // e.g. "Saturday"
+  isBirthdayToday: boolean;
+  totalDaysLived: number;
+  totalBirthdaysCelebrated: number;
+  daysUntilNextMilestone: number;
+  nextMilestone: number;         // e.g. 30, 40, 50 (depends on your calculateNextMilestone)
+  birthDayOfWeek: string;        // e.g. "Monday"
+  birthDateFormatted: string;    // e.g. "August 23rd, 1995"
+}
+
+
 
 function BirthdayCountdown() {
   const [birthDate, setBirthDate] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<BirthdayResult | null>(null);
   const [error, setError] = useState('');
-  const [currentTime, setCurrentTime] = useState(moment());
+  // const [currentTime, setCurrentTime] = useState(moment());
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(moment());
-      if (result) {
-        calculateCountdown();
-      }
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentTime(moment());
+  //     if (result) {
+  //       calculateCountdown();
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(timer);
-  }, [result, birthDate]);
+  //   return () => clearInterval(timer);
+  // }, [result, birthDate]);
 
   const calculateCountdown = () => {
     if (!birthDate) {

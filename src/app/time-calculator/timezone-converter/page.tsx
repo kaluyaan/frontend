@@ -96,7 +96,7 @@ function TimezoneConverter() {
     setToTimezones([...toTimezones, "0"]);
   };
 
-  const removeTimezone = (index : any) => {
+  const removeTimezone = (index : number) => {
     if (toTimezones.length > 1) {
       setToTimezones(toTimezones.filter((_, i) => i !== index));
     }

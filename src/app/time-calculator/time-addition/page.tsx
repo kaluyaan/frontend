@@ -7,9 +7,21 @@ import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
 
+interface TimeBreakdownResult {
+  totalSeconds: number;
+  totalMinutes: number;
+  totalHours: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  formatted: string; // e.g. "1d 5h 30m 20s"
+}
+
+
 function TimeAdditionCalculator() {
   const [timePeriods, setTimePeriods] = useState([{ hours: '', minutes: '', seconds: '' }]);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<TimeBreakdownResult | null>(null);
 
   const addTimePeriod = () => {
     setTimePeriods([...timePeriods, { hours: '', minutes: '', seconds: '' }]);

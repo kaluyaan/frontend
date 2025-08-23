@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
@@ -16,15 +16,15 @@ interface Event {
 function CustomEventCountdown() {
   const [events, setEvents] = useState<Event[]>([]);
   const [newEvent, setNewEvent] = useState({ name: '', date: '', time: '' });
-  const [currentTime, setCurrentTime] = useState(moment());
+  // const [currentTime, setCurrentTime] = useState(moment());
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(moment());
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentTime(moment());
+  //   }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+  //   return () => clearInterval(timer);
+  // }, []);
 
   const addEvent = () => {
     if (!newEvent.name || !newEvent.date || !newEvent.time) {
@@ -53,7 +53,7 @@ function CustomEventCountdown() {
 
   const getCountdown = (eventDateTime:moment.Moment) => {
     const now = moment();
-    const duration = moment.duration(eventDateTime.diff(now));
+    // const duration = moment.duration(eventDateTime.diff(now));
     const isPast = eventDateTime.isBefore(now);
     
     const absDuration = moment.duration(Math.abs(eventDateTime.diff(now)));

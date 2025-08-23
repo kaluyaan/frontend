@@ -7,11 +7,25 @@ import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
 
+interface DateProgressResult {
+  percentage: string;           // e.g. "45.67" (% elapsed)
+  remainingPercentage: string;  // e.g. "54.33" (% remaining)
+  totalDays: number;
+  elapsedDays: number;
+  remainingDays: number;
+  startFormatted: string;       // "August 10th, 2023"
+  endFormatted: string;         // "August 23rd, 2025"
+  currentFormatted: string;     // "August 23rd, 2024"
+  isComplete: boolean;          // true if current > end
+  isBeforeStart: boolean;       // true if current < start
+}
+
+
 function TimePercentageCalculator() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [currentDate, setCurrentDate] = useState(moment().format('YYYY-MM-DD'));
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<DateProgressResult | null>(null);
   const [error, setError] = useState('');
 
   const calculatePercentage = () => {
@@ -36,7 +50,7 @@ function TimePercentageCalculator() {
 
     const totalDuration = end.diff(start);
     const elapsedDuration = current.diff(start);
-    const remainingDuration = end.diff(current);
+    // const remainingDuration = end.diff(current);
 
     const percentage = (elapsedDuration / totalDuration) * 100;
     const remainingPercentage = 100 - percentage;

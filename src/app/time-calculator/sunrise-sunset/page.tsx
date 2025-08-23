@@ -320,10 +320,10 @@ function SunriseSunsetCalculator() {
         <div className={styles.infoCard}>
           <div className={styles.infoTitle}>About Sun Calculations</div>
           <div className={styles.infoText}>
-            Sunrise and sunset times are calculated using astronomical formulas
+            {`Sunrise and sunset times are calculated using astronomical formulas
             based on your location's latitude and longitude. Times may vary
             slightly from official sources due to atmospheric conditions and
-            local terrain.
+            local terrain.`}
           </div>
         </div>
       </div>

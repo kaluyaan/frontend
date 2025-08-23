@@ -6,10 +6,28 @@ import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
 
+interface TimeCalculationResult {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  totalSeconds: number;
+  totalMinutes: number;
+  totalHours: number;
+  totalDays: number;
+  businessHours: number; // If your `calculateBusinessHours` returns number, otherwise adjust
+  isNegative: boolean;
+  startFormatted: string;
+  endFormatted: string;
+  humanReadable: string;
+}
+
+
+
 function DurationCalculator() {
   const [startDateTime, setStartDateTime] = useState('');
   const [endDateTime, setEndDateTime] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<TimeCalculationResult | null>(null);
   const [error, setError] = useState('');
 
   const calculateDuration = () => {
@@ -26,7 +44,7 @@ function DurationCalculator() {
       return;
     }
 
-    const duration = moment.duration(end.diff(start));
+    // const duration = moment.duration(end.diff(start));
     const isNegative = start.isAfter(end);
     
     const absDuration = moment.duration(Math.abs(end.diff(start)));

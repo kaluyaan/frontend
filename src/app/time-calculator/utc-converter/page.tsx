@@ -190,10 +190,10 @@ function UTCConverter() {
         <div className={styles.infoCard}>
           <div className={styles.infoTitle}>About UTC</div>
           <div className={styles.infoText}>
-            UTC (Coordinated Universal Time) is the primary time standard by
+            {`UTC (Coordinated Universal Time) is the primary time standard by
             which the world regulates clocks and time. It's essentially the same
             as GMT (Greenwich Mean Time) and serves as the reference point for
-            all time zones worldwide.
+            all time zones worldwide.`}
           </div>
         </div>
       </div>

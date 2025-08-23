@@ -5,10 +5,23 @@ import moment from 'moment';
 import Link from 'next/link';
 import styles from '../shared.module.css';
 import Navigation from '../Navigation';
+interface AgeResult {
+  years: number;
+  months: number;
+  days: number;
+  totalDays: number;
+  totalWeeks: number;
+  totalMonths: number;
+  totalHours: number;
+  totalMinutes: number;
+  daysUntilBirthday: number;
+  nextBirthday: string;
+}
+
 
 function AgeCalculator() {
   const [birthDate, setBirthDate] = useState('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<AgeResult | null>(null);
   const [error, setError] = useState('');
 
   const calculateAge = () => {
@@ -117,8 +130,8 @@ function AgeCalculator() {
         <div className={styles.infoCard}>
           <div className={styles.infoTitle}>How it works</div>
           <div className={styles.infoText}>
-            This calculator determines your exact age by calculating the difference between your birth date and today's date. 
-            It provides detailed statistics including total days lived, weeks, months, hours, and minutes since birth.
+            {`This calculator determines your exact age by calculating the difference between your birth date and today's date. 
+            It provides detailed statistics including total days lived, weeks, months, hours, and minutes since birth.`}
           </div>
         </div>
       </div>
