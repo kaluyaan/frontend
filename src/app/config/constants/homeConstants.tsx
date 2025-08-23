@@ -7,6 +7,13 @@ export const toolsList = [
     category: "writing",
   },
   {
+    key: "string-converter",
+    icon: "🔤",
+    title: "String Case Converter",
+    desc: "Transform your text into different cases",
+    category: "writing",
+  },
+  {
     key: "duplicate-sentence",
     icon: "📝",
     title: "Duplicate Sentence Generator",

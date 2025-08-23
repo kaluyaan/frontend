@@ -2,9 +2,9 @@
 
 // pages/index.tsx or app/page.tsx (depending on your Next.js version)
 import { useState } from "react";
-import Header from "../../components/ai-writer/Header";
+import Header from "../../components/shared/Header";
 import SettingsPanel from "../../components/ai-writer/SettingsPanel";
-import TextInput from "../../components/ai-writer/TextInput";
+import TextInput from "../../components/shared/TextInput";
 import ConvertButton from "../../components/ai-writer/ConvertButton";
 import TextOutput from "../../components/ai-writer/TextOutput";
 import StatsDisplay from "../../components/ai-writer/StatsDisplay";
@@ -51,7 +51,10 @@ export default function Home() {
   return (
     <div className={homeStyle.container}>
       <main className={homeStyle.mainContent}>
-        <Header />
+        <Header
+          title="🤖➡️👤 AI to Human Text Converter"
+          text="Transform AI-generated text into natural, human-like content"
+        />
 
         {isLoading ? (
           <>
@@ -59,6 +62,8 @@ export default function Home() {
               disabled={true}
               value={inputText}
               onChange={setInputText}
+              title="Input Text (AI-generated)"
+              placeholder="Paste your AI-generated text here..."
             />
             <LoadingSpinner isVisible={isLoading} />
           </>
@@ -72,6 +77,8 @@ export default function Home() {
               disabled={false}
               value={inputText}
               onChange={setInputText}
+              title="Input Text (AI-generated)"
+              placeholder="Paste your AI-generated text here..."
             />
             <ConvertButton onClick={handleConvert} disabled={isLoading} />
           </>
