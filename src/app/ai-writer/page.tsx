@@ -2,7 +2,7 @@
 
 // pages/index.tsx or app/page.tsx (depending on your Next.js version)
 import { useState } from "react";
-import Header from "../../components/shared/Header";
+import HeroSection from "../../components/shared/HeroSection";
 import SettingsPanel from "../../components/ai-writer/SettingsPanel";
 import TextInput from "../../components/shared/TextInput";
 import ConvertButton from "../../components/ai-writer/ConvertButton";
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className={homeStyle.container}>
       <main className={homeStyle.mainContent}>
-        <Header
+        <HeroSection
           title="🤖➡️👤 AI to Human Text Converter"
           text="Transform AI-generated text into natural, human-like content"
         />
