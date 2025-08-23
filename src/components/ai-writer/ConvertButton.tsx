@@ -1,5 +1,5 @@
 // components/ConvertButton.tsx
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from '../../app/ai-writer/page.module.css'
 
 interface ConvertButtonProps {
   onClick: () => void;

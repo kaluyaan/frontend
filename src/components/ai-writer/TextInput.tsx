@@ -1,6 +1,6 @@
 // components/TextInput.tsx
 import { useEffect, useRef } from 'react';
-import styles from '../../app/styles/aiwriter.module.css'
+import styles from '../../app/ai-writer/page.module.css'
 
 interface TextInputProps {
   value: string;

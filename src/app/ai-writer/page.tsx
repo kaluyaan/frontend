@@ -11,7 +11,7 @@ import StatsDisplay from '../../components/ai-writer/StatsDisplay';
 import LoadingSpinner from '../../components/ai-writer/LoadingSpinner';
 import { humanizeText } from '../../lib/textHumanizer';
 import { HumanizationOptions, Stats } from '../../types';
-import styles from '../styles/aiwriter.module.css'
+import styles from './page.module.css'
 
 export default function Home() {
   const [inputText, setInputText] = useState('');
