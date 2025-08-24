@@ -6,7 +6,7 @@ import {
   FooterTerms,
   FooterText,
   UtilityTools,
-} from "@/app/config/constants/footerConstants";
+} from "@/config/constants/footerConstants";
 
 function Footer() {
   return (

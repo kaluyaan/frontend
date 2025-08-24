@@ -4,7 +4,7 @@ import styles from "./home.module.css";
 import {
   HeroText,
   HeroTitle,
-} from "@/app/config/constants/homeConstants";
+} from "@/config/constants/homeConstants";
 import Footer from "../shared/Footer/Footer";
 import ToolsList from "../ToolsList/ToolsList";
 import ContentLayout from "../ContentLayout/ContentLayout";

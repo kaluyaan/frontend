@@ -1,7 +1,7 @@
 import React from "react";
 import FunSidebarDesigns from "./FunZone";
 import styles from "./HomeFunzone.module.css";
-import { seoKeywords } from "@/app/config/constants/funzoneConstants";
+import { seoKeywords } from "@/config/constants/funzoneConstants";
 
 function ContentLayout() {
   return (

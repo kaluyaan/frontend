@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./Header.module.css"; // Assuming you have a CSS module for styles
-import { HeaderLinks } from "@/app/config/constants/homeConstants";
+import { HeaderLinks } from "@/config/constants/homeConstants";
 
 const toggleLanguage = (): void => {
   alert("Language menu would open here");
