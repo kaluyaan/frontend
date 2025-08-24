@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css"; // Assuming you have a CSS module for styles
-import { HeaderLinks } from "@/app/config/constants/homeConstants";
+import { HeaderLinks } from "@/config/constants/homeConstants";
 import NavigationMobileView from "./NavigationMobileView";
 import Link from "next/link";
 

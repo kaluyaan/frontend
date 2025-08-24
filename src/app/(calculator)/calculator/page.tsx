@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import styles from './shared.module.css';
+import styles from '../shared.module.css';
 
 function TimeCalculatorHub() {
   const categories = [
