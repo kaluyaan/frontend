@@ -84,8 +84,20 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+.sectionWrapper {
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* every heading use this class */
-.heroTitle { 
+.heroTitle {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -223,7 +235,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.dateInput{
+.dateInput {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.5rem;

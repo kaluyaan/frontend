@@ -3,17 +3,18 @@
 import React from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import  { Dayjs } from "dayjs";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import moment, { Moment } from "moment";
 import { TextFieldProps } from "@mui/material";
+import homeStyle from "../../../components/Home/home.module.css";
 
 interface DatePickerFieldProps {
   label?: string;
-  selectedDate: Dayjs | null;
-  onChange: (date: Dayjs | null) => void;
+  selectedDate: Moment | null;
+  onChange: (date: Moment | null) => void;
   required?: boolean;
-  minDate?: Dayjs;
-  maxDate?: Dayjs;
+  minDate?: Moment;
+  maxDate?: Moment;
   error?: string;
 }
 
@@ -29,26 +30,29 @@ const DatePickerField: React.FC<DatePickerFieldProps> = ({
   const showError = (required && !selectedDate) || Boolean(error);
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label={label}
-        value={selectedDate}
-        onChange={onChange}
-        minDate={minDate}
-        maxDate={maxDate}
-        format="DD/MM/YYYY"
-        slotProps={{
-          textField: {
-            fullWidth: true,
-            error: showError,
-            helperText:
-              required && !selectedDate
-                ? "This field is required"
-                : error || "",
-          } as TextFieldProps,
-        }}
-      />
-    </LocalizationProvider>
+    <section className={homeStyle.sectionWrapper}>
+      <h3 className={homeStyle.normalTitle}>{label}</h3>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <DatePicker
+          label=""
+          value={selectedDate}
+          onChange={onChange}
+          minDate={minDate}
+          maxDate={maxDate}
+          format="DD/MM/YYYY"
+          slotProps={{
+            textField: {
+              fullWidth: true,
+              error: showError,
+              helperText:
+                required && !selectedDate
+                  ? "This field is required"
+                  : error || "",
+            } as TextFieldProps,
+          }}
+        />
+      </LocalizationProvider>
+    </section>
   );
 };
 

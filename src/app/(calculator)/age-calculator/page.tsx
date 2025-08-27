@@ -6,7 +6,9 @@ import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import DatePickerField from "@/components/shared/DatePicker/DatePicker";
-import dayjs, { Dayjs } from "dayjs";
+import moment, { Moment } from "moment";
+import ConvertButton from "@/components/ai-writer/ConvertButton";
+import LoadingSpinner from "@/components/ai-writer/LoadingSpinner";
 
 interface AgeResult {
   years: number;
@@ -22,59 +24,69 @@ interface AgeResult {
 }
 
 function AgeCalculator() {
-  const [birthDate, setBirthDate] = useState<Dayjs | null>(null);
+  const [birthDate, setBirthDate] = useState<Moment | null>(null);
   const [result, setResult] = useState<AgeResult | null>(null);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const calculateAge = () => {
-  if (!birthDate) {
-    setError("Please enter your birth date");
-    return;
-  }
+    setIsLoading(true);
+    if (!birthDate) {
+      setError("Please enter your birth date");
+      setIsLoading(false);
+      return;
+    }
 
-  const now = dayjs();
+    const now = moment();
 
-  if (!birthDate.isValid()) {
-    setError("Please enter a valid date");
-    return;
-  }
+    if (!birthDate.isValid()) {
+      setError("Please enter a valid date");
+      setIsLoading(false);
+      return;
+    }
+    console.log("birthDate", birthDate);
+    if (birthDate.isAfter(now)) {
+      setError("Birth date cannot be in the future");
+      setIsLoading(false);
+      return;
+    }
 
-  if (birthDate.isAfter(now)) {
-    setError("Birth date cannot be in the future");
-    return;
-  }
+    // Years, months, days
+    const years = now.diff(birthDate, "year");
+    const months = now.diff(birthDate.clone().add(years, "year"), "month");
+    const days = now.diff(
+      birthDate.clone().add(years, "year").add(months, "month"),
+      "day"
+    );
 
-  // Years, months, days
-  const years = now.diff(birthDate, "year");
-  const months = now.diff(birthDate.add(years, "year"), "month");
-  const days = now.diff(birthDate.add(years, "year").add(months, "month"), "day");
+    console.log("years, months, days", years, months, days);
 
-  // Totals
-  const totalDays = now.diff(birthDate, "day");
-  const totalWeeks = Math.floor(totalDays / 7);
-  const totalMonths = now.diff(birthDate, "month");
-  const totalHours = now.diff(birthDate, "hour");
-  const totalMinutes = now.diff(birthDate, "minute");
+    // Totals
+    const totalDays = now.diff(birthDate, "day");
+    const totalWeeks = Math.floor(totalDays / 7);
+    const totalMonths = now.diff(birthDate, "month");
+    const totalHours = now.diff(birthDate, "hour");
+    const totalMinutes = now.diff(birthDate, "minute");
 
-  // Next birthday
-  const nextBirthday = birthDate.add(years + 1, "year");
-  const daysUntilBirthday = nextBirthday.diff(now, "day");
+    // Next birthday
+    const nextBirthday = birthDate.clone().add(years + 1, "year");
+    const daysUntilBirthday = nextBirthday.diff(now, "day");
 
-  setResult({
-    years,
-    months,
-    days,
-    totalDays,
-    totalWeeks,
-    totalMonths,
-    totalHours,
-    totalMinutes,
-    daysUntilBirthday,
-    nextBirthday: nextBirthday.format("MMMM D, YYYY"),
-  });
-  setError("");
-};
-
+    setResult({
+      years,
+      months,
+      days,
+      totalDays,
+      totalWeeks,
+      totalMonths,
+      totalHours,
+      totalMinutes,
+      daysUntilBirthday,
+      nextBirthday: nextBirthday.format("MMMM D, YYYY"),
+    });
+    setError("");
+    setIsLoading(false);
+  };
 
   return (
     <div className={homeStyle.container}>
@@ -92,22 +104,25 @@ function AgeCalculator() {
           text="Calculate your exact age in years, months, and days. Get detailed statistics including total days, weeks, months, hours, and minutes since birth."
         />
 
-        <div className={styles.inputGroup}>
-          <label className={styles.label}>Enter your birth date:</label> 
-          <DatePickerField
-            label=""
-            selectedDate={birthDate}
-            onChange={setBirthDate}
-            required
-            minDate={dayjs().subtract(100, "year")}
-            maxDate={dayjs()}
-            error={error}
-          />
-        </div>
+        <DatePickerField
+          label="Enter your birth date:"
+          selectedDate={birthDate}
+          onChange={setBirthDate}
+          required
+          minDate={moment().subtract(100, "year")}
+          maxDate={moment()}
+          error={error}
+        />
 
-        <button onClick={calculateAge} className={styles.button}>
-          Calculate Age
-        </button>
+        {isLoading ? (
+          <LoadingSpinner isVisible={isLoading} text={"Loading....."} />
+        ) : (
+          <ConvertButton
+            onClick={calculateAge}
+            disabled={isLoading}
+            label={"Calculate Age"}
+          />
+        )}
 
         {error && <div className={styles.errorMessage}>{error}</div>}
 
@@ -137,13 +152,24 @@ function AgeCalculator() {
           </div>
         )}
 
-        <div className={styles.infoCard}>
+        <section className={homeStyle.sectionWrapper}>
+      <h3 className={homeStyle.normalTitle}>How it works</h3>
+
+      <p className={homeStyle.normalText}>
+        This calculator determines your exact age by calculating the
+        difference between your birth date and today's date. It provides
+        detailed statistics including total days lived, weeks, months,
+        hours, and minutes since birth.
+      </p>
+    </section>
+
+        {/* <div className={styles.infoCard}>
           <div className={styles.infoTitle}>How it works</div>
           <div className={styles.infoText}>
             {`This calculator determines your exact age by calculating the difference between your birth date and today's date. 
             It provides detailed statistics including total days lived, weeks, months, hours, and minutes since birth.`}
           </div>
-        </div>
+        </div> */}
       </main>
     </div>
   );
