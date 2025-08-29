@@ -1,8 +1,7 @@
 // components/TextInput.tsx
-import { useEffect, useRef } from 'react';
-import styles from '../../app/ai-writer/page.module.css'
+import { useEffect, useRef } from "react";
+import styles from "../../app/ai-writer/page.module.css";
 import homeStyle from "../../components/Home/home.module.css";
-
 
 interface TextInputProps {
   value: string;
@@ -12,24 +11,30 @@ interface TextInputProps {
   placeholder: string;
 }
 
-const TextInput = ({ disabled = false,value, onChange, title, placeholder }: TextInputProps) => {
+const TextInput = ({
+  disabled = false,
+  value,
+  onChange,
+  title,
+  placeholder,
+}: TextInputProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
       const handleInput = () => {
-        textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px';
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
       };
 
-      textarea.addEventListener('input', handleInput);
-      
+      textarea.addEventListener("input", handleInput);
+
       // Initial height adjustment
       handleInput();
 
       return () => {
-        textarea.removeEventListener('input', handleInput);
+        textarea.removeEventListener("input", handleInput);
       };
     }
   }, []);
@@ -44,6 +49,7 @@ const TextInput = ({ disabled = false,value, onChange, title, placeholder }: Tex
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        rows={3}
       />
     </div>
   );

@@ -4,9 +4,10 @@ import homeStyle from "../../components/Home/home.module.css";
 interface ConvertButtonProps {
   onClick: () => void;
   disabled?: boolean;
+  label?: string;
 }
 
-const ConvertButton = ({ onClick, disabled = false }: ConvertButtonProps) => {
+const ConvertButton = ({ onClick, disabled = false, label = "🔄 Humanize Text" }: ConvertButtonProps) => {
   return (
     <div className={homeStyle.buttonContainer}>
       <button 
@@ -14,7 +15,7 @@ const ConvertButton = ({ onClick, disabled = false }: ConvertButtonProps) => {
         onClick={onClick}
         disabled={disabled}
       >
-        🔄 Humanize Text
+        {label}
       </button>
     </div>
   );

@@ -52,7 +52,8 @@ export default function Home() {
     <div className={homeStyle.container}>
       <main className={homeStyle.mainContent}>
         <HeroSection
-          title="🤖➡️👤 AI to Human Text Converter"
+          icon={"🤖"}
+          title="➡️👤 AI to Human Text Converter"
           text="Transform AI-generated text into natural, human-like content"
         />
 

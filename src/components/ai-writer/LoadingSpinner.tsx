@@ -5,15 +5,16 @@ import homeStyle from "../../components/Home/home.module.css";
 
 interface LoadingSpinnerProps {
   isVisible: boolean;
+  text?: string;
 }
 
-const LoadingSpinner = ({ isVisible }: LoadingSpinnerProps) => {
+const LoadingSpinner = ({ isVisible,text =  "Humanizing your text..."}: LoadingSpinnerProps) => {
   if (!isVisible) return null;
 
   return (
     <div className={styles.loading}>
       <div className={styles.spinner}></div>
-      <p className={homeStyle.reverseTitle}>Humanizing your text...</p>
+      <p className={homeStyle.reverseTitle}>{text}</p>
     </div>
   );
 };

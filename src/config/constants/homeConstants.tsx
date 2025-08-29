@@ -14,6 +14,13 @@ export const toolsList = [
     category: "writing",
   },
   {
+    key: "age-calculator",
+    icon: "📅",
+    title: "Age Calculator",
+    desc: "Calculate age, days, months, and years between dates",
+    category: "calculator",
+  },
+  {
     key: "duplicate-sentence",
     icon: "📝",
     title: "Duplicate Sentence Generator",

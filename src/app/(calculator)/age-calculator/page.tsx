@@ -1,10 +1,15 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import moment from 'moment';
-import Link from 'next/link';
-import styles from '../shared.module.css';
-import Navigation from '../Navigation';
+import React, { useState } from "react";
+import styles from "../shared.module.css";
+// import Navigation from '../Navigation';
+import homeStyle from "../../../components/Home/home.module.css";
+import HeroSection from "@/components/shared/HeroSection";
+import DatePickerField from "@/components/shared/DatePicker/DatePicker";
+import moment, { Moment } from "moment";
+import ConvertButton from "@/components/ai-writer/ConvertButton";
+import LoadingSpinner from "@/components/ai-writer/LoadingSpinner";
+
 interface AgeResult {
   years: number;
   months: number;
@@ -18,43 +23,54 @@ interface AgeResult {
   nextBirthday: string;
 }
 
-
 function AgeCalculator() {
-  const [birthDate, setBirthDate] = useState('');
+  const [birthDate, setBirthDate] = useState<Moment | null>(null);
   const [result, setResult] = useState<AgeResult | null>(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const calculateAge = () => {
+    setIsLoading(true);
     if (!birthDate) {
-      setError('Please enter your birth date');
+      setError("Please enter your birth date");
+      setIsLoading(false);
       return;
     }
 
-    const birth = moment(birthDate);
     const now = moment();
 
-    if (!birth.isValid()) {
-      setError('Please enter a valid date');
+    if (!birthDate.isValid()) {
+      setError("Please enter a valid date");
+      setIsLoading(false);
+      return;
+    }
+    console.log("birthDate", birthDate);
+    if (birthDate.isAfter(now)) {
+      setError("Birth date cannot be in the future");
+      setIsLoading(false);
       return;
     }
 
-    if (birth.isAfter(now)) {
-      setError('Birth date cannot be in the future');
-      return;
-    }
+    // Years, months, days
+    const years = now.diff(birthDate, "year");
+    const months = now.diff(birthDate.clone().add(years, "year"), "month");
+    const days = now.diff(
+      birthDate.clone().add(years, "year").add(months, "month"),
+      "day"
+    );
 
-    const years = now.diff(birth, 'years');
-    const months = now.diff(birth, 'months') % 12;
-    const days = now.diff(birth.clone().add(years, 'years').add(months, 'months'), 'days');
-    
-    const totalDays = now.diff(birth, 'days');
+    console.log("years, months, days", years, months, days);
+
+    // Totals
+    const totalDays = now.diff(birthDate, "day");
     const totalWeeks = Math.floor(totalDays / 7);
-    const totalMonths = now.diff(birth, 'months');
-    const totalHours = now.diff(birth, 'hours');
-    const totalMinutes = now.diff(birth, 'minutes');
+    const totalMonths = now.diff(birthDate, "month");
+    const totalHours = now.diff(birthDate, "hour");
+    const totalMinutes = now.diff(birthDate, "minute");
 
-    const nextBirthday = birth.clone().add(years + 1, 'years');
-    const daysUntilBirthday = nextBirthday.diff(now, 'days');
+    // Next birthday
+    const nextBirthday = birthDate.clone().add(years + 1, "year");
+    const daysUntilBirthday = nextBirthday.diff(now, "day");
 
     setResult({
       years,
@@ -66,42 +82,49 @@ function AgeCalculator() {
       totalHours,
       totalMinutes,
       daysUntilBirthday,
-      nextBirthday: nextBirthday.format('MMMM Do, YYYY')
+      nextBirthday: nextBirthday.format("MMMM D, YYYY"),
     });
-    setError('');
+    setError("");
+    setIsLoading(false);
   };
 
   return (
-    <div className={styles.container}>
-      <Link href="/time-calculator">
+    <div className={homeStyle.container}>
+      {/* <Link href="/time-calculator">
         <button className={styles.backButton}>← Back</button>
       </Link>
-      <Navigation currentPath="/time-calculator/age-calculator" />
-      
-      <div className={styles.calculatorCard}>
-        <h1 className={styles.title}>Age Calculator</h1>
-        <p className={styles.subtitle}>Calculate your exact age and get detailed statistics</p>
+      <Navigation currentPath="/time-calculator/age-calculator" /> */}
 
-        <div className={styles.inputGroup}>
-          <label className={styles.label}>Enter your birth date:</label>
-          <input
-            type="date"
-            value={birthDate}
-            onChange={(e) => setBirthDate(e.target.value)}
-            className={styles.input}
-            max={moment().format('YYYY-MM-DD')}
+      <main className={homeStyle.mainContent}>
+        {/* <h1 className={styles.title}>Age Calculator</h1>
+        <p className={styles.subtitle}>Calculate your exact age and get detailed statistics</p> */}
+
+        <HeroSection
+          title="Age Calculator"
+          text="Calculate your exact age in years, months, and days. Get detailed statistics including total days, weeks, months, hours, and minutes since birth."
+        />
+
+        <DatePickerField
+          label="Enter your birth date:"
+          selectedDate={birthDate}
+          onChange={setBirthDate}
+          required
+          minDate={moment().subtract(100, "year")}
+          maxDate={moment()}
+          error={error}
+        />
+
+        {isLoading ? (
+          <LoadingSpinner isVisible={isLoading} text={"Loading....."} />
+        ) : (
+          <ConvertButton
+            onClick={calculateAge}
+            disabled={isLoading}
+            label={"Calculate Age"}
           />
-        </div>
-
-        <button onClick={calculateAge} className={styles.button}>
-          Calculate Age
-        </button>
-
-        {error && (
-          <div className={styles.errorMessage}>
-            {error}
-          </div>
         )}
+
+        {error && <div className={styles.errorMessage}>{error}</div>}
 
         {result && (
           <div className={styles.resultCard}>
@@ -122,19 +145,32 @@ function AgeCalculator() {
         {result && (
           <div className={styles.countdownCard}>
             <div className={styles.resultTitle}>Next Birthday</div>
-            <div className={styles.countdownNumber}>{result.daysUntilBirthday}</div>
+            <div className={styles.countdownNumber}>
+              {result.daysUntilBirthday}
+            </div>
             <div>days until {result.nextBirthday}</div>
           </div>
         )}
 
-        <div className={styles.infoCard}>
+        <section className={homeStyle.sectionWrapper}>
+      <h3 className={homeStyle.normalTitle}>How it works</h3>
+
+      <p className={homeStyle.normalText}>
+       {`This calculator determines your exact age by calculating the
+        difference between your birth date and today's date. It provides
+        detailed statistics including total days lived, weeks, months,
+        hours, and minutes since birth.`}
+      </p>
+    </section>
+
+        {/* <div className={styles.infoCard}>
           <div className={styles.infoTitle}>How it works</div>
           <div className={styles.infoText}>
             {`This calculator determines your exact age by calculating the difference between your birth date and today's date. 
             It provides detailed statistics including total days lived, weeks, months, hours, and minutes since birth.`}
           </div>
-        </div>
-      </div>
+        </div> */}
+      </main>
     </div>
   );
 }
