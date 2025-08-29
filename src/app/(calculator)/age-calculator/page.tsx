@@ -162,14 +162,6 @@ function AgeCalculator() {
         hours, and minutes since birth.`}
           </p>
         </section>
-
-        {/* <div className={styles.infoCard}>
-          <div className={styles.infoTitle}>How it works</div>
-          <div className={styles.infoText}>
-            {`This calculator determines your exact age by calculating the difference between your birth date and today's date. 
-            It provides detailed statistics including total days lived, weeks, months, hours, and minutes since birth.`}
-          </div>
-        </div> */}
       </main>
     </div>
   );
