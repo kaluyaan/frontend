@@ -153,15 +153,15 @@ function AgeCalculator() {
         )}
 
         <section className={homeStyle.sectionWrapper}>
-      <h3 className={homeStyle.normalTitle}>How it works</h3>
+          <h3 className={homeStyle.normalTitle}>How it works</h3>
 
-      <p className={homeStyle.normalText}>
-       {`This calculator determines your exact age by calculating the
+          <p className={homeStyle.normalText}>
+            {`This calculator determines your exact age by calculating the
         difference between your birth date and today's date. It provides
         detailed statistics including total days lived, weeks, months,
         hours, and minutes since birth.`}
-      </p>
-    </section>
+          </p>
+        </section>
 
         {/* <div className={styles.infoCard}>
           <div className={styles.infoTitle}>How it works</div>

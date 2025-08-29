@@ -34,6 +34,14 @@ export const toolsList = [
     desc: "World clock with multiple time zones and formats",
     category: "productivity",
   },
+
+  {
+    key: "birthday-countdown",
+    icon: "🎉",
+    title: "Birthday Countdown",
+    desc: "Countdown to your next birthday with live updates",
+    category: "calculator",
+  },
   // ****************************
   {
     key: "love-calculator",
