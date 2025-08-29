@@ -28,6 +28,22 @@ export const toolsList = [
     category: "writing",
   },
   {
+    key: "clock-time",
+    icon: "🕐",
+    title: "Clock & Time",
+    desc: "World clock with multiple time zones and formats",
+    category: "productivity",
+  },
+  // ****************************
+  {
+    key: "love-calculator",
+    icon: "💕",
+    title: "Love Calculator",
+    desc: "Calculate compatibility between two names or partners",
+    category: "calculator",
+  },
+
+  {
     key: "sentence-compare",
     icon: "⚖️",
     title: "Sentence Compare",
@@ -41,20 +57,7 @@ export const toolsList = [
     desc: "Check content for plagiarism and AI-generated text",
     category: "writing",
   },
-  {
-    key: "age-calculator",
-    icon: "📅",
-    title: "Age Calculator",
-    desc: "Calculate age, days, months, and years between dates",
-    category: "calculator",
-  },
-  {
-    key: "love-calculator",
-    icon: "💕",
-    title: "Love Calculator",
-    desc: "Calculate compatibility between two names or partners",
-    category: "calculator",
-  },
+
   {
     key: "relationship-calculator",
     icon: "💖",
@@ -83,13 +86,7 @@ export const toolsList = [
     desc: "Timer, calendar, scheduler, and mailer in one tool",
     category: "productivity",
   },
-  {
-    key: "clock-time",
-    icon: "🕐",
-    title: "Clock & Time",
-    desc: "World clock with multiple time zones and formats",
-    category: "productivity",
-  },
+
   {
     key: "countdown",
     icon: "⏰",
