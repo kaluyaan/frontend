@@ -58,6 +58,13 @@ export const toolsList = [
     desc: "Get accurate sunrise and sunset times for any location",
     category: "calculator",
   },
+  {
+    key: "moon-phase",
+    icon: "🌙",
+    title: "Moon Phase Calculator",
+    desc: "Calculate the current moon phase and its illumination.",
+    category: "calculator",
+  },
 
   // ****************************
   {
