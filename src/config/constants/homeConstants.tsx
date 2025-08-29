@@ -42,6 +42,15 @@ export const toolsList = [
     desc: "Countdown to your next birthday with live updates",
     category: "calculator",
   },
+
+  {
+    key: "time-percentage",
+    icon: "⏳",
+    title: "Time Percentage",
+    desc: "Calculate the percentage of time elapsed between two dates",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
