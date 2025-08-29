@@ -1,0 +1,182 @@
+.container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 20px;
+  border: 2px solid #e1e5e9;
+  background: white;
+  color: #666 !important;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #4facfe;
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.slider {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #7b5cff, #4fc3f7); /* Purple → Blue gradient */
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider:hover {
+  background: linear-gradient(90deg, #9d7dff, #6fdcff); /* Lighter on hover */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #7b5cff); /* Subtle gradient thumb */
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(123, 92, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(123, 92, 255, 0.6);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #7b5cff);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(123, 92, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(123, 92, 255, 0.6);
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.select {
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #666; /* Soft white with purple tint */
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #7b5cff; /* Purple accent to match header */
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.25);
+}
+
+.select option {
+  background: #4a3f78; /* Muted purple background */
+  color: #e0e7ff; /* Soft light text */
+}
+
+.select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #4fc3f7; /* Light blue highlight */
+}
+
+
+.generateBtn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(79, 195, 247, 0.3);
+}
+
+.generateBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 195, 247, 0.4);
+  background: linear-gradient(135deg, #29b6f6 0%, #0288d1 100%);
+}
+
+.generateBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

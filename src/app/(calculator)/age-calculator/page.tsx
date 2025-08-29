@@ -156,10 +156,10 @@ function AgeCalculator() {
       <h3 className={homeStyle.normalTitle}>How it works</h3>
 
       <p className={homeStyle.normalText}>
-        This calculator determines your exact age by calculating the
+       {`This calculator determines your exact age by calculating the
         difference between your birth date and today's date. It provides
         detailed statistics including total days lived, weeks, months,
-        hours, and minutes since birth.
+        hours, and minutes since birth.`}
       </p>
     </section>
 

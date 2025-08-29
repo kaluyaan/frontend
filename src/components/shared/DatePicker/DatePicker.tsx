@@ -4,7 +4,7 @@ import React from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 import { TextFieldProps } from "@mui/material";
 import homeStyle from "../../../components/Home/home.module.css";
 
