@@ -263,10 +263,15 @@
 .dateInput {
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 0 12px;
+  font-size: 18px;
   width: 100%;
   box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  height: 2.5rem;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
 .extensionBtn {

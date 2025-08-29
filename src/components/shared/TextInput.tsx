@@ -9,6 +9,7 @@ interface TextInputProps {
   onChange: (value: string) => void;
   title: string;
   placeholder: string;
+  row?: number;
 }
 
 const TextInput = ({
@@ -17,6 +18,7 @@ const TextInput = ({
   onChange,
   title,
   placeholder,
+  row,
 }: TextInputProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -39,6 +41,7 @@ const TextInput = ({
     }
   }, []);
 
+  console.log("Rendered TextInput:", { row });
   return (
     <div className={styles.inputSection}>
       <div className={homeStyle.reverseTitle}>{title}</div>
@@ -49,7 +52,7 @@ const TextInput = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        rows={3}
+        rows={row || 3}
       />
     </div>
   );

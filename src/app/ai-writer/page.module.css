@@ -72,6 +72,7 @@
 .textarea {
   width: 100%;
   min-height: 200px;
+  height: auto;
   padding: 20px;
   border: 2px solid #e1e5e9;
   background: white;

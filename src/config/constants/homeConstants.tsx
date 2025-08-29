@@ -51,6 +51,14 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "sunrise-sunset",
+    icon: "🌅",
+    title: "Sunrise & Sunset",
+    desc: "Get accurate sunrise and sunset times for any location",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
@@ -82,13 +90,7 @@ export const toolsList = [
     desc: "Analyze and calculate relationship compatibility scores",
     category: "calculator",
   },
-  {
-    key: "sunrise-sunset",
-    icon: "🌅",
-    title: "Sunrise & Sunset",
-    desc: "Get accurate sunrise and sunset times for any location",
-    category: "calculator",
-  },
+
   {
     key: "todo",
     icon: "✅",
