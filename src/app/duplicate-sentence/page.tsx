@@ -8,6 +8,27 @@ import styles from "./page.module.css";
 import homeStyle from "../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 
+const features = [
+  {
+    icon: "🎯",
+    title: "Precision Control",
+    description:
+      "Adjust similarity levels from conservative to aggressive transformations",
+  },
+  {
+    icon: "🎭",
+    title: "Tone Variations",
+    description:
+      "Switch between formal, casual, and professional writing styles",
+  },
+  {
+    icon: "📚",
+    title: "Rich Dictionary",
+    description:
+      "Powered by comprehensive synonym database for natural variations",
+  },
+];
+
 export default function DuplicateSentencePage() {
   const [results, setResults] = useState<string[]>([]);
   const [originalSentence, setOriginalSentence] = useState("");
@@ -70,28 +91,13 @@ export default function DuplicateSentencePage() {
         </div>
 
         <div className={styles.features}>
-          <div className={styles.feature}>
-            <div className={styles.featureIcon}>🎯</div>
-            <h3>Precision Control</h3>
-            <p>
-              Adjust similarity levels from conservative to aggressive
-              transformations
-            </p>
-          </div>
-          <div className={styles.feature}>
-            <div className={styles.featureIcon}>🎭</div>
-            <h3>Tone Variations</h3>
-            <p>
-              Switch between formal, casual, and professional writing styles
-            </p>
-          </div>
-          <div className={styles.feature}>
-            <div className={styles.featureIcon}>📚</div>
-            <h3>Rich Dictionary</h3>
-            <p>
-              Powered by comprehensive synonym database for natural variations
-            </p>
-          </div>
+          {features.map((feature, index) => (
+            <div className={styles.feature} key={index}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
         </div>
       </main>
     </div>
