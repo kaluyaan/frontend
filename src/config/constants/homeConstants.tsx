@@ -74,6 +74,14 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "custom-countdown",
+    icon: "⏳",
+    title: "Custom Countdown",
+    desc: "Create personalized countdowns for important events.",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
