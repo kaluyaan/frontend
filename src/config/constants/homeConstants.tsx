@@ -66,6 +66,14 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "pregnancy-calculator",
+    icon: "🤰",
+    title: "Pregnancy Calculator",
+    desc: "Calculate your pregnancy due date and track milestones.",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",

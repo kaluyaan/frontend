@@ -50,6 +50,8 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   background: white;
+  height: auto;
+  color: #666;
 }
 
 .input:focus {
@@ -201,12 +203,14 @@
   font-size: 1.5rem;
   font-weight: bold;
   display: block;
+  color: #4facfe;
 }
 
 .unitLabel {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-top: 5px;
+  color: #666;
 }
 
 /* Mobile responsiveness */

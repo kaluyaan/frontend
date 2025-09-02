@@ -5,7 +5,7 @@ import styles from "../shared.module.css";
 // import Navigation from '../Navigation';
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
-import DatePickerField from "@/components/shared/DatePicker/DatePicker";
+import DatePickerField from "@/components/shared/DatePicker/DatePickerWrapper";
 import moment, { Moment } from "moment";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
 import LoadingSpinner from "@/components/ai-writer/LoadingSpinner";

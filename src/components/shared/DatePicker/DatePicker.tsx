@@ -30,7 +30,7 @@ const DatePickerField: React.FC<DatePickerFieldProps> = ({
   const showError = (required && !selectedDate) || Boolean(error);
 
   return (
-    <section className={homeStyle.sectionWrapper}>
+    <>
       <h3 className={homeStyle.normalTitle}>{label}</h3>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <DatePicker
@@ -52,7 +52,7 @@ const DatePickerField: React.FC<DatePickerFieldProps> = ({
           }}
         />
       </LocalizationProvider>
-    </section>
+    </>
   );
 };
 
