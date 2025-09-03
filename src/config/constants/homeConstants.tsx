@@ -82,6 +82,14 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "business-days",
+    icon: "📅",
+    title: "Business Days Calculator",
+    desc: "Calculate business days between two dates, excluding weekends and holidays.",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
