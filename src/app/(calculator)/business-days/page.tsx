@@ -1,10 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import moment from 'moment';
-import Link from 'next/link';
-import styles from '../shared.module.css';
-import Navigation from '../../(calculator)/Navigation';
+import React, { useState } from "react";
+import moment, { Moment } from "moment";
+import Link from "next/link";
+import styles from "../shared.module.css";
+import Navigation from "../Navigation";
+import homeStyle from "../../../components/Home/home.module.css";
+import HeroSection from "@/components/shared/HeroSection";
+import DatePickerFieldWrapper from "@/components/shared/DatePicker/DatePickerWrapper";
 interface ResultType {
   totalDays: number;
   businessDays: number;
@@ -16,25 +19,24 @@ interface ResultType {
   startFormatted: string;
   endFormatted: string;
   holidayDates: string[];
-};
-
+}
 
 function BusinessDaysCalculator() {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [holidays, setHolidays] = useState(['']);
+  const [startDate, setStartDate] = useState<Moment | null>(null);
+  const [endDate, setEndDate] = useState<Moment | null>(null);
+  const [holidays, setHolidays] = useState([""]);
   const [result, setResult] = useState<ResultType | null>(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const addHoliday = () => {
-    setHolidays([...holidays, '']);
+    setHolidays([...holidays, ""]);
   };
 
-  const removeHoliday = (index:number) => {
+  const removeHoliday = (index: number) => {
     setHolidays(holidays.filter((_, i) => i !== index));
   };
 
-  const updateHoliday = (index:number, value:string) => {
+  const updateHoliday = (index: number, value: string) => {
     const updated = [...holidays];
     updated[index] = value;
     setHolidays(updated);
@@ -42,7 +44,7 @@ function BusinessDaysCalculator() {
 
   const calculateBusinessDays = () => {
     if (!startDate || !endDate) {
-      setError('Please enter both start and end dates');
+      setError("Please enter both start and end dates");
       return;
     }
 
@@ -50,20 +52,20 @@ function BusinessDaysCalculator() {
     const end = moment(endDate);
 
     if (!start.isValid() || !end.isValid()) {
-      setError('Please enter valid dates');
+      setError("Please enter valid dates");
       return;
     }
 
     if (start.isAfter(end)) {
-      setError('End date must be after start date');
+      setError("End date must be after start date");
       return;
     }
 
     // Parse holidays
     const holidayDates = holidays
-      .filter(h => h.trim())
-      .map(h => moment(h))
-      .filter(h => h.isValid());
+      .filter((h) => h.trim())
+      .map((h) => moment(h))
+      .filter((h) => h.isValid());
 
     let businessDays = 0;
     let weekends = 0;
@@ -71,30 +73,30 @@ function BusinessDaysCalculator() {
     let totalDays = 0;
 
     const current = start.clone();
-    
-    while (current.isSameOrBefore(end, 'day')) {
+
+    while (current.isSameOrBefore(end, "day")) {
       totalDays++;
-      
+
       // Check if it's a weekend (Saturday = 6, Sunday = 0)
       if (current.day() === 0 || current.day() === 6) {
         weekends++;
       }
       // Check if it's a holiday
-      else if (holidayDates.some(holiday => holiday.isSame(current, 'day'))) {
+      else if (holidayDates.some((holiday) => holiday.isSame(current, "day"))) {
         holidayCount++;
       }
       // It's a business day
       else {
         businessDays++;
       }
-      
-      current.add(1, 'day');
+
+      current.add(1, "day");
     }
 
     // Calculate business days in different scenarios
     const businessDaysExcludingHolidays = businessDays;
     const businessDaysIncludingHolidays = totalDays - weekends;
-    
+
     // Calculate weeks
     const totalWeeks = Math.floor(totalDays / 7);
     const remainingDays = totalDays % 7;
@@ -107,49 +109,45 @@ function BusinessDaysCalculator() {
       holidays: holidayCount,
       totalWeeks,
       remainingDays,
-      startFormatted: start.format('MMMM Do, YYYY'),
-      endFormatted: end.format('MMMM Do, YYYY'),
-      holidayDates: holidayDates.map(h => h.format('MMMM Do, YYYY'))
+      startFormatted: start.format("MMMM Do, YYYY"),
+      endFormatted: end.format("MMMM Do, YYYY"),
+      holidayDates: holidayDates.map((h) => h.format("MMMM Do, YYYY")),
     });
-    setError('');
+    setError("");
   };
 
   return (
-    <div className={styles.container}>
-      <Link href="/time-calculator">
-        <button className={styles.backButton}>← Back</button>
-      </Link>
-      <Navigation currentPath="/time-calculator/business-days" />
-      
-      <div className={styles.calculatorCard}>
-        <h1 className={styles.title}>Business Days Calculator</h1>
-        <p className={styles.subtitle}>Calculate working days excluding weekends and holidays</p>
+    <div className={homeStyle.container}>
+      <main className={homeStyle.mainContent}>
+        <HeroSection
+          title="Business Days Calculator"
+          text="Calculate working days excluding weekends and holidays."
+        />
 
         <div className={styles.grid}>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Start Date:</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className={styles.input}
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>End Date:</label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              className={styles.input}
-            />
-          </div>
+          <DatePickerFieldWrapper
+            label="Start Date:"
+            selectedDate={startDate}
+            onChange={setStartDate}
+            required
+            maxDate={endDate ? moment(endDate) : undefined}
+          />
+          <DatePickerFieldWrapper
+            label="End Date:"
+            selectedDate={endDate}
+            onChange={setEndDate}
+            required
+            minDate={startDate ? moment(startDate) : undefined}
+          />
         </div>
 
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: "20px" }}>
           <label className={styles.label}>Holidays (Optional):</label>
           {holidays.map((holiday, index) => (
-            <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+            <div
+              key={index}
+              style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
+            >
               <input
                 type="date"
                 value={holiday}
@@ -158,12 +156,33 @@ function BusinessDaysCalculator() {
                 style={{ flex: 1 }}
                 placeholder="Select holiday date"
               />
-              <button onClick={() => removeHoliday(index)} style={{ background: '#ff6b6b', color: 'white', border: 'none', borderRadius: '5px', padding: '8px 12px', cursor: 'pointer' }}>
+              <button
+                onClick={() => removeHoliday(index)}
+                style={{
+                  background: "#ff6b6b",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
+                  padding: "8px 12px",
+                  cursor: "pointer",
+                }}
+              >
                 Remove
               </button>
             </div>
           ))}
-          <button onClick={addHoliday} style={{ width: '100%', padding: '8px', background: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          <button
+            onClick={addHoliday}
+            style={{
+              width: "100%",
+              padding: "8px",
+              background: "#4CAF50",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
             + Add Holiday
           </button>
         </div>
@@ -172,9 +191,7 @@ function BusinessDaysCalculator() {
           Calculate Business Days
         </button>
 
-        {error && (
-          <div className={styles.errorMessage}>{error}</div>
-        )}
+        {error && <div className={styles.errorMessage}>{error}</div>}
 
         {result && (
           <div className={styles.resultCard}>
@@ -217,11 +234,11 @@ function BusinessDaysCalculator() {
           <div className={styles.infoCard}>
             <div className={styles.infoTitle}>Holidays Excluded</div>
             <div className={styles.infoText}>
-              {result.holidayDates.join(', ')}
+              {result.holidayDates.join(", ")}
             </div>
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 }
