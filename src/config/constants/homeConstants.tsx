@@ -90,6 +90,22 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "utc-converter",
+    icon: "🕒",
+    title: "UTC Converter",
+    desc: "Convert between local time and UTC (Coordinated Universal Time)",
+    category: "calculator",
+  },
+
+  {
+    key: "time-calculator",
+    icon: "⏱️",
+    title: "Time Calculator",
+    desc: "Perform various time-related calculations",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
