@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import moment, { Moment } from "moment";
-import Link from "next/link";
 import styles from "../shared.module.css";
-import Navigation from "../Navigation";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import DatePickerFieldWrapper from "@/components/shared/DatePicker/DatePickerWrapper";
+import DatePickerField from "@/components/shared/DatePicker/DatePicker";
+import ConvertButton from "@/components/ai-writer/ConvertButton";
 interface ResultType {
   totalDays: number;
   businessDays: number;
@@ -24,23 +24,23 @@ interface ResultType {
 function BusinessDaysCalculator() {
   const [startDate, setStartDate] = useState<Moment | null>(null);
   const [endDate, setEndDate] = useState<Moment | null>(null);
-  const [holidays, setHolidays] = useState([""]);
+  const [holidays, setHolidays] = useState<Moment[]>([]);
+  const [newHoliday, setNewHoliday] = useState<Moment | null>(null);
   const [result, setResult] = useState<ResultType | null>(null);
   const [error, setError] = useState("");
 
   const addHoliday = () => {
-    setHolidays([...holidays, ""]);
+    if (!newHoliday || !newHoliday.isValid()) return;
+    if (holidays.some((h) => h.isSame(newHoliday, "day"))) return;
+    setHolidays([...holidays, newHoliday.clone()]);
+    setNewHoliday(null);
   };
 
   const removeHoliday = (index: number) => {
     setHolidays(holidays.filter((_, i) => i !== index));
   };
 
-  const updateHoliday = (index: number, value: string) => {
-    const updated = [...holidays];
-    updated[index] = value;
-    setHolidays(updated);
-  };
+  // No longer needed
 
   const calculateBusinessDays = () => {
     if (!startDate || !endDate) {
@@ -62,10 +62,7 @@ function BusinessDaysCalculator() {
     }
 
     // Parse holidays
-    const holidayDates = holidays
-      .filter((h) => h.trim())
-      .map((h) => moment(h))
-      .filter((h) => h.isValid());
+    const holidayDates = holidays.filter((h) => h.isValid());
 
     let businessDays = 0;
     let weekends = 0;
@@ -141,55 +138,97 @@ function BusinessDaysCalculator() {
           />
         </div>
 
-        <div style={{ marginBottom: "20px" }}>
-          <label className={styles.label}>Holidays (Optional):</label>
-          {holidays.map((holiday, index) => (
-            <div
-              key={index}
-              style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-            >
-              <input
-                type="date"
-                value={holiday}
-                onChange={(e) => updateHoliday(index, e.target.value)}
-                className={styles.input}
-                style={{ flex: 1 }}
-                placeholder="Select holiday date"
+        <section className={homeStyle.sectionWrapper}>
+          <h3 className={homeStyle.normalTitle}>Holidays (Optional)</h3>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "85% 15%",
+              gap: "15px",
+              marginTop: "15px",
+            }}
+          >
+            <div>
+              <DatePickerField
+                selectedDate={newHoliday}
+                onChange={setNewHoliday}
               />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <button
-                onClick={() => removeHoliday(index)}
+                onClick={addHoliday}
                 style={{
-                  background: "#ff6b6b",
+                  background: "#4CAF50",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
-                  padding: "8px 12px",
+                  padding: "10px 16px",
                   cursor: "pointer",
+                  height: "auto",
                 }}
               >
-                Remove
+                Add Holiday
               </button>
             </div>
-          ))}
-          <button
-            onClick={addHoliday}
-            style={{
-              width: "100%",
-              padding: "8px",
-              background: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            + Add Holiday
-          </button>
-        </div>
+          </div>
+          {holidays.length > 0 && (
+            <div style={{ marginTop: "10px" }}>
+              {holidays.map((holiday, index) => {
+                const dateObj = moment(holiday);
+                const formatted = dateObj.isValid()
+                  ? `${dateObj.format("MMMM Do, YYYY")} (${dateObj.format(
+                      "dddd"
+                    )})`
+                  : holiday;
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      marginBottom: "8px",
+                      background: "#f7f7fa",
+                      borderRadius: "5px",
+                      padding: "8px 12px",
+                    }}
+                  >
+                    <span style={{ flex: 1 }}>
+                      {typeof formatted === "string"
+                        ? formatted
+                        : formatted.toString()}
+                    </span>
+                    <button
+                      onClick={() => removeHoliday(index)}
+                      style={{
+                        background: "#ff6b6b",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "5px",
+                        padding: "6px 10px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
 
-        <button onClick={calculateBusinessDays} className={styles.button}>
-          Calculate Business Days
-        </button>
+        <ConvertButton
+          onClick={calculateBusinessDays}
+          disabled={false}
+          label={"Calculate Business Days"}
+        />
 
         {error && <div className={styles.errorMessage}>{error}</div>}
 
