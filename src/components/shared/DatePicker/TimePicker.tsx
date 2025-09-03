@@ -1,51 +1,51 @@
 "use client";
 
 import React from "react";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { Moment } from "moment";
 import { TextFieldProps } from "@mui/material";
 import homeStyle from "../../../components/Home/home.module.css";
 
-interface DatePickerFieldProps {
+interface TimePickerFieldProps {
   label?: string;
-  selectedDate: Moment | null;
-  onChange: (date: Moment | null) => void;
+  selectedTime: Moment | null;
+  onChange: (time: Moment | null) => void;
   required?: boolean;
-  minDate?: Moment;
-  maxDate?: Moment;
+  minTime?: Moment;
+  maxTime?: Moment;
   error?: string;
 }
 
-const DatePickerField: React.FC<DatePickerFieldProps> = ({
+const TimePickerField: React.FC<TimePickerFieldProps> = ({
   label,
-  selectedDate,
+  selectedTime,
   onChange,
   required = false,
-  minDate,
-  maxDate,
+  minTime,
+  maxTime,
   error,
 }) => {
-  const showError = (required && !selectedDate) || Boolean(error);
+  const showError = (required && !selectedTime) || Boolean(error);
 
   return (
     <>
       <h3 className={homeStyle.normalTitle}>{label}</h3>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-        <DatePicker
+        <TimePicker
           label=""
-          value={selectedDate}
+          value={selectedTime}
           onChange={onChange}
-          minDate={minDate}
-          maxDate={maxDate}
-          format="DD/MM/YYYY"
+          minTime={minTime}
+          maxTime={maxTime}
+          ampm={true} // change to false for 24-hour format
           slotProps={{
             textField: {
               fullWidth: true,
               error: showError,
               helperText:
-                required && !selectedDate
+                required && !selectedTime
                   ? "This field is required"
                   : error || "",
             } as TextFieldProps,
@@ -56,4 +56,4 @@ const DatePickerField: React.FC<DatePickerFieldProps> = ({
   );
 };
 
-export default DatePickerField;
+export default TimePickerField;
