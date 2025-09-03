@@ -7,6 +7,7 @@ import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import DatePickerField from "../../../components/shared/DatePicker/DatePicker";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
+import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 
 interface Milestone {
   week: number;
@@ -131,17 +132,16 @@ function PregnancyCalculator() {
 
         <section className={homeStyle.sectionWrapper}>
           <div className={styles.inputGroup}>
-            <label className={homeStyle.normalTitle}>Calculation Method:</label>
-            <select
+            <CustomSelectField
+              label="Calculation Method:"
+              options={[
+                { label: "Last Menstrual Period (LMP)", value: "lmp" },
+                { label: "Conception Date", value: "conception" },
+              ]}
               value={calculationType}
-              onChange={(e) => setCalculationType(e.target.value)}
-              className={styles.input}
-            >
-              <option value="lmp">Last Menstrual Period (LMP)</option>
-              <option value="conception">Conception Date</option>
-            </select>
+              onChange={setCalculationType}
+            />
           </div>
-
           {calculationType === "lmp" ? (
             <>
               <div className={styles.inputGroup}>
