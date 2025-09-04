@@ -8,6 +8,7 @@ import ConvertButton from "@/components/ai-writer/ConvertButton";
 import HeroSection from "@/components/shared/HeroSection";
 import DatePickerField from "@/components/shared/DatePicker/DatePicker";
 import TimePickerField from "@/components/shared/DatePicker/TimePicker";
+import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 
 interface DateTimeOperationResult {
   originalDateTime: string; // "DD-MM-YYYY HH:mm"
@@ -105,16 +106,17 @@ function DateTimeCalculator() {
               />
             </div>
           </div>
-          <div className={styles.inputGroup} style={{ marginTop: "20px" }}>
-            <h3 className={homeStyle.normalTitle}>Operation:</h3>
-            <select
+
+          <div className={styles.inputGroup}>
+            <CustomSelectField
+              label="Operation:"
+              options={[
+                { label: "Add", value: "add" },
+                { label: "Subtract", value: "subtract" },
+              ]}
               value={operation}
-              onChange={(e) => setOperation(e.target.value)}
-              className={styles.input}
-            >
-              <option value="add">Add</option>
-              <option value="subtract">Subtract</option>
-            </select>
+              onChange={setOperation}
+            />
           </div>
 
           <div className={styles.grid}>

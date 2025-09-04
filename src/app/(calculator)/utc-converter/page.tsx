@@ -7,6 +7,7 @@ import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import DateTimePickerField from "@/components/shared/DatePicker/DateTimePicker";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
+import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 
 interface TimeConversionResult {
   inputTime: string;
@@ -88,56 +89,53 @@ function UTCConverter() {
               marginTop: "20px",
             }}
           >
-            <div>
-              <h3 className={homeStyle.normalTitle}>Conversion Type:</h3>
-
-              <select
+            <div className={styles.inputGroup}>
+              <CustomSelectField
+                label="Conversion Type:"
+                options={[
+                  { label: "Local Time → UTC", value: "toUTC" },
+                  { label: "UTC → Local Time", value: "fromUTC" },
+                ]}
                 value={conversionType}
-                onChange={(e) => setConversionType(e.target.value)}
-                className={styles.input}
-              >
-                <option value="toUTC">Local Time → UTC</option>
-                <option value="fromUTC">UTC → Local Time</option>
-              </select>
+                onChange={setConversionType}
+              />
             </div>
-            <div>
-              <h3 className={homeStyle.normalTitle}>
-                Local Time Zone Offset (hours from UTC):
-              </h3>
 
-              <select
+            <div className={styles.inputGroup}>
+              <CustomSelectField
+                label="Local Time Zone Offset (hours from UTC):"
+                options={[
+                  { label: "UTC-12 (Baker Island)", value: "-12" },
+                  { label: "UTC-11 (American Samoa)", value: "-11" },
+                  { label: "UTC-10 (Hawaii)", value: "-10" },
+                  { label: "UTC-9 (Alaska)", value: "-9" },
+                  { label: "UTC-8 (Pacific Time)", value: "-8" },
+                  { label: "UTC-7 (Mountain Time)", value: "-7" },
+                  { label: "UTC-6 (Central Time)", value: "-6" },
+                  { label: "UTC-5 (Eastern Time)", value: "-5" },
+                  { label: "UTC-4 (Atlantic Time)", value: "-4" },
+                  { label: "UTC-3 (Argentina)", value: "-3" },
+                  { label: "UTC-2 (South Georgia)", value: "-2" },
+                  { label: "UTC-1 (Azores)", value: "-1" },
+                  { label: "UTC+0 (London, GMT)", value: "0" },
+                  { label: "UTC+1 (Paris, Berlin)", value: "1" },
+                  { label: "UTC+2 (Cairo, Athens)", value: "2" },
+                  { label: "UTC+3 (Moscow, Istanbul)", value: "3" },
+                  { label: "UTC+4 (Dubai, Baku)", value: "4" },
+                  { label: "UTC+5 (Karachi, Tashkent)", value: "5" },
+                  { label: "UTC+5:30 (India, Sri Lanka)", value: "5.5" },
+                  { label: "UTC+6 (Dhaka, Almaty)", value: "6" },
+                  { label: "UTC+7 (Bangkok, Jakarta)", value: "7" },
+                  { label: "UTC+8 (Beijing, Singapore)", value: "8" },
+                  { label: "UTC+9 (Tokyo, Seoul)", value: "9" },
+                  { label: "UTC+9:30 (Adelaide)", value: "9.5" },
+                  { label: "UTC+10 (Sydney, Melbourne)", value: "10" },
+                  { label: "UTC+11 (Solomon Islands)", value: "11" },
+                  { label: "UTC+12 (New Zealand)", value: "12" },
+                ]}
                 value={localOffset}
-                onChange={(e) => setLocalOffset(e.target.value)}
-                className={styles.input}
-              >
-                <option value="-12">UTC-12 (Baker Island)</option>
-                <option value="-11">UTC-11 (American Samoa)</option>
-                <option value="-10">UTC-10 (Hawaii)</option>
-                <option value="-9">UTC-9 (Alaska)</option>
-                <option value="-8">UTC-8 (Pacific Time)</option>
-                <option value="-7">UTC-7 (Mountain Time)</option>
-                <option value="-6">UTC-6 (Central Time)</option>
-                <option value="-5">UTC-5 (Eastern Time)</option>
-                <option value="-4">UTC-4 (Atlantic Time)</option>
-                <option value="-3">UTC-3 (Argentina)</option>
-                <option value="-2">UTC-2 (South Georgia)</option>
-                <option value="-1">UTC-1 (Azores)</option>
-                <option value="0">UTC+0 (London, GMT)</option>
-                <option value="1">UTC+1 (Paris, Berlin)</option>
-                <option value="2">UTC+2 (Cairo, Athens)</option>
-                <option value="3">UTC+3 (Moscow, Istanbul)</option>
-                <option value="4">UTC+4 (Dubai, Baku)</option>
-                <option value="5">UTC+5 (Karachi, Tashkent)</option>
-                <option value="5.5">UTC+5:30 (India, Sri Lanka)</option>
-                <option value="6">UTC+6 (Dhaka, Almaty)</option>
-                <option value="7">UTC+7 (Bangkok, Jakarta)</option>
-                <option value="8">UTC+8 (Beijing, Singapore)</option>
-                <option value="9">UTC+9 (Tokyo, Seoul)</option>
-                <option value="9.5">UTC+9:30 (Adelaide)</option>
-                <option value="10">UTC+10 (Sydney, Melbourne)</option>
-                <option value="11">UTC+11 (Solomon Islands)</option>
-                <option value="12">UTC+12 (New Zealand)</option>
-              </select>
+                onChange={setLocalOffset}
+              />
             </div>
           </div>
         </section>
