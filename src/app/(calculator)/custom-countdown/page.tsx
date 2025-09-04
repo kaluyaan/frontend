@@ -30,14 +30,12 @@ function CustomEventCountdown() {
       return;
     }
 
-    alert("Event added successfully! 44");
     const eventDate = moment(newEvent.date).format("YYYY-MM-DD");
     const eventTime = moment(newEvent.time).format("HH:mm");
     const eventDateTime = moment(
       `${eventDate} ${eventTime}`,
       "YYYY-MM-DD HH:mm"
     );
-    alert("Event added successfully! 47" + JSON.stringify(newEvent));
     if (!eventDateTime.isValid()) {
       return;
     }
@@ -49,12 +47,10 @@ function CustomEventCountdown() {
       time: newEvent.time,
       formatted: eventDateTime.format("MMMM Do, YYYY [at] h:mm A").toString(),
     };
-    alert("Event added successfully! 59");
 
     setEvents((pre: IEvent[]) => {
       return [...pre, event];
     });
-    alert("Event added successfully! 64");
     setNewEvent({ name: "", date: null, time: null, formatted: "" });
   };
 
@@ -131,13 +127,13 @@ function CustomEventCountdown() {
         />
 
         {events.length === 0 ? (
-          <div className={styles.infoCard}>
-            <div className={styles.infoTitle}>No Events Added</div>
-            <div className={styles.infoText}>
-              Add your first event above to start tracking countdowns to
-              important dates and times.
-            </div>
-          </div>
+          <section className={homeStyle.sectionWrapper}>
+            <h3 className={homeStyle.normalTitle}>No Events Added</h3>
+            <p className={homeStyle.normalText}>
+              {`Add your first event above to start tracking countdowns to
+              important dates and times.`}
+            </p>
+          </section>
         ) : (
           <div style={{ display: "grid", gap: "20px" }}>
             {events.map((event) => {

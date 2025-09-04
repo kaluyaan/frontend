@@ -90,15 +90,7 @@ function AgeCalculator() {
 
   return (
     <div className={homeStyle.container}>
-      {/* <Link href="/time-calculator">
-        <button className={styles.backButton}>← Back</button>
-      </Link>
-      <Navigation currentPath="/time-calculator/age-calculator" /> */}
-
       <main className={homeStyle.mainContent}>
-        {/* <h1 className={styles.title}>Age Calculator</h1>
-        <p className={styles.subtitle}>Calculate your exact age and get detailed statistics</p> */}
-
         <HeroSection
           title="Age Calculator"
           text="Calculate your exact age in years, months, and days. Get detailed statistics including total days, weeks, months, hours, and minutes since birth."

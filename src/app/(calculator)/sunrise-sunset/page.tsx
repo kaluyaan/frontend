@@ -8,6 +8,7 @@ import HeroSection from "@/components/shared/HeroSection";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
 import LoadingSpinner from "@/components/ai-writer/LoadingSpinner";
 import DatePickerField from "@/components/shared/DatePicker/DatePickerWrapper";
+import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 
 interface SolarResult {
   inputDate: string;
@@ -421,25 +422,19 @@ function SunriseSunsetCalculator() {
             </div>
 
             <div className={styles.inputGroup}>
-              <label
-                className={homeStyle.normalTitle}
-                style={{
-                  fontSize: "1rem",
-                }}
-              >
-                Timezone (UTC offset):
-              </label>
-              <select
+              <CustomSelectField
+                label="Timezone (UTC offset):"
+                options={
+                  Array.from({ length: 25 }, (_, i) => i - 12).map(
+                    (offset) => ({
+                      label: offset >= 0 ? `UTC+${offset}` : `UTC${offset}`,
+                      value: offset.toString(),
+                    })
+                  ) as { label: string; value: string }[]
+                }
                 value={timezone}
-                onChange={(e) => setTimezone(e.target.value)}
-                className={homeStyle.dateInput}
-              >
-                {Array.from({ length: 25 }, (_, i) => i - 12).map((offset) => (
-                  <option key={offset} value={offset}>
-                    {offset >= 0 ? `UTC+${offset}` : `UTC${offset}`}
-                  </option>
-                ))}
-              </select>
+                onChange={setTimezone}
+              />
             </div>
           </details>
         </section>
