@@ -113,7 +113,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 15px;
 }
 
 .flexRow {
@@ -132,20 +132,29 @@
 }
 
 .infoCard {
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
+padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  /* margin-bottom: 16px; */
+  /* margin-top: 16px; */
+  background: rgba(242, 229, 229, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .infoTitle {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
 }
 
 .infoText {
+  font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
 }
