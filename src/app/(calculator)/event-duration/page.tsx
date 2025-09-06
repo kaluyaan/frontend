@@ -6,11 +6,7 @@ import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
 import HeroSection from "@/components/shared/HeroSection";
-import DatePickerField from "@/components/shared/DatePicker/DatePicker";
-import TimePickerField from "@/components/shared/DatePicker/TimePicker";
-import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 import DateTimePickerField from "@/components/shared/DatePicker/DateTimePicker";
-import TextInput from "@/components/shared/TextInput";
 
 interface DurationDetails {
   days: number;

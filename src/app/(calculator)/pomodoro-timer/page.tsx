@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
 import styles from "../shared.module.css";
-import Navigation from "../../(calculator)/Navigation";
+import homeStyle from "../../../components/Home/home.module.css";
+import HeroSection from "@/components/shared/HeroSection";
 
 function PomodoroTimer() {
   const [workMinutes, setWorkMinutes] = useState("25");
@@ -126,71 +126,73 @@ function PomodoroTimer() {
   };
 
   return (
-    <div className={styles.container}>
-      <Link href="/time-calculator">
-        <button className={styles.backButton}>← Back</button>
-      </Link>
-      <Navigation currentPath="/time-calculator/pomodoro-timer" />
+    <div className={homeStyle.container}>
+      <main className={homeStyle.mainContent}>
+        <HeroSection
+          title="Pomodoro Timer"
+          text="Work/break intervals with productivity tracking"
+        />
 
-      <div className={styles.calculatorCard}>
-        <h1 className={styles.title}>Pomodoro Timer</h1>
-        <p className={styles.subtitle}>
-          Work/break intervals with productivity tracking
-        </p>
+        <section className={homeStyle.sectionWrapper}>
+          <div className={styles.grid}>
+            <div className={styles.inputGroup}>
+              <h3 className={homeStyle.normalTitle}>Work Minutes:</h3>
 
-        <div className={styles.grid}>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Work Minutes:</label>
-            <input
-              type="number"
-              min="1"
-              max="60"
-              value={workMinutes}
-              onChange={(e) => setWorkMinutes(e.target.value)}
-              className={styles.input}
-              disabled={isRunning}
-            />
+              <input
+                type="number"
+                min="1"
+                max="60"
+                value={workMinutes}
+                onChange={(e) => setWorkMinutes(e.target.value)}
+                className={styles.input}
+                disabled={isRunning}
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <h3 className={homeStyle.normalTitle}>Break Minutes:</h3>
+              <input
+                type="number"
+                min="1"
+                max="30"
+                value={breakMinutes}
+                onChange={(e) => setBreakMinutes(e.target.value)}
+                className={styles.input}
+                disabled={isRunning}
+              />
+            </div>
           </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Break Minutes:</label>
-            <input
-              type="number"
-              min="1"
-              max="30"
-              value={breakMinutes}
-              onChange={(e) => setBreakMinutes(e.target.value)}
-              className={styles.input}
-              disabled={isRunning}
-            />
-          </div>
-        </div>
 
-        <div className={styles.grid}>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Long Break Minutes:</label>
-            <input
-              type="number"
-              min="1"
-              max="60"
-              value={longBreakMinutes}
-              onChange={(e) => setLongBreakMinutes(e.target.value)}
-              className={styles.input}
-              disabled={isRunning}
-            />
+          <div className={styles.grid}>
+            <div className={styles.inputGroup}>
+              <h3 className={homeStyle.normalTitle}>Long Break Minutes:</h3>
+
+              <input
+                type="number"
+                min="1"
+                max="60"
+                value={longBreakMinutes}
+                onChange={(e) => setLongBreakMinutes(e.target.value)}
+                className={styles.input}
+                disabled={isRunning}
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <h3 className={homeStyle.normalTitle}>
+                Sessions Until Long Break:
+              </h3>
+
+              <input
+                type="number"
+                min="2"
+                max="10"
+                value={sessionsUntilLongBreak}
+                onChange={(e) => setSessionsUntilLongBreak(e.target.value)}
+                className={styles.input}
+                disabled={isRunning}
+              />
+            </div>
           </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Sessions Until Long Break:</label>
-            <input
-              type="number"
-              min="2"
-              max="10"
-              value={sessionsUntilLongBreak}
-              onChange={(e) => setSessionsUntilLongBreak(e.target.value)}
-              className={styles.input}
-              disabled={isRunning}
-            />
-          </div>
-        </div>
+        </section>
 
         <div
           style={{
@@ -298,15 +300,16 @@ function PomodoroTimer() {
           </div>
         </div>
 
-        <div className={styles.infoCard}>
-          <div className={styles.infoTitle}>Pomodoro Technique</div>
-          <div className={styles.infoText}>
-            The Pomodoro Technique uses timed intervals to boost focus and
+        <section className={homeStyle.sectionWrapper}>
+          <h3 className={homeStyle.normalTitle}>Pomodoro Technique</h3>
+
+          <p className={homeStyle.normalText}>
+            {`The Pomodoro Technique uses timed intervals to boost focus and
             productivity. Work for 25 minutes, then take a 5-minute break. After
-            4 work sessions, take a longer 15-30 minute break.
-          </div>
-        </div>
-      </div>
+            4 work sessions, take a longer 15-30 minute break.`}
+          </p>
+        </section>
+      </main>
     </div>
   );
 }

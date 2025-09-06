@@ -130,6 +130,14 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "pomodoro-timer",
+    icon: "⏱️",
+    title: "Pomodoro Timer",
+    desc: "Work/break intervals with productivity tracking",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
