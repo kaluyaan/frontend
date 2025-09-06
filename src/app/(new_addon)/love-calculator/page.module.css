@@ -1,0 +1,257 @@
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  padding: 20px;
+  font-family: var(--font-geist-sans);
+}
+
+.loveHub {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6b9d;
+  margin-bottom: 30px;
+}
+
+.categorySection {
+  margin-bottom: 50px;
+}
+
+.categoryTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 107, 157, 0.2);
+}
+
+.calculatorsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.calculatorCard {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(196, 69, 105, 0.05) 100%);
+  border: 2px solid rgba(255, 107, 157, 0.15);
+  border-radius: 15px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calculatorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 107, 157, 0.2);
+  border-color: rgba(255, 107, 157, 0.4);
+}
+
+.calculatorIcon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.calculatorTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.calculatorDescription {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.calculatorMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.duration {
+  font-size: 0.85rem;
+  color: #ff6b9d;
+  font-weight: 500;
+}
+
+.difficulty {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.difficultyEasy {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.difficultyMedium {
+  background: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+}
+
+.difficultyHard {
+  background: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+.statsSection {
+  background: rgba(255, 107, 157, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.statsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.statItem {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6b9d;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.disclaimer {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.disclaimerTitle {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disclaimerText {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.loveQuote {
+  font-style: italic;
+  color: #ff6b9d;
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 107, 157, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid #ff6b9d;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .loveHub {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .calculatorsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculatorCard {
+    padding: 20px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .categoryTitle {
+    font-size: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
