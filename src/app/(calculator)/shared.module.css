@@ -135,7 +135,7 @@
 padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  /* margin-bottom: 16px; */
+  margin-bottom: 16px;
   /* margin-top: 16px; */
   background: rgba(242, 229, 229, 0.95);
   backdrop-filter: blur(10px);

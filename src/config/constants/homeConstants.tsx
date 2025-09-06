@@ -106,6 +106,30 @@ export const toolsList = [
     category: "calculator",
   },
 
+  {
+    key: "historical-date",
+    icon: "⏱️",
+    title: "Historical Date",
+    desc: "Calculate dates in different calendar systems, astrological information, and historical context",
+    category: "calculator",
+  },
+
+  {
+    key: "timezone-converter",
+    icon: "⏱️",
+    title: "Timezone Converter",
+    desc: "Convert time between different time zones",
+    category: "calculator",
+  },
+
+  {
+    key: "event-duration",
+    icon: "⏱️",
+    title: "Event Duration",
+    desc: "Calculate duration and metrics for events or project timelines",
+    category: "calculator",
+  },
+
   // ****************************
   {
     key: "love-calculator",
