@@ -37,7 +37,7 @@ function ContentLayout() {
       </div>
 
       {/* Sidebar */}
-      <FunSidebarDesigns />
+      {/* <FunSidebarDesigns /> */}
     </div>
   );
 }
