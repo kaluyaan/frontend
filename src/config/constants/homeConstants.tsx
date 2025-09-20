@@ -135,6 +135,13 @@ export const toolsList = [
     desc: "Work/break intervals with productivity tracking",
     category: [categoryList.CALCULATOR, categoryList.PRODUCTIVITY],
   },
+  {
+    key: "eye-sight-test",
+    icon: "👁️",
+    title: "Eye Sight Testing",
+    desc: "Test your vision and eye health online",
+    category: [categoryList.HEALTH],
+  },
 
   // ****************************
   // {
@@ -225,13 +232,7 @@ export const toolsList = [
   //   desc: "Basic health assessment and wellness checker",
   //   category: [categoryList.HEALTH],
   // },
-  // {
-  //   key: "eye-test",
-  //   icon: "👁️",
-  //   title: "Eye Testing",
-  //   desc: "Test your vision and eye health online",
-  //   category: [categoryList.HEALTH],
-  // },
+
   // {
   //   key: "iq-test",
   //   icon: "🧠",
