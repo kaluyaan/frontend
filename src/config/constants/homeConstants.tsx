@@ -143,14 +143,15 @@ export const toolsList = [
     category: [categoryList.HEALTH],
   },
 
+  {
+    key: "crush-calculator",
+    icon: "💕",
+    title: "Crush Calculator",
+    desc: "Calculate compatibility between two names or partners",
+    category: [categoryList.CALCULATOR, categoryList.GAMES, categoryList.PRODUCTIVITY],
+  },
+
   // ****************************
-  // {
-  //   key: "love-calculator",
-  //   icon: "💕",
-  //   title: "Love Calculator",
-  //   desc: "Calculate compatibility between two names or partners",
-  //   category: [categoryList.CALCULATOR],
-  // },
 
   // {
   //   key: "sentence-compare",
