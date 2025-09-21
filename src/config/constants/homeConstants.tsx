@@ -148,8 +148,28 @@ export const toolsList = [
     icon: "💕",
     title: "Crush Calculator",
     desc: "Calculate compatibility between two names or partners",
-    category: [categoryList.CALCULATOR, categoryList.GAMES, categoryList.PRODUCTIVITY],
+    category: [
+      categoryList.CALCULATOR,
+      categoryList.GAMES,
+      categoryList.PRODUCTIVITY,
+    ],
   },
+
+  {
+    key: "future-relationship",
+    icon: "🔮",
+    title: "Future Relationship Predictor",
+    desc: "Predict your future relationship based on your inputs",
+    category: [categoryList.CALCULATOR, categoryList.GAMES],
+  },
+
+  {
+    key: "color-blindness",
+    icon: "👁️",
+    title: "Color Blindness Test",
+    desc: "Assess your color vision and identify potential deficiencies",
+    category: [categoryList.CALCULATOR, categoryList.HEALTH],
+  }
 
   // ****************************
 
@@ -166,14 +186,6 @@ export const toolsList = [
   //   title: "Plagiarism & AI Detector",
   //   desc: "Check content for plagiarism and AI-generated text",
   //   category: [categoryList.WRITING],
-  // },
-
-  // {
-  //   key: "relationship-calculator",
-  //   icon: "💖",
-  //   title: "Relationship Calculator",
-  //   desc: "Analyze and calculate relationship compatibility scores",
-  //   category: [categoryList.CALCULATOR],
   // },
 
   // {
