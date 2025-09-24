@@ -14,7 +14,7 @@ function ToolsList() {
       {toolsList
         .filter((tool) => {
           if (category) {
-            return tool.category === category;
+            return tool.category.includes(category.toLowerCase());
           } else {
             return true;
           }
