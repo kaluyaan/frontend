@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect, JSX } from "react";
-import { COMPANY_INFO } from "../constants";
+import { useState, JSX } from "react";
 import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
@@ -419,7 +418,7 @@ export default function RiskAssessment(): JSX.Element {
     });
 
     const percentageScore = (totalScore / maxScore) * 100;
-    const riskData = getRiskLevel(percentageScore, totalScore, maxScore);
+    const riskData = getRiskLevel(percentageScore);
     const recommendations = getRiskRecommendations(percentageScore, categories, activeAssessment);
 
     setResult({
@@ -435,7 +434,7 @@ export default function RiskAssessment(): JSX.Element {
     });
   };
 
-  const getRiskLevel = (percentage: number, score: number, maxScore: number) => {
+  const getRiskLevel = (percentage: number) => {
     if (percentage <= 25) {
       return { 
         level: 'Low Risk', 

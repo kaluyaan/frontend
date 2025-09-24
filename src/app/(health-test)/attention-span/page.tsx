@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, JSX } from "react";
-import { COMPANY_INFO } from "../constants";
 import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";

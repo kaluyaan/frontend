@@ -297,7 +297,7 @@ function EyeSightTest() {
                 <br />
                 2. Read the letters from top to bottom
                 <br />
-                3. Click "Can't read smaller" when letters become unclear
+                {`3. Click "Can't read smaller" when letters become unclear`}
                 <br />
                 4. Repeat with the other eye
               </div>
@@ -344,7 +344,7 @@ function EyeSightTest() {
               ) : (
                 <div style={{ textAlign: "center" }}>
                   <h3>Color Vision Test Complete!</h3>
-                  <p>Click "Reset Test" to try again</p>
+                  <p>{`Click "Reset Test" to try again`}</p>
                 </div>
               )}
             </div>

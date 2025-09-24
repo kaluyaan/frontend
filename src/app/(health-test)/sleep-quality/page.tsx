@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, JSX } from "react";
-import { COMPANY_INFO } from "../constants";
 import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
@@ -18,12 +17,20 @@ interface SleepResult {
   description: string;
 }
 
+interface Question {
+  id: string;
+  text: string;
+  scores: number[];
+  options: string[];
+  category: string;
+}
+
 interface SleepTest {
   id: string;
   name: string;
   icon: string;
   description: string;
-  questions?: any[];
+  questions?: Question[];
   isInteractive?: boolean;
 }
 
@@ -48,7 +55,14 @@ export default function EnhancedSleepAssessment(): JSX.Element {
   const [phase, setPhase] = useState<"instructions" | "test" | "results">("instructions");
   
   // Sleep Pattern Tracker State
-  const [sleepLog, setSleepLog] = useState<any[]>([]);
+  interface SleepLogEntry {
+    bedtime: string;
+    wakeTime: string;
+    quality: number;
+    notes: string;
+    date?: string;
+  }
+  const [sleepLog, setSleepLog] = useState<SleepLogEntry[]>([]);
   const [currentLogEntry, setCurrentLogEntry] = useState({
     bedtime: '',
     wakeTime: '',
@@ -708,7 +722,7 @@ export default function EnhancedSleepAssessment(): JSX.Element {
               </div>
               
               <div className={styles.todayChallenge}>
-                <h4 className={homeStyle.normalTitle}>Today's Challenge:</h4>
+                <h4 className={homeStyle.normalTitle}>{`Today's Challenge:`}</h4>
                 <div className={styles.challengeCard}>
                   {getChallengeForDay(challengeDay)}
                 </div>
@@ -911,13 +925,13 @@ export default function EnhancedSleepAssessment(): JSX.Element {
     return challenges[day - 1] || challenges[0];
   };
 
-  const isCurrentTestComplete = (): boolean => {
-    const currentTest = sleepTests.find(t => t.id === activeTest);
-    if (currentTest?.isInteractive) return true;
+  // const isCurrentTestComplete = (): boolean => {
+  //   const currentTest = sleepTests.find(t => t.id === activeTest);
+  //   if (currentTest?.isInteractive) return true;
     
-    const questions = getCurrentQuestions();
-    return questions.every(q => responses[q.id] !== undefined);
-  };
+  //   const questions = getCurrentQuestions();
+  //   return questions.every(q => responses[q.id] !== undefined);
+  // };
 
   // Meditation timer effect
   useEffect(() => {

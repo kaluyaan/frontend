@@ -256,13 +256,13 @@ export default function FutureRelationship(): JSX.Element {
     }, 3000);
   };
 
-  const resetPredictor = (): void => {
-    setName("");
-    setAge("");
-    setPreferences([]);
-    setLifeGoals([]);
-    setResult(null);
-  };
+  // const resetPredictor = (): void => {
+  //   setName("");
+  //   setAge("");
+  //   setPreferences([]);
+  //   setLifeGoals([]);
+  //   setResult(null);
+  // };
 
   return (
     <div className={homeStyle.container}>
@@ -382,14 +382,14 @@ export default function FutureRelationship(): JSX.Element {
               </div>
 
               <div className={styles.predictionItem}>
-                <span className={styles.predictionLabel}>You'll Meet:</span>
+                <span className={styles.predictionLabel}>{`You'll Meet:`}</span>
                 <span className={styles.predictionValue}>
                   At {result.meetingLocation}
                 </span>
               </div>
 
               <div className={styles.predictionItem}>
-                <span className={styles.predictionLabel}>How You'll Meet:</span>
+                <span className={styles.predictionLabel}>{`How You'll Meet:`}</span>
                 <span className={styles.predictionValue}>
                   {result.meetingContext}
                 </span>
