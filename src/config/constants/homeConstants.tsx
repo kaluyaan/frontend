@@ -176,11 +176,15 @@ export const toolsList = [
     icon: "⏳",
     title: "Attention Span Test",
     desc: "Measure and improve your attention span with interactive exercises",
-    category: [
-      categoryList.CALCULATOR,
-      categoryList.HEALTH,
-      categoryList.GAMES,
-    ],
+    category: [categoryList.HEALTH, categoryList.GAMES],
+  },
+
+  {
+    key: "stress-assessment",
+    icon: "😰",
+    title: "Stress Assessment",
+    desc: "Evaluate your stress levels and get personalized recommendations",
+    category: [categoryList.HEALTH, categoryList.GAMES],
   },
 
   // ////////////////////////////
