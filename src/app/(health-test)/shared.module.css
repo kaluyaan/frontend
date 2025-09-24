@@ -1,5 +1,4 @@
-/* Updated shared.module.css - Additional styles for attention span tests */
-
+/* shared.module.css -
 /* Navigation Tabs */
 .navTabs {
   display: flex;
@@ -558,4 +557,682 @@
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-10px); background-color: rgba(244, 67, 54, 0.1); }
   75% { transform: translateX(10px); background-color: rgba(244, 67, 54, 0.1); }
+}
+
+/* Navigation Tabs Enhancement */
+.navTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.navTab {
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activeTab {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.inactiveTab {
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: 2px solid #e1e5e9;
+}
+
+.inactiveTab:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.testIcon {
+  font-size: 1.2rem;
+}
+
+/* Risk Assessment Specific Styles */
+.riskQuestionsContainer {
+  margin: 30px 0;
+}
+
+.riskQuestionCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.riskQuestionCard:hover {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.questionHeader {
+  margin-bottom: 20px;
+}
+
+.riskQuestionText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.questionDescription {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.riskOptionsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.riskOption {
+  padding: 15px 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.riskOption:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+}
+
+.selectedRiskOption {
+  border-color: #667eea !important;
+  background: rgba(102, 126, 234, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.riskOptionLabel {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  flex: 1;
+}
+
+.riskScore {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Risk Level Color Coding */
+.risk-level-0 .riskScore {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.risk-level-1 .riskScore {
+  background: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+}
+
+.risk-level-2 .riskScore {
+  background: rgba(255, 152, 0, 0.1);
+  color: #FF9800;
+}
+
+.risk-level-3 .riskScore {
+  background: rgba(255, 87, 34, 0.1);
+  color: #FF5722;
+}
+
+.risk-level-4 .riskScore {
+  background: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+/* Results Card */
+.riskResultCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.riskDescription {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.riskDescription p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+.categoryBreakdown {
+  margin: 25px 0;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.categoryItem {
+  text-align: center;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.categoryName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.categoryScore {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Actions and Footer */
+.actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.company {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive Design for Risk Assessment */
+@media (max-width: 768px) {
+  .riskQuestionsContainer {
+    margin: 20px 0;
+  }
+  
+  .riskQuestionCard {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .riskOption {
+    padding: 12px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .riskScore {
+    align-self: flex-end;
+    min-width: 50px;
+  }
+  
+  .categoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .actions > * {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Enhanced Sleep Assessment Styles */
+.interactiveSection {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+/* Sleep Tracker Styles */
+.trackerForm {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.slider {
+  flex: 1;
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(102, 126, 234, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+}
+
+.sliderValue {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #667eea;
+  min-width: 30px;
+  text-align: center;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  color: #333;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  color: #333;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.logHistory, .dreamHistory {
+  margin-top: 30px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.logEntry, .dreamEntry {
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.logDate, .dreamDate {
+  font-weight: bold;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.logDetails {
+  margin: 5px 0;
+  color: #333;
+}
+
+.logNotes {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Dream Journal Styles */
+.dreamForm {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.dreamHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dreamMood {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dreamQuality {
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dreamContent {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Sleep Challenge Styles */
+.challengeProgress {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.challengeDay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dayNumber {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.dayProgress {
+  font-size: 1rem;
+  color: #666;
+}
+
+.todayChallenge {
+  margin: 30px 0;
+}
+
+.challengeCard {
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.completedChallenges {
+  margin: 30px 0;
+}
+
+.challengeGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.challengeGridItem {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.challengeGridItem.completed {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-color: #4CAF50;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Sleep Meditation Styles */
+.meditationControls {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.meditationTimer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.timerDisplay {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.meditationButtons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.meditationGuide {
+  margin: 30px 0;
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.breathingInstructions {
+  display: grid;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.instructionStep {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  line-height: 1.6;
+}
+
+/* Option scoring display */
+.optionScore {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* Instructions enhancement */
+.instructionTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instructionText {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design for Sleep Assessment */
+@media (max-width: 768px) {
+  .challengeGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .dreamHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .challengeDay {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .meditationButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .meditationButtons > * {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .timerDisplay {
+    font-size: 2.5rem;
+  }
+  
+  .sliderContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .slider {
+    width: 100%;
+  }
+}
+
+/* Loading and transition animations */
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sleep quality indicators */
+.sleepQualityIndicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.sleepQualityExcellent {
+  background-color: #4CAF50;
+}
+
+.sleepQualityGood {
+  background-color: #2196F3;
+}
+
+.sleepQualityFair {
+  background-color: #FF9800;
+}
+
+.sleepQualityPoor {
+  background-color: #F44336;
 }

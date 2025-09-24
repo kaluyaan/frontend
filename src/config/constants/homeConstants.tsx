@@ -186,6 +186,20 @@ export const toolsList = [
     desc: "Evaluate your stress levels and get personalized recommendations",
     category: [categoryList.HEALTH, categoryList.GAMES],
   },
+  {
+    key: "sleep-quality",
+    icon: "😴",
+    title: "Sleep Quality Assessment",
+    desc: "Evaluate your sleep quality and get personalized recommendations",
+    category: [categoryList.HEALTH, categoryList.GAMES],
+  },
+  {
+    key: "risk-assessment",
+    icon: "⚠️",
+    title: "Risk Assessment",
+    desc: "Identify potential health risks and get advice",
+    category: [categoryList.HEALTH, categoryList.GAMES],
+  },
 
   // ////////////////////////////
 
@@ -253,21 +267,6 @@ export const toolsList = [
   //   title: "Bhagavad Gita",
   //   desc: "Read and explore the sacred teachings of Bhagavad Gita",
   //   category: [categoryList.SPIRITUAL],
-  // },
-  // {
-  //   key: "health-detector",
-  //   icon: "🏥",
-  //   title: "Health Detector",
-  //   desc: "Basic health assessment and wellness checker",
-  //   category: [categoryList.HEALTH],
-  // },
-
-  // {
-  //   key: "iq-test",
-  //   icon: "🧠",
-  //   title: "IQ Testing",
-  //   desc: "Measure your intelligence quotient with standard tests",
-  //   category: [categoryList.HEALTH],
   // },
   // {
   //   key: "sudoku",
