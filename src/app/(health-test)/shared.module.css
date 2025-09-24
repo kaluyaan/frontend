@@ -1,0 +1,408 @@
+/* Updated shared.module.css - Additional styles for attention span tests */
+
+/* Navigation Tabs */
+.navTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.navTab {
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid transparent;
+}
+
+.activeTab {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.inactiveTab {
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: 2px solid #e1e5e9;
+}
+
+.inactiveTab:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+/* Memory Sequence Test */
+.sequenceDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.sequenceItem {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e1e5e9;
+}
+
+.sequenceItem:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.sequenceActive {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+  animation: pulse 0.5s ease-in-out;
+}
+
+.sequenceSelected {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border-color: #4CAF50;
+}
+
+.sequenceDefault {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Color Box for Color Test */
+.colorTestBox {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 4px solid white;
+}
+
+.colorTestBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Word Display for Word Test */
+.wordTestDisplay {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #667eea;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid #e1e5e9;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+}
+
+.wordTestDisplay:hover {
+  transform: scale(1.02);
+  border-color: #667eea;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+/* Stroop Test Styles */
+.stroopWordDisplay {
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.95);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  border: 3px solid #e1e5e9;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Options Grid */
+.stroopOptionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 30px auto;
+  max-width: 400px;
+}
+
+.stroopOption {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #e1e5e9;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stroopOption:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+/* Enhanced Progress Bar */
+.enhancedProgressBar {
+  width: 100%;
+  height: 12px;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 6px;
+  margin: 20px 0;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.enhancedProgressFill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 6px;
+  position: relative;
+}
+
+.enhancedProgressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.2) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.2) 75%);
+  background-size: 20px 20px;
+  animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+
+
+/* Number Display for Number Test */
+.numberDisplay {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #667eea;
+  background: white;
+  border: 3px solid #667eea;
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+  user-select: none;
+}
+
+.numberDisplay:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  border-color: #764ba2;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+}
+
+.numberDisplay:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+
+/* Enhanced Stats Display */
+.enhancedStats {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.statItem {
+  text-align: center;
+  padding: 10px;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Test Type Icons in Navigation */
+.testIcon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+/* Enhanced Target Display */
+.enhancedTargetDisplay {
+  text-align: center;
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 15px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.targetLabel {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.enhancedTargetNumber {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  padding: 15px 30px;
+  border-radius: 15px;
+  display: inline-block;
+  border: 2px solid rgba(231, 76, 60, 0.2);
+}
+
+/* Loading Animation for Sequence Test */
+.sequenceLoader {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.3rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.loadingDots::after {
+  content: '';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navTabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navTab {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .sequenceDisplay {
+    max-width: 250px;
+    gap: 10px;
+  }
+  
+  .sequenceItem {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  
+  .colorTestBox {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .wordTestDisplay {
+    font-size: 2rem;
+    padding: 30px 40px;
+  }
+  
+  .stroopWordDisplay {
+    font-size: 2.5rem;
+    padding: 40px 30px;
+  }
+  
+  .stroopOptionsGrid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+  
+  .enhancedStats {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Animation for correct/incorrect feedback */
+.correctFeedback {
+  animation: correctPulse 0.6s ease;
+}
+
+.incorrectFeedback {
+  animation: incorrectShake 0.6s ease;
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); background-color: rgba(76, 175, 80, 0.1); }
+  50% { transform: scale(1.05); background-color: rgba(76, 175, 80, 0.2); }
+  100% { transform: scale(1); background-color: transparent; }
+}
+
+@keyframes incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); background-color: rgba(244, 67, 54, 0.1); }
+  75% { transform: translateX(10px); background-color: rgba(244, 67, 54, 0.1); }
+}

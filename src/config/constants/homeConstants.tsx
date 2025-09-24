@@ -169,9 +169,21 @@ export const toolsList = [
     title: "Color Blindness Test",
     desc: "Assess your color vision and identify potential deficiencies",
     category: [categoryList.CALCULATOR, categoryList.HEALTH],
-  }
+  },
 
-  // ****************************
+  {
+    key: "attention-span",
+    icon: "⏳",
+    title: "Attention Span Test",
+    desc: "Measure and improve your attention span with interactive exercises",
+    category: [
+      categoryList.CALCULATOR,
+      categoryList.HEALTH,
+      categoryList.GAMES,
+    ],
+  },
+
+  // ////////////////////////////
 
   // {
   //   key: "sentence-compare",
