@@ -42,22 +42,22 @@ function NavigationMobileView() {
       )}
       <div className={`nav-icons ${styles.navIcons}`}>
         {/* Profile Icon */}
-        <button
+        {/* <button
           className={`profile-icon ${styles.profileIcon}`}
           onClick={toggleProfile}
           title="Profile"
         >
           👤
-        </button>
+        </button> */}
 
         {/* Language Toggle */}
-        <button
+        {/* <button
           className={`icon-btn ${styles.iconBtn}`}
           onClick={toggleLanguage}
           title="Language"
         >
           🌐
-        </button>
+        </button> */}
 
         {/* Mobile Menu Toggle */}
         <button

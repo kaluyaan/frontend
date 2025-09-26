@@ -200,6 +200,20 @@ export const toolsList = [
     desc: "Identify potential health risks and get advice",
     category: [categoryList.HEALTH, categoryList.GAMES],
   },
+  {
+    key: "wellness-tracker",
+    icon: "🌟",
+    title: "Wellness Tracker",
+    desc: "Overall wellness and lifestyle assessment",
+    category: [categoryList.HEALTH, categoryList.GAMES],
+  },
+  {
+    key: "symptom-checker",
+    icon: "🩺",
+    title: "Symptom Checker",
+    desc: "Analyze symptoms and suggest possible conditions",
+    category: [categoryList.HEALTH, categoryList.GAMES],
+  },
 
   // ////////////////////////////
 
@@ -232,7 +246,6 @@ export const toolsList = [
   //   desc: "Timer, calendar, scheduler, and mailer in one tool",
   //   category: [categoryList.PRODUCTIVITY],
   // },
-
   // {
   //   key: "countdown",
   //   icon: "⏰",

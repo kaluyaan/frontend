@@ -1,5 +1,5 @@
 import React from "react";
-import FunSidebarDesigns from "./FunZone";
+// import FunSidebarDesigns from "./FunZone";
 import styles from "./HomeFunzone.module.css";
 import { seoKeywords } from "@/config/constants/funzoneConstants";
 

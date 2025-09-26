@@ -54,12 +54,12 @@ export default function CrushCalculator(): JSX.Element {
     const combined: string = (name1 + name2).toLowerCase().replace(/\s/g, "");
     const letterCount: LetterCount = {};
 
-    for (let char of combined) {
+    for (const char of combined) {
       letterCount[char] = (letterCount[char] || 0) + 1;
     }
 
     let uniqueLetters: number = 0;
-    for (let count of Object.values(letterCount)) {
+    for (const count of Object.values(letterCount)) {
       if (count % 2 === 1) uniqueLetters++;
     }
 
@@ -124,12 +124,12 @@ export default function CrushCalculator(): JSX.Element {
     }, 2000);
   };
 
-  const resetCalculator = (): void => {
-    setYourName("");
-    setCrushName("");
-    setSigns([]);
-    setResult(null);
-  };
+  // const resetCalculator = (): void => {
+  //   setYourName("");
+  //   setCrushName("");
+  //   setSigns([]);
+  //   setResult(null);
+  // };
 
   return (
     <div className={homeStyle.container}>
@@ -159,7 +159,7 @@ export default function CrushCalculator(): JSX.Element {
             </div>
 
             <div className={styles.inputGroup}>
-              <label className={homeStyle.normalTitle}>Crush's Name</label>
+              <label className={homeStyle.normalTitle}>{`Crush's Name`}</label>
               <input
                 type="text"
                 placeholder="Enter your crush's name"
@@ -179,7 +179,7 @@ export default function CrushCalculator(): JSX.Element {
             </label>
             <div className={styles.grid}>
               {crushSigns.map(({ sign }) => (
-                <div className={homeStyle.normalText}>
+                <div key={sign} className={homeStyle.normalText}>
                   <label key={sign} className={styles.checkboxLabel}>
                     <input
                       type="checkbox"
