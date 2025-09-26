@@ -1,6 +1,5 @@
 "use client";
 import React, { JSX, useState } from "react";
-import { COMPANY_INFO } from "../constants";
 import styles from "../shared.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
@@ -693,7 +692,7 @@ export default function SymptomChecker(): JSX.Element {
 
   const identifyRiskFactors = (): string[] => {
     const factors: string[] = [];
-    const allSymptoms = symptomCategories.flatMap((cat) => cat.symptoms);
+    // const allSymptoms = symptomCategories.flatMap((cat) => cat.symptoms);
 
     // High-risk symptom combinations
     if (
@@ -844,7 +843,7 @@ export default function SymptomChecker(): JSX.Element {
                 {/* Symptom Selection */}
                 <div className={styles.symptomSelectionContainer}>
                   <h3 className={styles.sectionSubtitle}>
-                    Select symptoms you're experiencing:
+                    {`Select symptoms you're experiencing:`}
                   </h3>
                   <div className={styles.symptomsGrid}>
                     {currentCategory.symptoms.map((symptom) => (

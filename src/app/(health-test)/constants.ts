@@ -1,5 +1,16 @@
+export interface HealthTest {
+  title: string;
+  description: string;
+  path: string;
+  icon: string;
+  duration: string;
+  difficulty: string;
+}
 
-import { HealthCategory } from './types';
+export interface HealthCategory {
+  name: string;
+  tests: HealthTest[];
+}
 
 export const HEALTH_CATEGORIES: HealthCategory[] = [
   {
