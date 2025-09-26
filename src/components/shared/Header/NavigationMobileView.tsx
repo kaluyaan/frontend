@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import styles from "./Header.module.css"; // Assuming you have a CSS module for styles
 import { HeaderLinks } from "@/config/constants/homeConstants";
 
-const toggleLanguage = (): void => {
-  alert("Language menu would open here");
-};
+// const toggleLanguage = (): void => {
+//   alert("Language menu would open here");
+// };
 
-const toggleProfile = (): void => {
-  alert("Profile menu would open here");
-};
+// const toggleProfile = (): void => {
+//   alert("Profile menu would open here");
+// };
 
 function NavigationMobileView() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
