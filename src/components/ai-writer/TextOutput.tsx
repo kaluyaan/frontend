@@ -1,6 +1,6 @@
 // components/TextOutput.tsx
 import { useEffect, useRef } from 'react';
-import styles from '../../app/ai-writer/page.module.css'
+import styles from './page.module.css'
 import homeStyle from "../../components/Home/home.module.css";
 interface TextOutputProps {
   value: string;
