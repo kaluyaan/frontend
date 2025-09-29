@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kaluyaan Tools - Calculators, Converters, Health Tests & More",
+  title: "Free Online Tools",
   description:
     "Kaluyaan offers a comprehensive suite of free online tools: calculators, converters, health tests, PDF utilities, productivity timers, and more. Instantly access age calculators, countdowns, AI text converters, wellness trackers, and fun compatibility tools—all in one place.",
 };

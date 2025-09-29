@@ -1,5 +1,5 @@
 // components/StatsDisplay.tsx
-import styles from "../../../app/ai-writer/page.module.css";
+import styles from "../../../components/ai-writer/page.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 
 import { IDateProgressResult } from "./page";

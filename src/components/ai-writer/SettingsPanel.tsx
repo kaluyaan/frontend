@@ -1,6 +1,6 @@
 // components/SettingsPanel.tsx
 import { HumanizationOptions } from '../../types';
-import styles from '../../app/ai-writer/page.module.css'
+import styles from './page.module.css'
 import homeStyle from "../../components/Home/home.module.css";
 
 interface SettingsPanelProps {

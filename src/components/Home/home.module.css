@@ -6,6 +6,7 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 10px; /* Add base padding */
 }
 
 .glassmorphism {
@@ -76,31 +77,31 @@
 .mainContent {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 20px;
+  padding: 0.5rem 0.5rem;
 }
 
 .hero {
-  border-radius: 20px;
-  padding: 3rem;
+  border-radius: 15px; /* Smaller radius on mobile */
+  padding: 1.5rem 1rem; /* Reduced padding on mobile */
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.8rem; /* Smaller on mobile */
   font-weight: 800;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   display: flex;
-  /* align-items: center; */
+  flex-direction: row; /* Stack on mobile */
+  align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem; /* Smaller gap on mobile */
 }
 
 .titleIcon {
-  font-size: 2.5rem;
-  animation: rotate 10s linear infinite;
+  font-size: 1.5rem; /* Smaller icon on mobile */
 }
 
 @keyframes rotate {
@@ -116,8 +117,8 @@
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  margin-bottom: 16px;
-  margin-top: 16px;
+  margin-bottom: 13px;
+  margin-top: 13px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -126,18 +127,19 @@
 
 /* every heading use this class */
 .heroTitle {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Smaller title on mobile */
+  margin-bottom: 0.5rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: bold;
+  text-align: center;
 }
 
 /* every text in title use this class */
 .heroText {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #666;
   max-width: 600px;
   margin: 0 auto;
@@ -377,4 +379,206 @@
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Desktop styles (1024px and up) */
+@media (min-width: 1024px) {
+  .hero {
+    border-radius: 20px;
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .titleIcon {
+    font-size: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .reverseTitle,
+  .normalTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .normalText,
+  .reverseText {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .heroText {
+    font-size: 1rem;
+    max-width: 600px;
+  }
+
+  .buttonContainer {
+    margin: 16px 0;
+  }
+
+  .button {
+    padding: 1rem 2rem;
+    font-size: 20px;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Large desktop styles (1440px and up) */
+@media (min-width: 1440px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .titleIcon {
+    font-size: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroText {
+    font-size: 1.1rem;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 770px) {
+  .title {
+    flex-direction: column;
+  }
+  .reverseTitle,
+  .normalTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .normalText,
+  .reverseText {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .buttonContainer {
+    margin: 14px 0;
+  }
+
+  .button {
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+    margin-top: 0.6rem;
+  }
+
+}
+
+/* Extra small devices (320px and down) */
+@media (max-width: 376px) {
+  .container {
+    padding: 0 6px;
+  }
+
+  .reverseTitle,
+  .normalTitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .normalText,
+  .reverseText {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .hero {
+    padding: 0.8rem 0.8rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    gap: 0.2rem;
+    margin-bottom: 0.3rem;
+    flex-direction: column;
+  }
+
+  .titleIcon {
+    font-size: 1rem;
+  }
+
+  .heroTitle {
+    font-size: 1rem;
+  }
+
+  .heroText {
+    font-size: 0.8rem;
+    padding: 0 0.3rem;
+  }
+
+  .buttonContainer {
+    margin: 1px 0;
+  }
+
+  .button {
+    padding: 0.7rem 1.3rem;
+    font-size: 12px;
+    /* margin-top: 0.6rem; */
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    gap: 0.3rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .heroTitle {
+    font-size: 1.3rem;
+  }
+
+  .heroText {
+    font-size: 0.9rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .hero {
+    /* Ensure adequate touch targets */
+    min-height: 44px;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .titleIcon {
+    animation: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .heroText {
+    color: #888;
+  }
 }

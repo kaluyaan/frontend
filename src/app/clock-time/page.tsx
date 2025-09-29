@@ -1,133 +1,174 @@
-'use client';
+import ClockClient from "@/components/clock-time/ClockClient";
+import { Metadata } from "next";
 
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import styles from './page.module.css';
+// SEO Metadata for Server Component
+export const metadata: Metadata = {
+  title: "Online Clock - Free Analog & Digital Clock with Multiple Themes",
+  description:
+    "Beautiful online clock with analog and digital display. Features multiple themes including dark mode, neon, and vintage. Free world clock with real-time updates, date, and timezone information.",
+  keywords: [
+    "online clock",
+    "digital clock",
+    "analog clock",
+    "world clock",
+    "current time",
+    "live clock",
+    "clock with date",
+    "timezone clock",
+    "free online clock",
+    "web clock",
+    "desktop clock",
+    "dark mode clock",
+    "neon clock",
+    "vintage clock",
+    "real-time clock",
+  ],
+  authors: [{ name: "SandeepSokle" }],
+  creator: "KaluYaan",
+  publisher: "KaluYaan",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://kaluyaan.com/clock-time",
+    title: "Online Clock - Free Analog & Digital Clock with Multiple Themes",
+    description:
+      "Beautiful online clock with analog and digital display. Features multiple themes including dark mode, neon, and vintage. Free world clock with real-time updates.",
+    siteName: "KaluYaan Clock",
+    images: [
+      {
+        url: "https://kaluyaan.com/clock-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Online Clock Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Online Clock - Free Analog & Digital Clock",
+    description:
+      "Beautiful online clock with multiple themes. Free world clock with real-time updates.",
+    images: ["https://yourwebsite.com/clock-preview.jpg"],
+    creator: "@kaluyaan",
+  },
+  alternates: {
+    canonical: "https://kaluyaan.com/clock-time",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "Online Clock",
+  },
+};
 
-type Theme = 'default' | 'dark' | 'neon' | 'vintage';
-
+// Server Component (No 'use client')
 export default function ClockPage() {
-  const [currentTime, setCurrentTime] = useState(moment());
-  const [theme, setTheme] = useState<Theme>('default');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(moment());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const getThemeClass = () => {
-    switch (theme) {
-      case 'dark': return styles.darkTheme;
-      case 'neon': return styles.neonTheme;
-      case 'vintage': return styles.vintageTheme;
-      default: return '';
-    }
-  };
-
-  const getHandRotation = (value: number, max: number) => {
-    return (value / max) * 360;
-  };
-
-  const hourRotation = getHandRotation(currentTime.hours() % 12, 12) + (currentTime.minutes() / 60) * 30;
-  const minuteRotation = getHandRotation(currentTime.minutes(), 60) + (currentTime.seconds() / 60) * 6;
-  const secondRotation = getHandRotation(currentTime.seconds(), 60);
-
-  const renderHourMarkers = () => {
-    const markers = [];
-    for (let i = 0; i < 12; i++) {
-      markers.push(
-        <div
-          key={i}
-          className={styles.hourMarker}
-          style={{ transform: `translateX(-50%) rotate(${i * 30}deg)` }}
-        />
-      );
-    }
-    return markers;
-  };
-
-  const renderMinuteMarkers = () => {
-    const markers = [];
-    for (let i = 0; i < 60; i++) {
-      if (i % 5 !== 0) {
-        markers.push(
-          <div
-            key={i}
-            className={styles.minuteMarker}
-            style={{ transform: `translateX(-50%) rotate(${i * 6}deg)` }}
-          />
-        );
-      }
-    }
-    return markers;
+  // Schema.org JSON-LD for SEO
+  const jsonLd = {
+    "@context": "https://kaluyaan.com/clock-time",
+    "@type": "WebApplication",
+    name: "Online Clock",
+    description:
+      "Beautiful online clock with analog and digital display featuring multiple themes",
+    url: "https://kaluyaan.com/clock-time",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Analog clock display",
+      "Digital time display",
+      "Multiple theme options",
+      "Real-time updates",
+      "Timezone information",
+      "Date display",
+      "Responsive design",
+    ],
+    author: {
+      "@type": "Organization",
+      name: "KaluYaan",
+    },
   };
 
   return (
-    <div className={`${styles.clockContainer} ${getThemeClass()}`}>
-      <div className={styles.themeSelector}>
-        <button
-          className={`${styles.themeButton} ${theme === 'default' ? styles.active : ''}`}
-          onClick={() => setTheme('default')}
-        >
-          Classic
-        </button>
-        <button
-          className={`${styles.themeButton} ${theme === 'dark' ? styles.active : ''}`}
-          onClick={() => setTheme('dark')}
-        >
-          Dark
-        </button>
-        <button
-          className={`${styles.themeButton} ${theme === 'neon' ? styles.active : ''}`}
-          onClick={() => setTheme('neon')}
-        >
-          Neon
-        </button>
-        <button
-          className={`${styles.themeButton} ${theme === 'vintage' ? styles.active : ''}`}
-          onClick={() => setTheme('vintage')}
-        >
-          Vintage
-        </button>
-      </div>
+    <>
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-      <div className={styles.clockWrapper}>
-        <div className={styles.analogClock}>
-          <div className={styles.clockFace}>
-            {renderHourMarkers()}
-            {renderMinuteMarkers()}
-            
-            <div
-              className={styles.hourHand}
-              style={{ transform: `translate(-50%, -100%) rotate(${hourRotation}deg)` }}
-            />
-            <div
-              className={styles.minuteHand}
-              style={{ transform: `translate(-50%, -100%) rotate(${minuteRotation}deg)` }}
-            />
-            <div
-              className={styles.secondHand}
-              style={{ transform: `translate(-50%, -100%) rotate(${secondRotation}deg)` }}
-            />
-            <div className={styles.centerDot} />
-          </div>
-        </div>
+      {/* SEO-friendly hidden heading */}
+      <h1 style={{ position: "absolute", left: "-9999px" }}>
+        Free Online Clock - Analog and Digital Display with Multiple Themes
+      </h1>
 
-        <div className={styles.digitalTime}>
-          <div className={styles.timeDisplay}>
-            {currentTime.format('HH:mm:ss')}
-          </div>
-          <div className={styles.dateDisplay}>
-            {currentTime.format('dddd, MMMM Do YYYY')}
-          </div>
-          <div className={styles.timezoneDisplay}>
-            {currentTime.format('z')} | UTC{currentTime.format('Z')}
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Client Component for interactivity */}
+      <ClockClient />
+
+      {/* SEO-friendly content section */}
+      <article style={{ position: "absolute", left: "-9999px" }}>
+        <h2>About Our Online Clock</h2>
+        <p>
+          This free online clock provides both analog and digital time displays
+          with real-time updates. Perfect for keeping track of time on your
+          desktop, laptop, or mobile device. Features include multiple beautiful
+          themes (Classic, Dark, Neon, and Vintage), automatic timezone
+          detection, and a responsive design that works on all devices.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+          <li>Real-time analog clock with smooth hand movements</li>
+          <li>Digital time display with hours, minutes, and seconds</li>
+          <li>Current date display with full month and day names</li>
+          <li>Timezone information with UTC offset</li>
+          <li>Multiple theme options for personalization</li>
+          <li>Fully responsive design for mobile, tablet, and desktop</li>
+          <li>Free to use with no registration required</li>
+        </ul>
+
+        <h2>How to Use</h2>
+        <p>
+          {`Simply open the page to view the current time. Select from different themes using the buttons
+          at the top right. The clock automatically updates every second and displays your local timezone.`}
+        </p>
+
+        <h2>Why Use Our Online Clock?</h2>
+        <p>
+          {`Whether you need a simple time check, a stylish desktop clock, or want to track time across
+          different timezones, our online clock is the perfect solution. With its clean interface and
+          customizable themes, it's both functional and beautiful.`}
+        </p>
+
+        <h2>Supported Themes</h2>
+        <p>
+          {`Choose from four beautiful themes: Classic with purple gradients, Dark mode for night-time viewing,
+          Neon with glowing cyan and magenta effects, and Vintage with warm brown tones. Each theme is
+          carefully designed to be both aesthetically pleasing and easy to read.`}
+        </p>
+
+        <h2>Compatible Devices</h2>
+        <p>
+          {`Our online clock works perfectly on all devices including desktop computers, laptops, tablets,
+          iPads, iPhones, Android phones, and any device with a modern web browser. The responsive design
+          ensures optimal viewing on screens of all sizes.`}
+        </p>
+      </article>
+    </>
   );
 }
