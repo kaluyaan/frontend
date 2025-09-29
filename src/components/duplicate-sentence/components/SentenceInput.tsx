@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./SentenceInput.module.css";
+import pageStyle from "../page.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 
 interface SentenceInputProps {
@@ -35,7 +36,7 @@ export default function SentenceInput({
           value={sentence}
           onChange={(e) => setSentence(e.target.value)}
           placeholder="Type your sentence here..."
-          className={styles.textarea}
+          className={pageStyle.textarea}
           rows={3}
           required
         />
@@ -43,7 +44,7 @@ export default function SentenceInput({
 
       <div className={styles.controls}>
         <div className={styles.controlGroup}>
-          <label htmlFor="level" className={styles.label}>
+          <label htmlFor="level" className={homeStyle.normalTitle}>
             Similarity Level: {level}
           </label>
           <input
@@ -62,7 +63,7 @@ export default function SentenceInput({
         </div>
 
         <div className={styles.controlGroup}>
-          <label htmlFor="tone" className={styles.label}>
+          <label htmlFor="tone" className={homeStyle.normalTitle}>
             Tone
           </label>
           <select
