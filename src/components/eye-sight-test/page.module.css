@@ -1,0 +1,672 @@
+/* Base styles */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0 10px;
+  font-family: var(--font-geist-sans);
+}
+
+.testCard {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.testSelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.testButton {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.testButton.active {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.testArea {
+  background: white;
+  border: 2px solid #e1e5e9;
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.visualChart {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.chartLine {
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.controlButton {
+  padding: 10px 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.controlButton:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.controlButton.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.colorTest {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 15px;
+  margin: 1.5rem 0;
+  max-width: 500px;
+}
+
+.colorCircle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: 3px solid transparent;
+  margin: 0 auto;
+}
+
+.colorCircle:hover {
+  transform: scale(1.05);
+  border-color: #333;
+}
+
+.colorCircle.selected {
+  border-color: #667eea;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+.instructions {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem 0;
+}
+
+.instructionTitle {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.instructionText {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.results {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.resultTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.resultDetails {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.languageSelector {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.languageButton {
+  padding: 8px 14px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #667eea;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.languageButton:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.languageButton.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.distanceInfo {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  color: #856404;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 4px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Tablet styles (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .testCard {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+
+  .testArea {
+    padding: 2.5rem 1.5rem;
+    min-height: 280px;
+  }
+
+  .colorCircle {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .colorTest {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Desktop styles (1024px and up) */
+@media (min-width: 1024px) {
+  .testCard {
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .testSelector {
+    margin-bottom: 2rem;
+  }
+
+  .testButton {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .testArea {
+    padding: 3rem 2rem;
+    min-height: 300px;
+    margin: 1.5rem 0;
+  }
+
+  .visualChart {
+    margin: 1.5rem 0;
+  }
+
+  .chartLine {
+    margin: 10px 0;
+  }
+
+  .controls {
+    gap: 15px;
+    margin: 2rem 0;
+  }
+
+  .colorTest {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    max-width: 600px;
+  }
+
+  .colorCircle {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .colorCircle:hover {
+    transform: scale(1.1);
+  }
+
+  .instructions {
+    padding: 1.8rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .results {
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
+  .resultTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .resultDetails {
+    font-size: 1rem;
+  }
+
+  .languageSelector {
+    gap: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .languageButton {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+
+  .distanceInfo {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
+/* Large desktop styles (1440px and up) */
+@media (min-width: 1440px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile small (max-width: 480px) */
+@media (max-width: 480px) {
+  .testCard {
+    padding: 1.2rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .testSelector {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .testButton {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .testArea {
+    padding: 1.5rem 0.8rem;
+    min-height: 200px;
+  }
+
+  .visualChart {
+    font-size: 0.9rem;
+  }
+
+  .chartLine {
+    margin: 6px 0;
+    font-size: 0.85rem;
+  }
+
+  .chartLine button {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .controlButton {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .colorTest {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .colorCircle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+
+  .instructions {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .instructionTitle {
+    font-size: 1rem;
+  }
+
+  .instructionText {
+    font-size: 0.85rem;
+  }
+
+  .results {
+    padding: 1.2rem;
+  }
+
+  .resultTitle {
+    font-size: 1.1rem;
+  }
+
+  .resultDetails {
+    font-size: 0.85rem;
+  }
+
+  .languageSelector {
+    gap: 6px;
+  }
+
+  .languageButton {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .distanceInfo {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices (max-width: 376px) */
+@media (max-width: 376px) {
+  .container {
+    padding: 0 6px;
+  }
+
+  .testCard {
+    padding: 1rem 0.6rem;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .testButton {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .testArea {
+    padding: 1.2rem 0.6rem;
+    min-height: 180px;
+    border-radius: 12px;
+  }
+
+  .visualChart {
+    font-size: 0.8rem;
+  }
+
+  .chartLine {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .chartLine button {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+  }
+
+  .colorTest {
+    gap: 10px;
+  }
+
+  .colorCircle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+  }
+
+  .instructions {
+    padding: 1rem 0.6rem;
+  }
+
+  .instructionTitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .instructionText {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .results {
+    padding: 1rem 0.8rem;
+  }
+
+  .resultTitle {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .resultDetails {
+    font-size: 0.8rem;
+  }
+
+  .languageButton {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .distanceInfo {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .controlButton {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .testCard {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .testArea {
+    padding: 1.5rem 1rem;
+    min-height: 150px;
+  }
+
+  .colorCircle {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .testCard {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .testButton,
+  .controlButton,
+  .languageButton,
+  .colorCircle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .colorCircle:hover {
+    transform: none;
+  }
+
+  .colorCircle:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .testButton,
+  .colorCircle,
+  .chartLine {
+    transition: none;
+  }
+
+  .testButton:hover,
+  .colorCircle:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .instructionText,
+  .subtitle {
+    color: #888;
+  }
+}
