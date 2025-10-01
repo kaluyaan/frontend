@@ -8,6 +8,7 @@ import homeStyle from "../../../components/Home/home.module.css";
 
 function StringHelper() {
   const [input, setInput] = useState("");
+  const [copiedType, setCopiedType] = useState<string | null>(null); // ADD THIS LINE
 
   const conversions = {
     lowercase: input.toLowerCase(),
@@ -28,8 +29,11 @@ function StringHelper() {
     ),
   };
 
-  const copyToClipboard = (text: string) => {
+  // UPDATE THIS FUNCTION
+  const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
+    setCopiedType(type);
+    setTimeout(() => setCopiedType(null), 2000);
   };
 
   return (
@@ -48,17 +52,18 @@ function StringHelper() {
         {Object.entries(conversions).map(([type, result]) => (
           <div key={type} className={styles.resultCard}>
             <div className={styles.resultHeader}>
-              <h3 className={homeStyle.normalTitle}>
+              <h3 className={homeStyle.reverseTitle}>
                 {type
                   .replace(/([A-Z])/g, " $1")
                   .replace(/^./, (str) => str.toUpperCase())}
               </h3>
+              {/* UPDATE THIS BUTTON */}
               <button
                 className={styles.copyBtn}
-                onClick={() => copyToClipboard(result)}
+                onClick={() => copyToClipboard(result, type)}
                 disabled={!result}
               >
-                Copy
+                {copiedType === type ? "✓ Copied!" : "Copy"}
               </button>
             </div>
             <div className={styles.resultText}>
