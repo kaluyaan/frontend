@@ -205,8 +205,8 @@ export default function DuplicateSentencePage() {
 
         <h3>Casual Tone</h3>
         <p>
-          {`Ideal for blog posts, social media content, and informal writing. Creates a relaxed, `}
-          conversational style that connects with readers.
+          {`Ideal for blog posts, social media content, and informal writing. Creates a relaxed, 
+          conversational style that connects with readers.`}
         </p>
 
         <h3>Professional Tone</h3>
