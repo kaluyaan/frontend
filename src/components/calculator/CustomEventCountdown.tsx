@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import moment, { Moment } from "moment";
 import styles from "./shared.module.css";
-import homeStyle from "../../../components/Home/home.module.css";
+import homeStyle from "@/components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import DatePickerField from "@/components/shared/DatePicker/DatePicker";
 import TimePickerField from "@/components/shared/DatePicker/TimePicker";

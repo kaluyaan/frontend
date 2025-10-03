@@ -64,8 +64,9 @@ function TimePercentageCalculator() {
 
     const totalDays = end.diff(start, "days");
     const elapsedDays = current.diff(start, "days");
-    const remainingDays = end.diff(current, "days");
-
+    const remainingDays = current.isBefore(start) 
+  ? totalDays 
+  : Math.max(0, end.diff(current, "days"));
     setResult({
       percentage: Math.max(0, Math.min(100, percentage)).toFixed(2),
       remainingPercentage: Math.max(

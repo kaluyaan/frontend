@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import moment, { Moment } from "moment";
 import styles from "./shared.module.css";
-import homeStyle from "../../../components/Home/home.module.css";
+import homeStyle from "@/components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
 import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";

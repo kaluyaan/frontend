@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import styles from "./shared.module.css";
-import homeStyle from "../../../components/Home/home.module.css";
+import homeStyle from "@/components/Home/home.module.css";
 import HeroSection from "@/components/shared/HeroSection";
 
 function PomodoroTimer() {
