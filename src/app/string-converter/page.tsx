@@ -87,17 +87,17 @@ export default function StringConverterPage() {
         </h2>
         <div className={homeStyle.heroText}>
           <p style={{ marginBottom: "1rem" }}>
-            Our String Case Converter is a powerful, free online tool designed
+            {`Our String Case Converter is a powerful, free online tool designed
             to help developers, writers, and content creators quickly convert
             text between various formatting styles. Whether you're coding in
             JavaScript, Python, or any other programming language, this tool
-            makes it easy to maintain consistent naming conventions.
+            makes it easy to maintain consistent naming conventions.`}
           </p>
           <p>
-            Simply paste your text, and instantly see it converted to lowercase,
+            {`Simply paste your text, and instantly see it converted to lowercase,
             uppercase, camelCase, PascalCase, snake_case, kebab-case, and Title
             Case. No installation required, works directly in your browser, and
-            completely free to use.
+            completely free to use.`}
           </p>
         </div>
       </section>
@@ -108,55 +108,56 @@ export default function StringConverterPage() {
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>lowercase</h3>
             <p className={homeStyle.normalText}>
-              Converts all characters to lowercase letters. Example: "hello
-              world"
+              {`Converts all characters to lowercase letters. Example: "hello
+              world"`}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>UPPERCASE</h3>
             <p className={homeStyle.normalText}>
-              Converts all characters to uppercase letters. Example: "HELLO
+              {`Converts all characters to uppercase letters. Example: "HELLO
               WORLD"
+            `}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>camelCase</h3>
             <p className={homeStyle.normalText}>
-              First word lowercase, subsequent words capitalized with no spaces.
-              Popular in JavaScript. Example: "helloWorld"
+              {`First word lowercase, subsequent words capitalized with no spaces.
+              Popular in JavaScript. Example: "helloWorld"`}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>PascalCase</h3>
             <p className={homeStyle.normalText}>
-              All words capitalized with no spaces. Common for class names.
-              Example: "HelloWorld"
+              {`All words capitalized with no spaces. Common for class names.
+              Example: "HelloWorld"`}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>snake_case</h3>
             <p className={homeStyle.normalText}>
-              All lowercase with underscores between words. Popular in Python.
-              Example: "hello_world"
+             {` All lowercase with underscores between words. Popular in Python.
+              Example: "hello_world"`}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>kebab-case</h3>
             <p className={homeStyle.normalText}>
-              All lowercase with hyphens between words. Common in URLs and CSS.
-              Example: "hello-world"
+              {`All lowercase with hyphens between words. Common in URLs and CSS.
+              Example: "hello-world"`}
             </p>
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
             <h3 className={homeStyle.normalTitle}>Title Case</h3>
             <p className={homeStyle.normalText}>
-              First letter of each word capitalized. Example: "Hello World"
+              {`First letter of each word capitalized. Example: "Hello World"`}
             </p>
           </div>
         </div>

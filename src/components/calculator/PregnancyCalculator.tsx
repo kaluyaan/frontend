@@ -9,10 +9,10 @@ import DatePickerField from "../shared/DatePicker/DatePicker";
 import ConvertButton from "@/components/ai-writer/ConvertButton";
 import CustomSelectField from "@/components/shared/CustomSelectBox/CustomSelectBox";
 
-interface Milestone {
-  week: number;
-  event: string;
-}
+// interface Milestone {
+//   week: number;
+//   event: string;
+// }
 
 interface WeeklyInfo {
   baby: string;
