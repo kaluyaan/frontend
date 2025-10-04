@@ -1,6 +1,6 @@
 // components/HeroSection.tsx
 import React from "react";
-import homeStyle from "../../components/Home/home.module.css";
+import homeStyle from "@/components/Home/home.module.css";
 
 interface HeroSectionProps {
   title: string;
@@ -19,7 +19,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <section className={`${homeStyle.glassmorphism} ${homeStyle.hero} ${className}`}>
       <div className={homeStyle.title}>
         {icon && <span className={homeStyle.titleIcon}>{icon}</span>}
-        <h1 className={homeStyle.heroTitle}>{title}</h1>
+        <h3 className={homeStyle.heroTitle}>{title}</h3>
       </div>
       <p className={homeStyle.heroText}>{text}</p>
     </section>

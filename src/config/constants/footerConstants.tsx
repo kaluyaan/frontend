@@ -1,48 +1,46 @@
-export const FooterText = "Your all-in-one platform for productivity, writing, health, and more.";
+export const FooterText =
+  "Your all-in-one platform for productivity, writing, health, and more.";
 
 export const ExploreTools = [
   {
     title: "AI Writer",
-    link: "#ai-writer",
+    link: "ai-writer",
   },
   {
-    title: "Age Calculator",
-    link: "#age-calculator",
+    title: "Duplicate Sentence Generator",
+    link: "duplicate-sentence",
   },
   {
-    title: "Smart Planner",
-    link: "#smart-planner",
+    title: "String Converter",
+    link: "string-converter",
   },
   {
-    title: "Health Detector",
-    link: "#health-detector",
+    title: "Symptom Checker",
+    link: "symptom-checker",
+  },
+  {
+    title: "Eye Sight Test",
+    link: "eye-sight-test",
   },
 ];
 
 export const UtilityTools = [
   {
     title: "AI to Human Writer",
-    link: "#ai-human-writer",
+    link: "ai-writer",
   },
   {
-    title: "Duplicate Sentence Generator",
-    link: "#duplicate-sentence",
+    title: "Pregnancy Calculator",
+    link: "pregnancy-calculator",
   },
-  {
-    title: "Sentence Compare",
-    link: "#sentence-compare",
-  },
-  {
-    title: "Plagiarism & AI Detector",
-    link: "#plagiarism-detector",
-  },
+
   {
     title: "Short Link Generator",
-    link: "#short-link",
+    link: "#",
   },
   {
     title: "JWT Token Tool",
-    link: "#jwt-token",
+    link: "#",
   },
 ];
 

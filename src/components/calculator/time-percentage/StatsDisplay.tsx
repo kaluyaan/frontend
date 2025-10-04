@@ -2,7 +2,7 @@
 import styles from "../../../components/ai-writer/page.module.css";
 import homeStyle from "../../../components/Home/home.module.css";
 
-import { IDateProgressResult } from "./page";
+import { IDateProgressResult } from "./TimePercentageCalculator";
 
 const StatsDisplay = ({ stats }: { stats: IDateProgressResult }) => {
   return (

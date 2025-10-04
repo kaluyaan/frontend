@@ -1,28 +1,44 @@
-
 import React from "react";
-import styles from "./about.module.scss";
+import homeStyle from "../../components/Home/home.module.css";
+import pageStyle from "./page.module.css";
 
+const AboutPage = () => {
+  return (
+    <div className={`${homeStyle.container} ${pageStyle.pageContainer}`}>
+      <main className={`${homeStyle.mainContent} ${pageStyle.pageContent}`}>
+        <section className={pageStyle.aboutWrapper}>
+          <h1 className={pageStyle.pageTitle}>About Kaluyaan</h1>
 
-const AboutPage = () => (
-  <main className={styles["about-main"]}>
-    <h1 className={styles["about-title"]}>About Kaluyaan</h1>
-    <p className={styles["about-text"]}>
-      <strong>Kaluyaan</strong> is your one-stop platform for handy single-page
-      tools designed to make your life easier. Whether you need to calculate
-      your age, check compatibility with a lover calculator, or convert
-      AI-generated content to sound more human, Kaluyaan has you covered.
-    </p>
-    <ul className={styles["about-list"]}>
-      <li>Age Calculator</li>
-      <li>Lover Calculator</li>
-      <li>AI to Human Content Converter</li>
-      <li>And more tools coming soon!</li>
-    </ul>
-    <p className={styles["about-text"]}>
-      Our mission is to provide simple, fast, and reliable tools for everyone.
-      Thank you for using Kaluyaan!
-    </p>
-  </main>
-);
+          <p className={pageStyle.pageText}>
+            <strong>Kaluyaan</strong> is your one-stop platform for handy
+            single-page tools designed to make life simpler. From calculating
+            your age, checking compatibility, tracking time, or converting AI
+            text into natural writing — we’ve got you covered.
+          </p>
+
+          <h2 className={pageStyle.sectionTitle}>✨ Our Tools</h2>
+          <div className={pageStyle.toolGrid}>
+            <div className={pageStyle.toolCard}>🎂 <span>Age Calculator</span></div>
+            <div className={pageStyle.toolCard}>❤️ <span>Lover Calculator</span></div>
+            <div className={pageStyle.toolCard}>🤖 <span>AI to Human Converter</span></div>
+            <div className={pageStyle.toolCard}>🔤 <span>String Case Converter</span></div>
+            <div className={pageStyle.toolCard}>🔐 <span>Password Generator</span></div>
+            <div className={pageStyle.toolCard}>🔁 <span>Text Repeater</span></div>
+            <div className={pageStyle.toolCard}>📝 <span>Word Counter</span></div>
+            <div className={pageStyle.toolCard}>🎲 <span>Random Number Generator</span></div>
+            <div className={pageStyle.toolCard}>⚖️ <span>BMI Calculator</span></div>
+            <div className={pageStyle.toolCard}>⏱️ <span>Stopwatch</span></div>
+          </div>
+
+          <p className={pageStyle.footerNote}>
+            Our mission is to provide <strong>simple</strong>,{" "}
+            <strong>fast</strong>, and <strong>reliable</strong> tools for
+            everyone. Thank you for choosing <strong>Kaluyaan</strong>! 🚀
+          </p>
+        </section>
+      </main>
+    </div>
+  );
+};
 
 export default AboutPage;
