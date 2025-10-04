@@ -16,9 +16,11 @@
     "@mui/types": "^7.4.4",
     "@mui/x-date-pickers": "^8.10.2",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "lucide-react": "^0.544.0",
     "moment": "^2.30.1",
     "next": "15.4.3",
+    "next-sitemap": "^4.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.89.2"
