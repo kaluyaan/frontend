@@ -51,22 +51,6 @@ export const metadata: Metadata = {
     siteName: "Kaluyaan",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/images/eye-sight-test-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Kaluyaan Eye Sight Test - Free Online Vision Screening",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Online Eye Sight Test | Kaluyaan",
-    description:
-      "Test your vision online with our professional eye sight test. Visual acuity and color vision screening in multiple languages.",
-    images: ["/images/eye-sight-test-twitter.jpg"],
-    creator: "@kaluyaan",
   },
   robots: {
     index: true,
@@ -159,7 +143,6 @@ const jsonLd = {
         "Printable Results",
         "Mobile Responsive",
       ],
-      screenshot: "https://kaluyaan.com/images/eye-sight-test-screenshot.jpg",
       author: {
         "@type": "Organization",
         name: "Kaluyaan",

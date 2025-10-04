@@ -44,23 +44,7 @@ export const metadata: Metadata = {
     title: "Online Clock - Free Analog & Digital Clock with Multiple Themes",
     description:
       "Beautiful online clock with analog and digital display. Features multiple themes including dark mode, neon, and vintage. Free world clock with real-time updates.",
-    siteName: "KaluYaan Clock",
-    images: [
-      {
-        url: "https://kaluyaan.com/clock-preview.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Online Clock Preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Online Clock - Free Analog & Digital Clock",
-    description:
-      "Beautiful online clock with multiple themes. Free world clock with real-time updates.",
-    images: ["https://yourwebsite.com/clock-preview.jpg"],
-    creator: "@kaluyaan",
+    siteName: "KaluYaan",
   },
   alternates: {
     canonical: "https://kaluyaan.com/clock-time",

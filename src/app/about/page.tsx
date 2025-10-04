@@ -1,7 +1,36 @@
+// app/about/page.tsx
 import React from "react";
 import homeStyle from "../../components/Home/home.module.css";
 import pageStyle from "./page.module.css";
+import type { Metadata } from "next";
 
+// ✅ SEO Metadata
+export const metadata: Metadata = {
+  title: "About Kaluyaan | Handy Tools for Everyday Life",
+  description:
+    "Learn about Kaluyaan, your one-stop platform for handy single-page tools like Age Calculator, Lover Calculator, AI to Human Converter, and more. Simple, fast, and reliable tools for everyone.",
+  keywords: [
+    "Kaluyaan",
+    "about Kaluyaan",
+    "online tools",
+    "age calculator",
+    "lover calculator",
+    "AI converter",
+    "string case converter",
+    "BMI calculator",
+    "productivity tools",
+  ],
+  openGraph: {
+    title: "About Kaluyaan | Handy Tools for Everyday Life",
+    description:
+      "Discover Kaluyaan, the platform offering simple, fast, and reliable single-page tools for your daily tasks. From calculators to AI converters, we’ve got you covered.",
+    url: "https://kaluyaan.com/about",
+    siteName: "Kaluyaan",
+    type: "website",
+  },
+};
+
+// ✅ Server Component (default)
 const AboutPage = () => {
   return (
     <div className={`${homeStyle.container} ${pageStyle.pageContainer}`}>
