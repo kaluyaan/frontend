@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import AIWriterClient from "@/components/ai-writer/aiWriterClient";
 
 export const metadata: Metadata = {
-  title: "AI to Human Text Converter - Transform AI Content into Natural Writing",
+  title:
+    "AI to Human Text Converter - Transform AI Content into Natural Writing",
   description:
     "Convert AI-generated content into natural, human-like text with our advanced humanization tool. Improve readability and authenticity.",
   keywords: [
@@ -16,6 +17,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI to Human Text Converter",
     description: "Transform AI-generated text into natural, human-like content",
+    url: "https://kaluyaan.com/ai-writer",
+    siteName: "Kaluyaan",
     type: "website",
   },
   twitter: {

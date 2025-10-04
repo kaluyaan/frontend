@@ -43,15 +43,7 @@ export const metadata: Metadata = {
     url: 'https://kaluyaan.com/duplicate-sentence',
     title: 'Duplicate Sentence Generator - AI-Powered Paraphrasing Tool',
     description: 'Transform your sentences with AI-powered paraphrasing. Choose similarity levels and tones to create perfect variations instantly.',
-    siteName: 'KaluYaan Tools',
-    images: [
-      {
-        url: 'https://kaluyaan.com/duplicate-sentence-preview.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Duplicate Sentence Generator Preview',
-      },
-    ],
+    siteName: 'KaluYaan',
   },
   twitter: {
     card: 'summary_large_image',

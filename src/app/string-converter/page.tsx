@@ -26,34 +26,19 @@ export const metadata: Metadata = {
     "coding tools",
     "text formatting",
   ],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
-  publisher: "Your Website",
+  authors: [{ name: "Sandeep Sokle" }],
+  creator: "Sandeep Sokle",
+  publisher: "Kaluyaan",
   alternates: {
-    canonical: "https://yourwebsite.com/string-converter", // Update with your actual URL
+    canonical: "https://kaluyaan.com/string-converter", // Update with your actual URL
   },
   openGraph: {
     title: "String Case Converter | Free Text Converter Tool",
     description:
       "Convert text between different cases instantly. Perfect for coding, writing, and content formatting.",
-    url: "https://yourwebsite.com/string-converter", // Update with your actual URL
-    siteName: "Your Website Name",
+    url: "https://kaluyaan.com/string-converter", // Update with your actual URL
+    siteName: "Kaluyaan",
     type: "website",
-    images: [
-      {
-        url: "/og-image-string-converter.png", // Add your OG image
-        width: 1200,
-        height: 630,
-        alt: "String Case Converter Tool",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "String Case Converter | Free Text Converter Tool",
-    description:
-      "Convert text between different cases instantly. Perfect for coding, writing, and content formatting.",
-    images: ["/twitter-image-string-converter.png"], // Add your Twitter image
   },
   robots: {
     index: true,
