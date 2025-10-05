@@ -9,7 +9,9 @@ function Header() {
     <>
       <header className={`${styles.glassmorphism} ${styles.header}`}>
         <nav className={styles.nav}>
-          <div className={styles.logo}>KaluYaan</div>
+          <Link href="/" className={styles.logo}>
+            KaluYaan
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className={styles.navLinksDesktop}>
@@ -21,7 +23,7 @@ function Header() {
               </li>
             ))}
           </ul>
-          
+
           {/* Mobile View */}
           <NavigationMobileView />
         </nav>
