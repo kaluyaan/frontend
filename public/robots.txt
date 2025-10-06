@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://kaluyaan.com
-
-# Sitemaps
 Sitemap: https://kaluyaan.com/sitemap.xml
