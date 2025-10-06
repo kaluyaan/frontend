@@ -53,7 +53,7 @@ const Home: React.FC = () => {
             ))}
           </div>
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </main>
       {/* Footer */}
     </div>
