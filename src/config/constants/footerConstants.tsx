@@ -47,11 +47,11 @@ export const UtilityTools = [
 export const Connects = [
   {
     title: "Contact Us",
-    link: "#contact-us",
+    link: "contact",
   },
   {
     title: "Feedback",
-    link: "#feedback",
+    link: "feedback",
   },
   {
     title: "Twitter",
@@ -65,11 +65,15 @@ export const Connects = [
 
 export const FooterTerms = [
   {
+    title: "About Us",
+    link: "about",
+  },
+  {
     title: "Privacy Policy",
-    link: "#privacy-policy",
+    link: "privacy-policy",
   },
   {
     title: "Terms of Service",
-    link: "#terms-of-service",
+    link: "terms-of-service",
   },
 ];
