@@ -50,6 +50,8 @@ function Footer() {
               key={connect.title}
               href={connect.link}
               className={styles.footerLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {connect.title}
             </a>
