@@ -1,31 +1,24 @@
-import React, { Suspense } from "react";
-// import Header from "../shared/Header/Header";
+"use client";
+import React, { Suspense, use } from "react";
 import styles from "./home.module.css";
 import { HeroText, HeroTitle } from "@/config/constants/homeConstants";
 import Footer from "../shared/Footer/Footer";
 import ToolsList from "../ToolsList/ToolsList";
 import HeroSection from "../shared/HeroSection";
 import { seoKeywords } from "@/config/constants/funzoneConstants";
+import ToolLoadingAnimation from "./ToolLoadingAnimation";
 
 const Home: React.FC = () => {
   return (
     <div className={styles.container}>
-      {/* Header */}
-      {/* <Header /> */}
-
-      {/* Main Content */}
       <main className={styles.mainContent}>
-        {/* Hero Section */}
         <HeroSection icon="" title={HeroTitle} text={HeroText} />
 
-        {/* Tools Grid */}
-        <Suspense fallback={<div>Loading....</div>}>
+        <Suspense fallback={<ToolLoadingAnimation />}>
           <ToolsList />
         </Suspense>
 
-        {/* Content Layout */}
         <section className={styles.sectionWrapper}>
-          {/* Main Area */}
           <h2 className={styles.normalTitle}>About Our Utility Platform</h2>
           <p className={styles.normalText}>
             {`Our comprehensive online utility hub offers 20+ essential tools
@@ -44,7 +37,6 @@ const Home: React.FC = () => {
               to powerful utilities that help you work smarter, not harder.`}
           </p>
 
-          {/* SEO Keywords */}
           <div className={styles.keywordList}>
             {seoKeywords.map((keyword, index) => (
               <span key={index} className={styles.keyword}>
@@ -53,9 +45,7 @@ const Home: React.FC = () => {
             ))}
           </div>
         </section>
-        {/* <Footer /> */}
       </main>
-      {/* Footer */}
     </div>
   );
 };
