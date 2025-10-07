@@ -1,8 +1,7 @@
 "use client";
-import React, { Suspense, use } from "react";
+import React, { Suspense } from "react";
 import styles from "./home.module.css";
 import { HeroText, HeroTitle } from "@/config/constants/homeConstants";
-import Footer from "../shared/Footer/Footer";
 import ToolsList from "../ToolsList/ToolsList";
 import HeroSection from "../shared/HeroSection";
 import { seoKeywords } from "@/config/constants/funzoneConstants";
